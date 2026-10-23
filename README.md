@@ -1,60 +1,52 @@
-# Arvak Library v1.1.0
+# Arvak Library v1.2.0
 
-Sua biblioteca pessoal de aplicativos, mods, ferramentas e experimentos — como uma estante de jogos, mas para os seus projetos.
+> Biblioteca pessoal de aplicativos, mods, ferramentas e ideias — organizada como uma pequena estante de jogos.
 
-## Novidades desta versão
+**Aplicativo estático, em um único `index.html`, sem npm, backend, conta ou banco de dados.**
 
-- **Em testes**: nova situação de desenvolvimento.
-- **Com bug**: marcador independente, com campo para anotar os problemas encontrados. Um projeto pode estar **Em testes e Com bug** ao mesmo tempo.
-- Seções e filtros específicos para projetos em teste e com bugs, com contadores no painel.
-- Ao adicionar um projeto, você já pode marcá-lo Em testes e/ou Com bug.
-- Compatibilidade com dados e backups da v1.0.
-- Uma cópia preventiva do estado anterior é guardada no mesmo navegador no primeiro acesso à v1.1, desde que os dados v1.0 estejam disponíveis.
-- Lembrete para baixar um backup JSON caso você tenha projetos criados manualmente.
-- Importações e redefinições guardam uma cópia de recuperação local antes da substituição (isso **não** substitui um backup JSON baixado).
+## O que há de novo
 
-## Preservando seus projetos
+- **Conversa do ChatGPT por projeto:** campo editável nos detalhes (e ao cadastrar projetos) e atalho `✦ Chat` no cartão depois de salvar.
+- **Em andamento:** situação específica para projetos sendo desenvolvidos agora. O valor `Ativo` dos dados antigos continua reconhecido e aparece como **Em andamento** na interface.
+- **Próximas correções:** checklist individual por projeto, com marcar como resolvido, excluir, pendências e painel geral.
+- **Ideias para o futuro:** checklist separado de correções com visão geral por projeto.
+- **Mini tutorial guiado:** seis passos, abre na primeira visita desta versão e pode ser repetido pelo menu ou Ajuda.
+- **Backups:** exportação/importação JSON abrangendo links do ChatGPT, tarefas e todo o histórico já existente. Cópia local automática dos dados disponíveis antes da v1.2, mantendo a cópia anterior da v1.1.
 
-**Antes de atualizar:** entre na sua Arvak Library atual no navegador em que criou os projetos. Abra **Dados e backup → Exportar biblioteca** e guarde o arquivo JSON. Isso é o mais seguro.
+## Estados disponíveis
 
-Depois, substitua apenas o `index.html` do repositório `arvak-library` pela nova versão e publique no mesmo endereço: `https://danielrosajr.github.io/arvak-library/`.
+`A organizar` · `Em andamento` · `Pausado` · `Em testes` · `Concluído` · `Ideia` · `Arquivado`.
 
-A v1.1 mantém intencionalmente a chave `localStorage` **`arvak-library-v1`** e a versão de esquema **`1`**. Com o mesmo navegador, mesmo dispositivo e mesmo endereço do GitHub Pages, a atualização do código **não deve** apagar os projetos e notas. Não use **Restaurar biblioteca inicial** e não limpe os dados do site se quiser preservá-los.
-
-A biblioteca não tem sincronização automática: se você trocar de navegador, computador, celular, abrir a versão como `file://` ou alterar o domínio, poderá ver uma coleção diferente. Nesse caso, restaure usando **Dados e backup → Importar backup**. **A importação substitui** as personalizações atuais; exporte-as primeiro.
+**Com bug** é uma marcação independente, podendo coexistir com qualquer um dos estados. O campo livre de bugs da v1.1 permanece preservado. Os itens em **Próximas correções** são tarefas extras, não substituem as notas antigas.
 
 ## Dados e privacidade
 
-- Não há backend, login ou banco de dados.
-- As personalizações são guardadas no navegador: projetos adicionados, favoritos, situação, marcação de bug, descrição do bug, notas, links e histórico de acesso.
-- O GitHub público **não recebe seus dados pessoais** ao salvar na biblioteca.
-- O botão **Atualizar atividade** consulta apenas as datas de push público dos repositórios, quando possível.
-- O backup em JSON pode conter anotações pessoais. Guarde-o com cuidado e não o suba para um repositório público.
+- Os dados ficam no **localStorage** deste navegador, na mesma chave anterior: `arvak-library-v1`.
+- Atualizar o `index.html` **no mesmo endereço e navegador** não apaga seus projetos personalizados por si só.
+- Se trocar navegador, dispositivo, domínio, limpar dados do site ou usar janela anônima, seus dados podem não aparecer.
+- Sempre **exporte o JSON antes de atualizar**. Salve-o em local privado e seguro.
+- Os URLs de conversas do ChatGPT são privados por padrão somente enquanto forem dados locais. **Links de compartilhamento do ChatGPT podem permitir leitura por qualquer pessoa com o link**, e todos os links inseridos constam também no JSON de backup. Não publique esse JSON em repositórios públicos.
+- Abrir uma conversa normal pode exigir estar logado no ChatGPT e ter acesso à conversa.
+- Não há sincronização automática nem acesso à API do ChatGPT.
+- A consulta opcional de datas de push busca somente metadados públicos na API do GitHub.
 
-## Como publicar
+## Publicação / atualização
 
-É um aplicativo estático em **um único `index.html`**, sem necessidade de Vue, Vite, instalação ou build.
+Consulte [COMO_ATUALIZAR.md](COMO_ATUALIZAR.md). O projeto funciona em GitHub Pages **Deploy from a branch**, com o `index.html` na raiz e sem build.
 
-1. Abra `https://github.com/danielrosajr/arvak-library`.
-2. Substitua **somente** o arquivo `index.html` na raiz pelo arquivo desta versão e confirme o commit.
-3. Confira em **Settings → Pages** que a fonte é **Deploy from a branch**, `main`, `/ (root)`.
-4. Abra `https://danielrosajr.github.io/arvak-library/` e recarregue a página.
-5. Confira se seus projetos e notas anteriores continuam lá antes de criar novos dados.
+## Testes feitos
 
-Veja `COMO_ATUALIZAR.md` para o guia completo de proteção e recuperação dos dados.
+- JavaScript analisado com `node --check` (Node 22).
+- Chromium/Playwright: adicionar projeto, registrar link de conversa, alterar estado, criar/marcar correções, cadastrar ideias, filtrar itens e persistir em armazenamento simulado.
+- Compatibilidade com dados da v1.1: projeto manual, notas, favorito e marcação de bugs preservados.
+- Exportação e importação JSON da v1.2 com itens e conversa; importação de um backup v1.1.
+- Testes funcionais em largura mobile (390px). O carregamento do HTML foi simulado no navegador com `set_content` porque o ambiente bloqueou navegação local por política; deploy público ainda deve ser conferido no seu GitHub Pages.
 
-## Tecnologia
+## Repositório sugerido
 
-HTML, CSS e JavaScript puro; interface responsiva, funcionamento local, sem dependências e publicação gratuita via GitHub Pages.
-
-## Metadata sugerida para o GitHub
-
-**Repository name:** `arvak-library`  
-**Description:** `A personal, Steam-inspired library to organize, test, track bugs, and quickly access my apps, mods, and side projects.`  
-**Topics:** `app-library`, `project-tracker`, `personal-dashboard`, `bug-tracking`, `local-first`, `javascript`, `github-pages`, `productivity`  
-**Version / tag:** `v1.1.0`  
-**Commit message:** `feat: add testing status, bug flags and safer backups`  
-**Release title:** `Arvak Library v1.1.0 — Testing & Bug Tracking`  
-**Website:** `https://danielrosajr.github.io/arvak-library/`
-
-Licença não especificada.
+- **Repository:** `arvak-library`
+- **Description:** `A personal, Steam-inspired library to manage apps, active development, bugs, future ideas, and ChatGPT project conversations.`
+- **Topics:** `app-library`, `project-tracker`, `personal-dashboard`, `local-first`, `github-pages`, `javascript`, `productivity`, `side-projects`
+- **Tag:** `v1.2.0`
+- **Commit:** `feat: add ChatGPT links, project roadmap and guided tour`
+- **Release:** `Arvak Library v1.2.0 — Project Workflow & ChatGPT Links`

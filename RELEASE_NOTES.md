@@ -1,22 +1,21 @@
-# Arvak Library v1.1.0 — Testing & Bug Tracking
+# Arvak Library v1.2.0 — Project Workflow & ChatGPT Links
 
-## What's New
+## What's new
 
-- Added **Testing (Em testes)** as a project lifecycle status.
-- Added an independent **Has Bugs (Com bug)** flag with optional issue notes.
-- Added dedicated filters, sidebar sections, counters, and status badges.
-- Both properties can be combined on the same project.
-- Extended the project creation form with testing and bug options.
-- Preserved compatibility with the v1.0 localStorage key and existing JSON backup format.
-- Added a pre-upgrade local backup snapshot and a reminder to download a portable backup.
-- Added safety snapshots before importing backups and resetting the collection.
+- Added **ChatGPT conversation links** to each project, with quick-open shortcuts from project cards and detail panels.
+- Added an explicit **In Progress / Em andamento** workflow status, compatible with the previous `Ativo` value.
+- Added **Upcoming Fixes** checklists, including completion tracking and a consolidated dashboard.
+- Added **Future Ideas** lists to collect planned features for each project.
+- Added a **six-step guided onboarding tour**, which can be replayed at any time.
+- Improved backup preservation and compatibility with Arvak Library v1.0/v1.1 JSON exports.
 
-## Upgrade Notes
+## Notes
 
-**Export a JSON backup before upgrading.** Personal projects, notes, and favorites are stored locally in the browser, not in GitHub. Updating `index.html` on the same website and using the same browser retains existing data. Different browsers or devices require manual export/import.
+- Existing projects, favorites, notes, links, and bug flags remain under the original `arvak-library-v1` storage key.
+- Data is local to each browser and is not synchronized across devices.
+- Export a JSON backup before updating. ChatGPT links are included in exports; keep backup files private.
+- Static, dependency-free deployment: update the root `index.html` on GitHub Pages.
 
-## GitHub Release Metadata
+## Git commit
 
-Tag: `v1.1.0`  
-Release title: `Arvak Library v1.1.0 — Testing & Bug Tracking`  
-Commit: `feat: add testing status, bug flags and safer backups`  
+`feat: add ChatGPT links, project roadmap and guided tour`
