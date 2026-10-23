@@ -1,68 +1,60 @@
-# ARVAK LIBRARY — Minha biblioteca pessoal
+# Arvak Library v1.1.0
 
-Uma estante particular dos projetos do Daniel, inspirada na biblioteca de jogos de uma loja digital. **Este é um aplicativo separado do Arvak Labs público.**
+Sua biblioteca pessoal de aplicativos, mods, ferramentas e experimentos — como uma estante de jogos, mas para os seus projetos.
 
-## O que existe nesta versão (v1.0)
+## Novidades desta versão
 
-- 11 projetos iniciais provenientes dos repositórios públicos consultados em 23/10/2026 (inclui o Arvak Labs).
-- Acesso rápido aos 3 projetos usados recentemente (ou aos mais atualizados, enquanto não houver histórico).
-- Cartões coloridos com atalhos para o site e/ou GitHub.
-- Marcar favoritos e organizar por situação: **A organizar, Ativo, Pausado, Concluído, Ideia, Arquivado**.
-- Próximo passo e anotações por projeto.
-- Pesquisa, categorias, ordenação e visualização em cartões ou lista.
-- Filtro **Sem atualização** para projetos sem push público no GitHub há 30 dias ou mais. **Um período sem push não significa que o projeto está pausado ou abandonado.**
-- Botão **Atualizar atividade**: consulta a API pública do GitHub para atualizar somente as datas do último push. Não altera seus status nem suas notas. Pode falhar sem internet ou por limite de requisições.
-- Adicionar projetos próprios, inclusive ideias sem repositório.
-- Tema claro/escuro e layout mobile.
-- Backup exportável/importável em JSON.
-- Sem frameworks, npm, banco de dados, cadastro ou servidor.
+- **Em testes**: nova situação de desenvolvimento.
+- **Com bug**: marcador independente, com campo para anotar os problemas encontrados. Um projeto pode estar **Em testes e Com bug** ao mesmo tempo.
+- Seções e filtros específicos para projetos em teste e com bugs, com contadores no painel.
+- Ao adicionar um projeto, você já pode marcá-lo Em testes e/ou Com bug.
+- Compatibilidade com dados e backups da v1.0.
+- Uma cópia preventiva do estado anterior é guardada no mesmo navegador no primeiro acesso à v1.1, desde que os dados v1.0 estejam disponíveis.
+- Lembrete para baixar um backup JSON caso você tenha projetos criados manualmente.
+- Importações e redefinições guardam uma cópia de recuperação local antes da substituição (isso **não** substitui um backup JSON baixado).
 
-## Para abrir agora (sem instalar nada)
+## Preservando seus projetos
 
-1. Baixe e extraia o ZIP.
-2. Abra **`index.html`** com um navegador moderno (Chrome, Firefox etc.).
-3. Clique em **Abrir app** para abrir o site publicado, ou **Ver código** nos projetos sem site registrado.
-4. Use os três pontinhos de um cartão para alterar situação, anotar próximos passos e mudar os links.
+**Antes de atualizar:** entre na sua Arvak Library atual no navegador em que criou os projetos. Abra **Dados e backup → Exportar biblioteca** e guarde o arquivo JSON. Isso é o mais seguro.
 
-> Algumas restrições de navegador no modo `file://` podem afetar o armazenamento local. Se possível, publique no GitHub Pages para ter armazenamento mais previsível.
+Depois, substitua apenas o `index.html` do repositório `arvak-library` pela nova versão e publique no mesmo endereço: `https://danielrosajr.github.io/arvak-library/`.
 
-## Publicar no GitHub Pages pelo navegador, sem comandos
+A v1.1 mantém intencionalmente a chave `localStorage` **`arvak-library-v1`** e a versão de esquema **`1`**. Com o mesmo navegador, mesmo dispositivo e mesmo endereço do GitHub Pages, a atualização do código **não deve** apagar os projetos e notas. Não use **Restaurar biblioteca inicial** e não limpe os dados do site se quiser preservá-los.
 
-Recomendado: **criar outro repositório** chamado `arvak-library`. Assim você **não substitui** o Arvak Labs já publicado em `danielrosajr.github.io`.
+A biblioteca não tem sincronização automática: se você trocar de navegador, computador, celular, abrir a versão como `file://` ou alterar o domínio, poderá ver uma coleção diferente. Nesse caso, restaure usando **Dados e backup → Importar backup**. **A importação substitui** as personalizações atuais; exporte-as primeiro.
 
-1. Entre em https://github.com/new . Nome: `arvak-library`. Selecione **Public**. Marque **Add a README file** (opcional, facilita acesso ao menu de upload). Clique em **Create repository**.
-2. Abra a raiz do repositório, **Add file → Upload files**, e carregue **`index.html` extraído** (não envie o ZIP como arquivo único). Faça commit na branch `main`.
-3. Abra **Settings → Pages → Build and deployment**.
-4. Em **Source**, selecione **Deploy from a branch**, em **Branch** selecione **`main` / `(root)`** e clique em **Save**.
-5. Quando a publicação terminar, o endereço esperado é `https://danielrosajr.github.io/arvak-library/`.
-6. Como esse aplicativo tem apenas um `index.html` com CSS e JS embutidos, ele **não precisa** do workflow do Vite ou do GitHub Actions que usamos no Arvak Labs.
+## Dados e privacidade
 
-### Atualizações futuras
+- Não há backend, login ou banco de dados.
+- As personalizações são guardadas no navegador: projetos adicionados, favoritos, situação, marcação de bug, descrição do bug, notas, links e histórico de acesso.
+- O GitHub público **não recebe seus dados pessoais** ao salvar na biblioteca.
+- O botão **Atualizar atividade** consulta apenas as datas de push público dos repositórios, quando possível.
+- O backup em JSON pode conter anotações pessoais. Guarde-o com cuidado e não o suba para um repositório público.
 
-Abra `index.html` no repositório → clique no lápis (Edit file) → cole o novo conteúdo → **Commit changes**. Ou faça upload de nova versão com o mesmo nome no diretório raiz. Quando editar o conteúdo, não altere sua URL publicada.
+## Como publicar
 
-### Quer acesso só para você?
+É um aplicativo estático em **um único `index.html`**, sem necessidade de Vue, Vite, instalação ou build.
 
-O repositório e a interface no Pages são públicos quando hospedados dessa forma. **As suas notas e escolhas pessoais não são enviadas ao repositório nem ficam públicas**; permanecem no armazenamento deste navegador. Não coloque dados privados nos arquivos HTML do repositório.
+1. Abra `https://github.com/danielrosajr/arvak-library`.
+2. Substitua **somente** o arquivo `index.html` na raiz pelo arquivo desta versão e confirme o commit.
+3. Confira em **Settings → Pages** que a fonte é **Deploy from a branch**, `main`, `/ (root)`.
+4. Abra `https://danielrosajr.github.io/arvak-library/` e recarregue a página.
+5. Confira se seus projetos e notas anteriores continuam lá antes de criar novos dados.
 
-## Onde ficam seus dados pessoais?
+Veja `COMO_ATUALIZAR.md` para o guia completo de proteção e recuperação dos dados.
 
-Em `localStorage` no navegador, com a chave `arvak-library-v1`. Isso significa:
+## Tecnologia
 
-- Marcar um projeto como **Pausado** no computador **não vai** mudar o status no seu celular automaticamente.
-- Se o navegador apagar seus dados do site, você pode perder suas anotações.
-- Use **Dados e backup → Exportar** para salvar um JSON periodicamente; para transferir a outro navegador ou dispositivo use **Importar**.
-- A **importação substitui** as personalizações existentes no navegador de destino.
-- Se você publicar outra cópia em um endereço diferente, ela terá armazenamento local separado.
+HTML, CSS e JavaScript puro; interface responsiva, funcionamento local, sem dependências e publicação gratuita via GitHub Pages.
 
-## Como atualizar a lista de repositórios inicial
+## Metadata sugerida para o GitHub
 
-A lista base é a constante `defaults` perto do início da tag `<script>` em `index.html`. Não é preciso editar isso para acrescentar um projeto pessoal: use o botão **+ Novo projeto** no próprio aplicativo (o projeto ficará somente no navegador e nos backups).
+**Repository name:** `arvak-library`  
+**Description:** `A personal, Steam-inspired library to organize, test, track bugs, and quickly access my apps, mods, and side projects.`  
+**Topics:** `app-library`, `project-tracker`, `personal-dashboard`, `bug-tracking`, `local-first`, `javascript`, `github-pages`, `productivity`  
+**Version / tag:** `v1.1.0`  
+**Commit message:** `feat: add testing status, bug flags and safer backups`  
+**Release title:** `Arvak Library v1.1.0 — Testing & Bug Tracking`  
+**Website:** `https://danielrosajr.github.io/arvak-library/`
 
-Os links de aplicativos foram preparados apenas para os projetos que, durante a consulta em 23/10/2026, tinham GitHub Pages habilitado. **Isso não garante que o deploy de todos eles esteja funcionando**. Nos projetos sem Pages registrado, o botão leva ao repositório. Edite o link no painel do projeto se ele tiver um site diferente.
-
-## Privacidade e limitações
-
-O aplicativo não executa login e não manda notas, tags, situações ou histórico de abertura para nenhum servidor. Clicar em links abre serviços externos (GitHub ou páginas individuais). O botão de atualização de atividade consulta `api.github.com` com os nomes dos repositórios públicos. Nenhum token ou segredo de acesso é usado.
-
-**Licença:** não definida.
+Licença não especificada.
