@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#0b1017">
   <meta name="description" content="Arvak Library: uma biblioteca pessoal, simples e local, para acessar e organizar meus aplicativos e projetos.">
-  <title>Arvak Library v1.2 — Minha coleção</title>
+  <title>Arvak Library v1.3 — Minha coleção</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230c1420'/%3E%3Cpath d='M15 43 30 15h6l14 28h-9l-8-18-9 18z' fill='%23c8fa7e'/%3E%3Ccircle cx='46' cy='16' r='5' fill='%23978cf5'/%3E%3C/svg%3E">
   <style>
     :root{--bg:#0b1017;--panel:#111924;--panel2:#172230;--line:#253345;--line2:#304158;--text:#f4f7f8;--sub:#a2b0c2;--sub2:#7d8ca0;--accent:#c8fa7e;--accent2:#94c956;--white:#fff;--danger:#ff938e;--shadow:0 20px 75px #02050a80;--radius:17px;color-scheme:dark;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
@@ -60,6 +60,36 @@
     @media(max-width:900px){.board-grid{grid-template-columns:1fr}}
     @media(max-width:600px){.tour-panel{left:8px;right:8px;bottom:8px;width:auto;padding:18px}.project-bottom{flex-wrap:wrap}.project-bottom .chat-link{padding:10px}.task-add{flex-direction:column}.task-add .btn{align-self:flex-end}}
   
+  
+    /* v1.3 — Repositórios sugeridos pelo GitHub */
+    .scanner-count{display:inline-grid;place-items:center;background:#304932;color:#d5f8b9;padding:2px 7px;min-width:20px;border-radius:9px;font-size:10px}
+    .scanner-count[hidden],.count[hidden]{display:none!important}
+    .scanner-dialog{width:min(690px,calc(100vw - 22px));max-height:min(88vh,960px);overflow-y:auto}
+    .scanner-dialog .dialog-top{align-items:flex-start}
+    .scanner-spark{color:var(--accent)}
+    .scanner-intro{line-height:1.65;margin:12px 0 17px}
+    .scanner-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:13px;margin-bottom:16px}
+    .scanner-switch{display:inline-flex;align-items:center;gap:7px;cursor:pointer;color:var(--sub);font-size:12px;white-space:nowrap}
+    .scanner-switch input,.scan-page-check input{accent-color:var(--accent);width:16px;height:16px}
+    .scanner-timestamp{color:var(--sub2);font-size:11px;margin-left:auto}
+    .scanner-state{border:1px solid var(--line);background:var(--panel2);color:var(--sub);padding:13px 15px;border-radius:10px;font-size:12px;line-height:1.5;margin-bottom:13px}
+    .scanner-results{display:grid;gap:11px;max-height:52vh;overflow-y:auto;padding-right:3px}
+    .scanner-project{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:16px}
+    .scanner-project.ignored{opacity:.75}
+    .scanner-project-head{display:flex;justify-content:space-between;align-items:flex-start;gap:15px}
+    .scanner-project-title{font-size:15px;font-weight:850;color:var(--text);overflow-wrap:anywhere}
+    .scanner-project-title a{color:inherit}.scanner-project-title a:hover{color:var(--accent)}
+    .scanner-badges{display:flex;flex-wrap:wrap;gap:7px;margin:7px 0}
+    .scanner-badges span{font-size:10px;background:var(--panel2);padding:4px 7px;border:1px solid var(--line);border-radius:6px;color:var(--sub)}
+    .scanner-project p{font-size:12px;line-height:1.55;margin:9px 0 13px;color:var(--sub);overflow-wrap:anywhere}
+    .scanner-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+    .scan-page-check{display:flex;align-items:center;gap:6px;color:var(--sub);font-size:11px;width:100%;margin:5px 0}
+    .scanner-note{font-size:11px;color:var(--sub2);line-height:1.5;margin-top:16px}
+    .scanner-empty{text-align:center;padding:28px 12px;color:var(--sub)}
+    .scanner-empty strong{display:block;color:var(--text);font-size:15px;margin-bottom:4px}
+    @media(max-width:600px){.topbar{flex-wrap:wrap;gap:10px}.top-actions{flex-wrap:wrap;justify-content:flex-start}.mobile-brand{font-size:12px}}
+    @media(max-width:700px){.scan-label{display:none}.scanner-dialog{max-height:94vh}.scanner-timestamp{margin-left:0;width:100%}.scanner-results{max-height:55vh}.scanner-project-head{display:block}.scanner-project-head .status{margin-top:6px}}
+
   </style>
 </head>
 <body>
@@ -83,6 +113,7 @@
       <div class="side-divider"></div>
       <div class="side-label">MINHAS FERRAMENTAS</div>
       <nav class="side-nav" aria-label="Ferramentas">
+        <button type="button" class="nav-btn" id="scanSide"><span class="nav-icon">⌕</span> Descobrir no GitHub <span class="count" id="scanNavCount" hidden>0</span></button>
         <button type="button" class="nav-btn" id="addSide"><span class="nav-icon">＋</span> Adicionar projeto</button>
         <button type="button" class="nav-btn" id="settingsSide"><span class="nav-icon">⚙</span> Dados e backup</button>
         <button type="button" class="nav-btn" id="tutorialSide"><span class="nav-icon">❔</span> Tutorial guiado</button>
@@ -96,8 +127,9 @@
     </aside>
     <main class="workspace" id="inicio">
       <header class="topbar">
-        <div style="display:flex;align-items:center;gap:11px"><button class="btn icon mobile-menu" type="button" id="openMenu" aria-label="Abrir menu">☰</button><span class="mobile-brand" style="font-weight:900;letter-spacing:-.03em">ARVAK / LIBRARY <small>v1.2</small></span><span class="breadcrumb">v1.2 <span style="margin:0 8px;color:var(--sub2)">/</span> BIBLIOTECA <span style="margin:0 8px;color:var(--sub2)">/</span> <strong id="crumb">Minha coleção</strong></span></div>
+        <div style="display:flex;align-items:center;gap:11px"><button class="btn icon mobile-menu" type="button" id="openMenu" aria-label="Abrir menu">☰</button><span class="mobile-brand" style="font-weight:900;letter-spacing:-.03em">ARVAK / LIBRARY <small>v1.3</small></span><span class="breadcrumb">v1.3 <span style="margin:0 8px;color:var(--sub2)">/</span> BIBLIOTECA <span style="margin:0 8px;color:var(--sub2)">/</span> <strong id="crumb">Minha coleção</strong></span></div>
         <div class="top-actions">
+          <button type="button" class="btn" id="scanTop" title="Encontrar repositórios públicos novos no seu GitHub">⌕ <span class="scan-label">Buscar projetos</span> <span class="scanner-count" id="scanTopCount" hidden>0</span></button>
           <button type="button" class="btn ghost refresh" id="refreshGithub" title="Atualiza somente a data do último push público dos projetos no GitHub">⟳ <span class="refresh-label">Atualizar atividade</span></button>
           <button type="button" class="btn" id="tutorialTop" title="Abrir tutorial guiado">❔ <span class="tutorial-label">Ajuda</span></button>
           <button type="button" class="btn icon" id="themeButton" title="Trocar tema" aria-label="Trocar tema">☾</button>
@@ -144,7 +176,23 @@
   </div>
   <div class="backdrop" id="detailBackdrop" hidden><section class="drawer" role="dialog" aria-modal="true" aria-labelledby="detailTitle" id="detailDrawer"><div class="drawer-banner" id="detailBanner"><span class="symbol" id="detailSymbol">✦</span><button class="drawer-close" type="button" data-close="detail" aria-label="Fechar">×</button></div><div class="drawer-content"><div class="drawer-subhead"><div class="labelcaps" id="detailCategory"></div><span class="tag" id="detailStatus"></span></div><h2 id="detailTitle"></h2><p id="detailDescription"></p><div class="drawer-actions"><button type="button" class="btn primary" id="detailOpen">↗ Abrir projeto</button><button type="button" class="btn" id="detailRepo">↗ GitHub</button><button type="button" class="btn" id="detailChat">✦ ChatGPT</button><button type="button" class="btn icon" id="detailFavorite" aria-label="Favoritar">☆</button></div><div class="form"><div class="field-row"><div class="field"><label for="detailStateInput">Situação do projeto</label><select id="detailStateInput"><option>A organizar</option><option>Em andamento</option><option>Pausado</option><option>Em testes</option><option>Concluído</option><option>Ideia</option><option>Arquivado</option></select></div><div class="field"><label for="detailCategoryInput">Categoria</label><select id="detailCategoryInput"><option>Aplicativo</option><option>Ferramenta</option><option>Educação</option><option>Jogo / Mod</option><option>Automação</option><option>Experimento</option><option>Portfólio</option><option>Outro</option></select></div></div><label class="bug-check" for="detailBugCheck"><input type="checkbox" id="detailBugCheck"> ⚠ Marcar este projeto como <strong>Com bug</strong></label><div class="field" id="detailBugField" hidden><label for="detailBugNotesInput">Problemas encontrados (opcional)</label><textarea id="detailBugNotesInput" maxlength="2000" rows="3" placeholder="Ex.: botão de salvar falha no celular; revisar login..."></textarea><span class="field-hint">Funciona junto com qualquer situação, inclusive Em testes.</span></div><div class="field"><label for="detailNextInput">🎯 Próximo passo</label><input id="detailNextInput" maxlength="280" placeholder="Ex.: corrigir menu mobile; testar a versão..." autocomplete="off"></div><div class="field"><label for="detailNotesInput">📝 Minhas anotações</label><textarea id="detailNotesInput" rows="4" maxlength="3000" placeholder="O que falta? Qual ideia tive? Por que parei aqui?"></textarea></div><section class="task-editor" aria-label="Correções deste projeto"><h3>🛠 Próximas correções</h3><p class="chat-caption">Organize o que precisa ser corrigido e marque como resolvido.</p><div class="task-add"><input id="fixNewInput" maxlength="240" placeholder="Ex.: corrigir botão de login" aria-label="Nova correção"><button type="button" class="btn small" id="fixAddButton">＋ Adicionar</button></div><div class="task-list" id="fixTaskList"></div></section><section class="task-editor" aria-label="Ideias para o futuro"><h3>✧ Ideias para o futuro</h3><p class="chat-caption">Recursos que você quer criar mais adiante.</p><div class="task-add"><input id="ideaNewInput" maxlength="240" placeholder="Ex.: modo offline" aria-label="Nova ideia futura"><button type="button" class="btn small" id="ideaAddButton">＋ Adicionar</button></div><div class="task-list" id="ideaTaskList"></div></section><div class="divider"></div><div class="field"><label for="detailChatInput">✦ Conversa do projeto no ChatGPT (opcional)</label><input id="detailChatInput" type="url" maxlength="1000" placeholder="https://chatgpt.com/c/..." spellcheck="false"><span class="chat-caption">Cole o link da conversa do navegador ou um link de compartilhamento. Alguns links exigem login; links compartilhados podem ser vistos por quem os possui. Fica salvo somente neste navegador e em seus backups.</span></div><div class="field"><label for="detailLinkInput">Link para abrir (opcional)</label><input id="detailLinkInput" type="url" maxlength="1000" placeholder="https://..." spellcheck="false"><span class="field-hint">Pode corrigir ou adicionar um link do GitHub Pages. Apenas links https:// ou http:// são aceitos.</span></div><div class="field"><label for="detailRepoInput">Link do repositório (opcional)</label><input id="detailRepoInput" type="url" maxlength="1000" placeholder="https://github.com/..." spellcheck="false"></div><div class="field"><span class="field-hint" id="detailDates"></span></div><div class="saved-note" id="detailSaved" aria-live="polite"></div><div class="drawer-foot"><button type="button" class="btn primary" id="detailSave">Salvar alterações</button><button type="button" class="btn danger" id="detailHide">Ocultar projeto</button></div></div></div></section></div>
   <div class="backdrop" id="addBackdrop" hidden><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="addTitle"><div class="dialog-top"><h2 id="addTitle">Adicionar à biblioteca</h2><button type="button" class="btn icon" data-close="add" aria-label="Fechar">×</button></div><p>Adicione ideias e projetos que ainda não estão no GitHub. Eles ficam salvos neste navegador.</p><form class="form" id="addForm"><div class="field"><label for="addName">Nome do projeto *</label><input id="addName" maxlength="90" required placeholder="Nome da sua criação"></div><div class="field"><label for="addDesc">Descrição curta</label><input id="addDesc" maxlength="260" placeholder="O que ele faz?"></div><div class="field-row"><div class="field"><label for="addCategory">Categoria</label><select id="addCategory"><option>Aplicativo</option><option>Ferramenta</option><option>Educação</option><option>Jogo / Mod</option><option>Automação</option><option>Experimento</option><option>Portfólio</option><option>Outro</option></select></div><div class="field"><label for="addState">Situação</label><select id="addState"><option>A organizar</option><option>Ideia</option><option>Em andamento</option><option>Pausado</option><option>Em testes</option><option>Concluído</option><option>Arquivado</option></select></div></div><div class="field"><label for="addLink">Link do aplicativo (opcional)</label><input id="addLink" maxlength="1000" type="url" placeholder="https://..."></div><div class="field"><label for="addRepo">Repositório (opcional)</label><input id="addRepo" maxlength="1000" type="url" placeholder="https://github.com/..."></div><div class="field"><label for="addChat">✦ Conversa no ChatGPT (opcional)</label><input id="addChat" maxlength="1000" type="url" placeholder="https://chatgpt.com/c/..." spellcheck="false"><span class="field-hint">Salvo localmente. Compartilhamentos de conversa podem ser públicos para quem tiver o link.</span></div><label class="bug-check" for="addBugCheck"><input type="checkbox" id="addBugCheck"> ⚠ Já sei que este projeto tem bugs</label><div class="field" id="addBugField" hidden><label for="addBugNotes">Problemas encontrados (opcional)</label><textarea id="addBugNotes" maxlength="2000" rows="2" placeholder="O que está falhando?"></textarea></div><div class="field"><label for="addNext">Próximo passo (opcional)</label><input id="addNext" maxlength="280" placeholder="O que quero fazer agora?"></div><div class="dialog-actions"><button type="button" class="btn" data-close="add">Cancelar</button><button type="submit" class="btn primary">Adicionar projeto</button></div></form></section></div>
-  <div class="backdrop" id="settingsBackdrop" hidden><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><div class="dialog-top"><h2 id="settingsTitle">Dados e backup</h2><button type="button" class="btn icon" data-close="settings" aria-label="Fechar">×</button></div><p>Você não precisa de conta. Favoritos, status, notas e últimos acessos são gravados no armazenamento local deste navegador. Não sincronizam automaticamente com o celular ou outro computador.</p><div class="settings-list"><div class="settings-item"><div><strong>Exportar biblioteca</strong><p>Baixa um arquivo JSON com suas escolhas, notas e projetos adicionados.</p></div><button type="button" class="btn primary" id="exportData">↓ Exportar</button></div><div class="settings-item"><div><strong>Importar backup</strong><p>Restaura um backup anterior, substituindo as personalizações atuais.</p></div><button type="button" class="btn" id="importData">↑ Importar</button></div><div class="settings-item" id="preUpgradeItem" hidden><div><strong>Cópia automática da versão anterior</strong><p>Uma cópia dos dados locais foi guardada antes da primeira abertura da v1.1. Você pode baixá-la, sem alterar a biblioteca atual.</p></div><button type="button" class="btn" id="downloadPreUpgrade">↓ Baixar cópia</button></div><div class="settings-item" id="v12BackupItem" hidden><div><strong>Cópia antes da v1.2</strong><p>Cópia local dos dados encontrados antes desta atualização (não substitui um backup baixado).</p></div><button type="button" class="btn" id="downloadV12Backup">↓ Baixar cópia</button></div><div class="settings-item"><div><strong>Rever tutorial</strong><p>Conheça as funções novas e veja onde organizar seus projetos.</p></div><button type="button" class="btn" id="tutorialSettings">❔ Abrir</button></div><div class="settings-item"><div><strong>Mostrar projetos ocultos</strong><p id="hiddenCount">Nenhum projeto oculto.</p></div><button type="button" class="btn" id="restoreHidden">Restaurar</button></div><div class="settings-item"><div><strong>Restaurar biblioteca inicial</strong><p>Remove notas, favoritos e projetos adicionais. Faça backup antes.</p></div><button type="button" class="btn danger" id="resetData">Restaurar</button></div></div><input type="file" id="importFile" accept="application/json,.json" class="file-input"><div class="dialog-actions"><button type="button" class="btn" data-close="settings">Fechar</button></div></section></div>
+  <div class="backdrop" id="settingsBackdrop" hidden><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><div class="dialog-top"><h2 id="settingsTitle">Dados e backup</h2><button type="button" class="btn icon" data-close="settings" aria-label="Fechar">×</button></div><p>Você não precisa de conta. Favoritos, status, notas e últimos acessos são gravados no armazenamento local deste navegador. Não sincronizam automaticamente com o celular ou outro computador.</p><div class="settings-list"><div class="settings-item"><div><strong>Exportar biblioteca</strong><p>Baixa um arquivo JSON com suas escolhas, notas e projetos adicionados.</p></div><button type="button" class="btn primary" id="exportData">↓ Exportar</button></div><div class="settings-item"><div><strong>Importar backup</strong><p>Restaura um backup anterior, substituindo as personalizações atuais.</p></div><button type="button" class="btn" id="importData">↑ Importar</button></div><div class="settings-item" id="preUpgradeItem" hidden><div><strong>Cópia automática da versão anterior</strong><p>Uma cópia dos dados locais foi guardada antes da primeira abertura da v1.1. Você pode baixá-la, sem alterar a biblioteca atual.</p></div><button type="button" class="btn" id="downloadPreUpgrade">↓ Baixar cópia</button></div><div class="settings-item" id="v12BackupItem" hidden><div><strong>Cópia antes da v1.2</strong><p>Cópia local dos dados encontrados antes desta atualização (não substitui um backup baixado).</p></div><button type="button" class="btn" id="downloadV12Backup">↓ Baixar cópia</button></div><div class="settings-item" id="v13BackupItem" hidden><div><strong>Cópia antes da v1.3</strong><p>Guarda sua biblioteca local anterior à primeira abertura deste scanner.</p></div><button type="button" class="btn" id="downloadV13Backup">↓ Baixar cópia</button></div><div class="settings-item"><div><strong>Rever tutorial</strong><p>Conheça as funções novas e veja onde organizar seus projetos.</p></div><button type="button" class="btn" id="tutorialSettings">❔ Abrir</button></div><div class="settings-item"><div><strong>Busca automática do GitHub</strong><p>Ao abrir a biblioteca, verificar no máximo uma vez a cada 24 horas. Apenas sugere novidades; nunca adiciona sem seu clique.</p></div><label class="scanner-switch"><input type="checkbox" id="scanAuto" checked> Ativada</label></div><div class="settings-item"><div><strong>Mostrar projetos ocultos</strong><p id="hiddenCount">Nenhum projeto oculto.</p></div><button type="button" class="btn" id="restoreHidden">Restaurar</button></div><div class="settings-item"><div><strong>Restaurar biblioteca inicial</strong><p>Remove notas, favoritos e projetos adicionais. Faça backup antes.</p></div><button type="button" class="btn danger" id="resetData">Restaurar</button></div></div><input type="file" id="importFile" accept="application/json,.json" class="file-input"><div class="dialog-actions"><button type="button" class="btn" data-close="settings">Fechar</button></div></section></div>
+
+  <div class="backdrop" id="scanBackdrop" hidden>
+    <section class="dialog scanner-dialog" role="dialog" aria-modal="true" aria-labelledby="scanTitle">
+      <div class="dialog-top"><div><div class="labelcaps">DESCOBERTA DE REPOSITÓRIOS</div><h2 id="scanTitle">Novos projetos do GitHub <span class="scanner-spark">✦</span></h2></div><button type="button" class="btn icon" data-close="scan" aria-label="Fechar">×</button></div>
+      <p class="scanner-intro">Comparo os repositórios públicos de <strong>danielrosajr</strong> com sua biblioteca. Você decide o que entra. Projetos, favoritos, notas e status existentes não são substituídos.</p>
+      <div class="scanner-toolbar">
+        <button type="button" class="btn primary" id="scanNow">⟳ Escanear GitHub</button>
+        <label class="scanner-switch"><input type="checkbox" id="scanShowIgnored"> Mostrar ignorados</label>
+        <span class="scanner-timestamp" id="scanTimestamp">Nenhuma busca realizada.</span>
+      </div>
+      <div class="scanner-state" id="scanStatus" role="status" aria-live="polite">Use “Escanear GitHub” para encontrar projetos novos.</div>
+      <div class="scanner-results" id="scanResults" aria-label="Sugestões de projetos"></div>
+      <p class="scanner-note">Somente repositórios <strong>públicos</strong> são encontrados. O scanner usa a API gratuita do GitHub, que pode limitar consultas. Datas e linguagens vêm do repositório; o status de desenvolvimento é definido por você. Um endereço padrão do GitHub Pages é apenas uma sugestão, não garantia de que o site funciona.</p>
+      <div class="dialog-actions"><button type="button" class="btn" data-close="scan">Fechar</button></div>
+    </section>
+  </div>
   <section class="tour-panel" id="tourPanel" role="dialog" aria-modal="false" aria-labelledby="tourTitle" hidden><div class="tour-step" id="tourStepCount"></div><h2 id="tourTitle"></h2><p id="tourDescription"></p><div class="tour-dots" id="tourDots" aria-hidden="true"></div><div class="tour-controls"><button type="button" class="btn" id="tourSkip">Fechar</button><div style="display:flex;gap:7px"><button type="button" class="btn" id="tourPrev">← Voltar</button><button type="button" class="btn primary" id="tourNext">Próximo →</button></div></div></section>
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
   <script>
@@ -174,6 +222,8 @@
   const BACKUP_ACK_KEY='arvak-library-v1.1-exported';
   const V12_BACKUP_KEY='arvak-library-backup-before-v1.2';
   const TUTORIAL_KEY='arvak-library-tour-seen-v1.2';
+  const V13_BACKUP_KEY='arvak-library-backup-before-v1.3';
+  const GITHUB_SCAN_COOLDOWN=24*60*60*1000;
   function preservePreviousData(){
     try {
       const existing=localStorage.getItem(STORAGE_KEY);
@@ -183,7 +233,8 @@
   }
   preservePreviousData();
   try {const existing=localStorage.getItem(STORAGE_KEY);if(existing && !localStorage.getItem(V12_BACKUP_KEY))localStorage.setItem(V12_BACKUP_KEY,existing)}catch{}
-  const baseState=()=>({version:1,overrides:{},custom:[],access:{},favorites:[],hidden:[],activity:{},theme:'dark',view:'grid'});
+  try {const existing=localStorage.getItem(STORAGE_KEY);if(existing&&!localStorage.getItem(V13_BACKUP_KEY))localStorage.setItem(V13_BACKUP_KEY,existing)}catch{}
+  const baseState=()=>({version:1,overrides:{},custom:[],access:{},favorites:[],hidden:[],activity:{},theme:'dark',view:'grid',githubScanner:{auto:true,checkedAt:'',repos:[]},ignoredRepos:[]});
   let state=loadState();
   const ui={nav:'todos',status:'all',category:'all',sort:'activity',query:'',selectedId:null,editing:false};
   const el=(id)=>document.getElementById(id);
@@ -192,7 +243,8 @@
   const htmlEscape=(value)=>String(value??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
   const safeUrl=(value)=>{if(typeof value!=='string'||!value.trim())return '';try{const u=new URL(value.trim());return (u.protocol==='https:'||u.protocol==='http:')?u.href:''}catch{return ''}};
   const clean=(v,n=1000)=>String(v??'').slice(0,n);
-  function loadState(){try{const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return baseState();const d=JSON.parse(raw);if(d?.version!==1||typeof d!=='object'||!d)return baseState();return {...baseState(),...d,overrides:d.overrides&&typeof d.overrides==='object'&&!Array.isArray(d.overrides)?d.overrides:{},custom:Array.isArray(d.custom)?d.custom:[],access:d.access&&typeof d.access==='object'?d.access:{},favorites:Array.isArray(d.favorites)?d.favorites:[],hidden:Array.isArray(d.hidden)?d.hidden:[],activity:d.activity&&typeof d.activity==='object'?d.activity:{}}}catch{return baseState()}}
+  function sanitizeScannerEarly(v){return v&&typeof v==='object'&&!Array.isArray(v)?{auto:v.auto!==false,checkedAt:typeof v.checkedAt==='string'?v.checkedAt:'',repos:Array.isArray(v.repos)?v.repos.slice(0,500).filter(x=>x&&typeof x.full_name==='string'&&typeof x.name==='string'):[]}:baseState().githubScanner}
+  function loadState(){try{const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return baseState();const d=JSON.parse(raw);if(d?.version!==1||typeof d!=='object'||!d)return baseState();return {...baseState(),...d,overrides:d.overrides&&typeof d.overrides==='object'&&!Array.isArray(d.overrides)?d.overrides:{},custom:Array.isArray(d.custom)?d.custom:[],access:d.access&&typeof d.access==='object'?d.access:{},favorites:Array.isArray(d.favorites)?d.favorites:[],hidden:Array.isArray(d.hidden)?d.hidden:[],activity:d.activity&&typeof d.activity==='object'?d.activity:{},githubScanner:sanitizeScannerEarly(d.githubScanner),ignoredRepos:Array.isArray(d.ignoredRepos)?d.ignoredRepos.filter(x=>typeof x==='string').slice(0,600):[]}}catch{return baseState()}}
   let storageWarning=false;
   function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}catch{if(!storageWarning){storageWarning=true;toast('Este navegador bloqueou o armazenamento. Exporte um backup para não perder mudanças.')}}}
   const findBase=(id)=>defaults.find(x=>x.id===id)||state.custom.find(x=>x.id===id);
@@ -274,7 +326,9 @@
     el('backupReminder').hidden=!state.custom.length||!!localStorageSafeGet(BACKUP_ACK_KEY);
      el('preUpgradeItem').hidden=!localStorageSafeGet(PRE_UPGRADE_BACKUP_KEY);
     el('v12BackupItem').hidden=!localStorageSafeGet(V12_BACKUP_KEY);
+    el('v13BackupItem').hidden=!localStorageSafeGet(V13_BACKUP_KEY);
     applyTheme();
+    renderScanBadge();
   }
   function localStorageSafeGet(key){try{return localStorage.getItem(key)}catch{return null}}
   function downloadJSON(filename,content){
@@ -287,8 +341,8 @@
   function toggleFav(id){const i=state.favorites.indexOf(id);if(i===-1)state.favorites.push(id);else state.favorites.splice(i,1);save();render();if(ui.selectedId===id)updateDetailFav()}
   function recordOpen(id){const p=findProject(id);if(!p)return;state.access[id]={date:new Date().toISOString(),count:(Number(state.access[id]?.count)||0)+1};save();render()}
   function activateLink(anchor){const p=findProject(anchor.dataset.open);if(!p)return;const url=projectLink(p);if(!url){event.preventDefault();toast('Este projeto não tem link configurado. Abra os detalhes para adicionar um.');return}anchor.href=url;recordOpen(p.id)}
-  function closeAll(){['detail','add','settings'].forEach(x=>el(`${x}Backdrop`).hidden=true);ui.selectedId=null;document.body.style.overflow='';el('sidebar').classList.remove('open');el('menuBackdrop').classList.remove('visible')}
-  function openModal(name){closeAll();el(`${name}Backdrop`).hidden=false;document.body.style.overflow='hidden';const focus=({add:'addName',settings:'exportData',detail:'detailClose'})[name];if(focus&&el(focus))setTimeout(()=>el(focus).focus(),40)}
+  function closeAll(){['detail','add','settings','scan'].forEach(x=>el(`${x}Backdrop`).hidden=true);ui.selectedId=null;document.body.style.overflow='';el('sidebar').classList.remove('open');el('menuBackdrop').classList.remove('visible')}
+  function openModal(name){closeAll();el(`${name}Backdrop`).hidden=false;document.body.style.overflow='hidden';const focus=({add:'addName',settings:'exportData',detail:'detailClose',scan:'scanNow'})[name];if(focus&&el(focus))setTimeout(()=>el(focus).focus(),40)}
   function updateDetailFav(){const p=findProject(ui.selectedId);if(!p)return;el('detailFavorite').textContent=p.favorite?'★':'☆';el('detailFavorite').setAttribute('aria-label',p.favorite?'Remover favorito':'Adicionar aos favoritos');el('detailFavorite').classList.toggle('active',p.favorite)}
   function openDetail(id){const p=findProject(id);if(!p)return;openModal('detail');ui.selectedId=id;const banner=el('detailBanner');banner.style.cssText=paletteVars(p);el('detailSymbol').textContent=p.symbol||'✦';el('detailCategory').textContent=p.category+' · '+(p.tech||'Projeto pessoal');el('detailStatus').textContent=statusOf(p)+(p.hasBug?' · ⚠ Com bug':'');el('detailStatus').dataset.status=statusOf(p);el('detailTitle').textContent=p.name;el('detailDescription').textContent=p.description||'Projeto pessoal';el('detailStateInput').value=statusOf(p);el('detailBugCheck').checked=!!p.hasBug;el('detailBugNotesInput').value=p.bugNotes||'';el('detailBugField').hidden=!p.hasBug;el('detailCategoryInput').value=categories.includes(p.category)?p.category:'Outro';el('detailNextInput').value=p.nextStep||'';el('detailNotesInput').value=p.notes||'';el('detailLinkInput').value=p.liveUrl||'';el('detailRepoInput').value=p.repoUrl||'';el('detailChatInput').value=p.chatUrl||'';renderDetailTasks();el('detailDates').textContent=`Último push: ${niceDate(p.lastPush)} · Último acesso: ${p.access?niceDate(p.access.date):'nunca'} · ${Number(p.access?.count)||0} abertura(s) registrada(s).`;el('detailSaved').textContent='';el('detailOpen').disabled=!projectLink(p);el('detailOpen').textContent=safeUrl(p.liveUrl)?'↗ Abrir aplicativo':'↗ Ver código';el('detailRepo').disabled=!safeUrl(p.repoUrl);el('detailChat').disabled=!chatUrl(p.chatUrl);el('detailHide').textContent=state.custom.some(x=>x.id===id)?'Remover projeto':'Ocultar projeto';updateDetailFav();setTimeout(()=>el('detailStateInput').focus(),40)}
   function validateOptionalUrl(value){return !String(value).trim()||!!safeUrl(value)}
@@ -315,7 +369,7 @@
       if(d.version!==1||!Array.isArray(d.custom)||!Array.isArray(d.favorites)||!Array.isArray(d.hidden)||!d.overrides||typeof d.overrides!=='object'||Array.isArray(d.overrides)||d.custom.length>500)throw Error('Formato inválido');
       if(!confirm('Importar este backup substitui suas personalizações atuais. Exporte antes um backup da biblioteca atual. Continuar?'))return;
       try{const current=localStorage.getItem(STORAGE_KEY);if(current)localStorage.setItem('arvak-library-backup-before-import',current)}catch{}
-      state={...baseState(),theme:d.theme==='light'?'light':'dark',view:d.view==='list'?'list':'grid',favorites:d.favorites.filter(x=>typeof x==='string').slice(0,1000),hidden:d.hidden.filter(x=>typeof x==='string').slice(0,1000)};
+      state={...baseState(),ignoredRepos:Array.isArray(d.ignoredRepos)?d.ignoredRepos.filter(x=>typeof x==='string'&&x.length<150).slice(0,600):[],githubScanner:sanitizeScanner(d.githubScanner),theme:d.theme==='light'?'light':'dark',view:d.view==='list'?'list':'grid',favorites:d.favorites.filter(x=>typeof x==='string').slice(0,1000),hidden:d.hidden.filter(x=>typeof x==='string').slice(0,1000)};
       for(const p of d.custom){if(!p||typeof p.id!=='string'||typeof p.name!=='string'||p.id.length>120)continue;
         state.custom.push({id:clean(p.id,120),name:clean(p.name,90),description:clean(p.description,260),category:categories.includes(p.category)?p.category:'Outro',tech:clean(p.tech,120),symbol:clean(p.symbol,4),repoName:clean(p.repoName,120),repoUrl:safeUrl(p.repoUrl),liveUrl:safeUrl(p.liveUrl),lastPush:clean(p.lastPush,35),palette:Array.isArray(p.palette)&&p.palette.length===2?p.palette:['#4d6878','#253248']})
       }
@@ -324,17 +378,161 @@
       }
       for(const[id,v]of Object.entries(d.access||{}))if(findBase(id)&&v&&typeof v.date==='string')state.access[id]={date:clean(v.date,35),count:Math.min(999999,Math.max(0,Number(v.count)||0))};
       for(const[id,v]of Object.entries(d.activity||{}))if(findBase(id)&&typeof v==='string'&&!Number.isNaN(Date.parse(v)))state.activity[id]=v;
-      save();closeAll();render();toast('Backup importado: projetos, links, correções e ideias restaurados!')
+      save();closeAll();render();toast('Backup importado: projetos, links, correções, ideias e descoberta GitHub restaurados!')
     }catch(err){console.warn(err);toast('Este arquivo não é um backup válido da Arvak Library.')}};
     reader.onerror=()=>toast('Falha ao ler arquivo.');reader.readAsText(f)
   }
   async function refreshGithub(){const btn=el('refreshGithub');btn.disabled=true;el('refreshGithub').querySelector('.refresh-label').textContent='Consultando GitHub…';let ok=0,fail=0;const list=allProjects().filter(x=>x.repoName&&x.repoName!=='PROJETO LOCAL');await Promise.all(list.map(async p=>{try{const response=await fetch(`https://api.github.com/repos/${OWNER}/${encodeURIComponent(p.repoName)}`,{headers:{Accept:'application/vnd.github+json'}});if(!response.ok)throw Error(response.status);const data=await response.json();if(data.pushed_at&&Number.isFinite(Date.parse(data.pushed_at)))state.activity[p.id]=data.pushed_at;ok++}catch{fail++}}));save();btn.disabled=false;el('refreshGithub').querySelector('.refresh-label').textContent='Atualizar atividade';render();toast(fail?`Datas atualizadas: ${ok}. Não foi possível consultar ${fail} projeto(s).`:`Datas do GitHub atualizadas para ${ok} projetos!`)}
+
+  // Descoberta pública. Nunca usa token, não lê repositórios privados e nunca adiciona sem consentimento.
+  // Chaves antigas, notas, links ChatGPT, favoritos e status permanecem intactos.
+  const githubRepoKey=value=>{
+    if(!value)return '';
+    try{
+      const u=new URL(String(value));
+      if(u.hostname.toLowerCase()!=='github.com')return '';
+      const parts=u.pathname.split('/').filter(Boolean);
+      if(parts.length<2||parts[0].toLowerCase()!==OWNER.toLowerCase())return '';
+      return `${OWNER}/${decodeURIComponent(parts[1]).replace(/\.git$/i,'')}`.toLowerCase();
+    }catch{return ''}
+  };
+  const repoKeyFromProject=p=>githubRepoKey(p.repoUrl)||(
+    p.repoName&&p.repoName!=='PROJETO LOCAL'?`${OWNER}/${p.repoName}`.toLowerCase():''
+  );
+  const repoKeyFromApi=p=>String(p.full_name||'').toLowerCase();
+  const isRealRepo=p=>p&&typeof p.name==='string'&&typeof p.full_name==='string'&&
+    /^https:\/\/github\.com\//i.test(p.html_url||'')&&repoKeyFromApi(p).startsWith(OWNER.toLowerCase()+'/');
+  const scannerCategory=p=>{
+    const t=[p.name,...(Array.isArray(p.topics)?p.topics:[]),p.description||''].join(' ').toLowerCase();
+    if(/worldbox|game|modding|rpg/.test(t))return 'Jogo / Mod';
+    if(/educa|civic|education|learn/.test(t))return 'Educação';
+    if(/automat|selenium|scrap|robot/.test(t))return 'Automação';
+    if(/portfolio|github\.io/.test(t))return 'Portfólio';
+    // Outras categorias não são deduzidas como fatos; o usuário poderá editar após adicionar.
+    return 'Outro';
+  };
+  const suggestedPage=p=>p.name===`${OWNER}.github.io`?`https://${OWNER}.github.io/`:`https://${OWNER}.github.io/${encodeURIComponent(p.name)}/`;
+  const getScanState=()=>{
+    const v=state.githubScanner;
+    return v&&typeof v==='object'&&!Array.isArray(v)?v:{auto:true,checkedAt:'',repos:[]}
+  };
+  const sanitizeScanner=v=>({auto:v?.auto!==false,checkedAt:typeof v?.checkedAt==='string'?clean(v.checkedAt,40):'',repos:Array.isArray(v?.repos)?v.repos.filter(isRealRepo).slice(0,500).map(p=>({
+    name:clean(p.name,100),full_name:clean(p.full_name,170),html_url:safeUrl(p.html_url),description:clean(p.description,280),language:clean(p.language,60),topics:Array.isArray(p.topics)?p.topics.slice(0,12).map(t=>clean(t,40)):[],pushed_at:clean(p.pushed_at,40),has_pages:p.has_pages===true,homepage:safeUrl(p.homepage),archived:p.archived===true,fork:p.fork===true
+  })):[]});
+  function scannedSuggestions(includeIgnored=false){
+    const known=new Set([...defaults,...state.custom].map(repoKeyFromProject).filter(Boolean));
+    const ignored=new Set((state.ignoredRepos||[]).map(v=>String(v).toLowerCase()));
+    return (getScanState().repos||[]).filter(p=>isRealRepo(p)&&!known.has(repoKeyFromApi(p))&&(includeIgnored||!ignored.has(repoKeyFromApi(p))));
+  }
+  let scannerBusy=false;
+  function renderScanBadge(){
+    const count=scannedSuggestions(false).length;
+    for(const id of ['scanTopCount','scanNavCount']){
+      const n=el(id);if(n){n.hidden=!count;n.textContent=String(count)}
+    }
+    const c=el('scanAuto');if(c)c.checked=getScanState().auto!==false;
+  }
+  function renderScan(){
+    const d=getScanState();
+    el('scanTimestamp').textContent=d.checkedAt?`Última busca: ${niceDate(d.checkedAt)}`:'Nenhuma busca realizada';
+    const showIgnored=el('scanShowIgnored').checked;
+    const suggestions=scannedSuggestions(showIgnored);
+    const ignored=new Set((state.ignoredRepos||[]).map(v=>v.toLowerCase()));
+    const hasResults=Array.isArray(d.repos)&&d.repos.length>0;
+    if(!scannerBusy){
+      const news=scannedSuggestions(false).length;
+      el('scanStatus').textContent=!d.checkedAt?'Faça uma busca para encontrar seus repositórios novos.':
+        `${d.repos.length} repositório(s) público(s) localizado(s) · ${news} sugestão(ões) nova(s). Nenhum projeto é adicionado automaticamente.`;
+    }
+    if(!suggestions.length){el('scanResults').innerHTML=`<div class="scanner-empty"><strong>${hasResults?'Tudo organizado por aqui!':'Nenhuma sugestão carregada'}</strong>${hasResults?'Sua biblioteca já contém os repositórios encontrados, ou você ignorou as sugestões.':'Use o botão Escanear GitHub para consultar seus projetos públicos.'}</div>`;renderScanBadge();return}
+    el('scanResults').innerHTML=suggestions.map(p=>{
+      const key=repoKeyFromApi(p),isIgnored=ignored.has(key);
+      const description=p.description||'Sem descrição pública no repositório.';
+      const kinds=[p.language||'Linguagem não informada',p.has_pages?'Pages habilitado':'Sem Pages confirmado',p.archived?'Arquivado no GitHub':'',p.fork?'Fork':''].filter(Boolean);
+      return `<article class="scanner-project${isIgnored?' ignored':''}" data-scanned-repo="${htmlEscape(key)}">
+        <div class="scanner-project-head"><div><div class="scanner-project-title"><a href="${htmlEscape(p.html_url)}" target="_blank" rel="noopener noreferrer">${htmlEscape(p.name)} ↗</a></div><div class="scanner-badges">${kinds.map(t=>`<span>${htmlEscape(t)}</span>`).join('')}</div></div><span class="status">${p.pushed_at?'Push '+htmlEscape(niceDate(p.pushed_at)):'Sem push informado'}</span></div>
+        <p>${htmlEscape(description)}</p>
+        ${p.has_pages?`<label class="scan-page-check"><input type="checkbox" data-github-page="${htmlEscape(key)}"> Salvar também URL padrão do Pages (não verificada)</label>`:''}
+        <div class="scanner-actions"><button type="button" class="btn primary small" data-scan-add="${htmlEscape(key)}">＋ Adicionar à biblioteca</button>
+        <button type="button" class="btn small" data-scan-ignore="${htmlEscape(key)}">${isIgnored?'Restaurar sugestão':'Ignorar sugestão'}</button></div>
+      </article>`
+    }).join('');
+    renderScanBadge();
+  }
+  function addScannedRepo(key,includePage){
+    const p=getScanState().repos.find(x=>repoKeyFromApi(x)===key);
+    if(!isRealRepo(p))return;
+    // Repetir o clique ou abrir em outra aba nunca duplica o mesmo repositório.
+    if([...defaults,...state.custom].some(x=>repoKeyFromProject(x)===key)){
+      toast('Este repositório já está na biblioteca.');renderScan();return;
+    }
+    if(state.custom.length>=500){toast('Limite de projetos personalizados atingido.');return}
+    const id='github-'+(typeof crypto!=='undefined'&&crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+'-'+Math.random().toString(36).slice(2));
+    state.custom.push({id,name:clean(p.name.replace(/[-_]/g,' '),90),description:clean(p.description||'Projeto do meu GitHub.',260),category:scannerCategory(p),tech:clean(p.language||'Não informada',120),repoName:clean(p.name,100),repoUrl:p.html_url,liveUrl:includePage&&p.has_pages?suggestedPage(p):'',lastPush:p.pushed_at||'',symbol:clean(p.name.replace(/[^a-zA-Z0-9]/g,'').slice(0,2).toUpperCase()||'✦',4),palette:['#567397','#252e46']});
+    state.overrides[id]={status:'A organizar',fixes:[],ideas:[]};
+    state.ignoredRepos=(state.ignoredRepos||[]).filter(x=>x!==key);
+    save();render();renderScan();toast('Projeto adicionado! Agora você pode definir o status e incluir o ChatGPT.');
+  }
+  function toggleIgnoredRepo(key){
+    if(!getScanState().repos.some(p=>repoKeyFromApi(p)===key))return;
+    const set=new Set(state.ignoredRepos||[]);
+    if(set.has(key))set.delete(key);else set.add(key);
+    state.ignoredRepos=[...set];save();renderScan();
+  }
+  async function scanGitHub({silent=false}={}){
+    if(scannerBusy)return;
+    scannerBusy=true;
+    let scanError='';
+    el('scanNow').disabled=true;
+    if(!silent){el('scanStatus').textContent='Consultando os repositórios públicos no GitHub…';el('scanResults').innerHTML='<div class="scanner-empty">Buscando…</div>'}
+    try{
+      let all=[],complete=false;
+      for(let page=1;page<=5;page++){
+        const request=`https://api.github.com/users/${OWNER}/repos?type=owner&sort=updated&per_page=100&page=${page}`;
+        const resp=await fetch(request,{headers:{Accept:'application/vnd.github+json'}});
+        if(!resp.ok){if(resp.status===403||resp.status===429)throw Error('Limite de consultas do GitHub atingido. Tente novamente mais tarde.');throw Error(`Erro HTTP ${resp.status} ao consultar o GitHub.`)}
+        const data=await resp.json();if(!Array.isArray(data))throw Error('Resposta inesperada da API do GitHub.');
+        all.push(...data.filter(isRealRepo));
+        if(data.length<100){complete=true;break}
+      }
+      if(!complete)throw Error('Sua conta tem mais de 500 repositórios. A busca foi interrompida para evitar sugestões incompletas.');
+      state.githubScanner=sanitizeScanner({auto:getScanState().auto,checkedAt:new Date().toISOString(),repos:all});
+      // Atualiza datas de atividade por correspondência exata, nunca o status definido pelo usuário.
+      for(const p of state.githubScanner.repos){if(!p.pushed_at||Number.isNaN(Date.parse(p.pushed_at)))continue;
+        for(const base of [...defaults,...state.custom])if(repoKeyFromProject(base)===repoKeyFromApi(p))state.activity[base.id]=p.pushed_at;
+      }
+      save();render();
+      if(!silent)toast('Repositórios consultados! Veja as sugestões.');
+      else if(scannedSuggestions().length)toast(`GitHub: ${scannedSuggestions().length} novo(s) projeto(s) para avaliar.`);
+    }catch(err){
+      scanError='Não foi possível consultar o GitHub. '+clean(err.message||'Verifique sua conexão.',180)+' Sua biblioteca continua funcionando normalmente.';
+      // Não sobrescrever o cache nem a data da última busca quando houver erro.
+      console.warn('GitHub scanner:',err);
+    }finally{
+      scannerBusy=false;el('scanNow').disabled=false;
+      if(!el('scanBackdrop').hidden){renderScan();if(scanError)el('scanStatus').textContent=scanError}
+      renderScanBadge();
+    }
+  }
+  function openScanner(){openModal('scan');el('scanShowIgnored').checked=false;renderScan()}
+  el('scanTop').addEventListener('click',openScanner);
+  el('scanSide').addEventListener('click',openScanner);
+  el('scanNow').addEventListener('click',()=>scanGitHub());
+  el('scanAuto').addEventListener('change',e=>{state.githubScanner={...getScanState(),auto:e.target.checked};save();toast(e.target.checked?'Busca automática ativada.':'Busca automática desativada.')});
+  el('scanShowIgnored').addEventListener('change',renderScan);
+  el('scanResults').addEventListener('click',e=>{
+    const add=e.target.closest('[data-scan-add]');const ignore=e.target.closest('[data-scan-ignore]');
+    if(add){const key=add.dataset.scanAdd;const cb=Array.from(el('scanResults').querySelectorAll('[data-github-page]')).find(x=>x.dataset.githubPage===key);addScannedRepo(key,!!cb?.checked)}
+    else if(ignore)toggleIgnoredRepo(ignore.dataset.scanIgnore);
+  });
+
   const tourSteps=[
     {selector:'#welcomeTitle',title:'Sua biblioteca pessoal',desc:'Tudo que você criou fica nesta coleção. Acesse os projetos e encontre rapidamente o que estava desenvolvendo.'},
     {selector:'#sidebarNav',title:'Organize por andamento',desc:'Use Em andamento para projetos em desenvolvimento, Em testes para validação e Com bug para problemas conhecidos. Um bug é uma marcação separada do andamento.'},
     {selector:'#searchInput',title:'Encontre qualquer projeto',desc:'Busque pelo nome, descrição, anotações, correções ou ideias. Use os filtros para afunilar a biblioteca.'},
     {selector:'#projectGrid',title:'Aplicativo, GitHub e ChatGPT',desc:'Clique em ⋯ no cartão. Nos detalhes, você pode salvar o link da conversa do ChatGPT e abrir diretamente depois. Também pode editar o status.'},
     {selector:'#boardSection',title:'Próximas correções e ideias',desc:'Adicione correções e ideias dentro de cada projeto. Elas aparecem agrupadas aqui. Marque itens concluídos com um clique.'},
+    {selector:'#scanTop',title:'Descobrir projetos automaticamente',desc:'A Arvak Library verifica seus repositórios públicos no GitHub, sugere os novos e só os adiciona com sua aprovação. Você pode ignorar sugestões. A busca automática ocorre no máximo uma vez por dia.'},
     {selector:'#settingsSide',title:'Nunca esqueça do backup',desc:'Os dados são salvos neste navegador. Exporte o JSON regularmente antes de atualizar, trocar de aparelho ou limpar os dados do navegador.'}
   ];
   let tourIndex=0;
@@ -376,6 +574,7 @@
     root.addEventListener('change',e=>{const t=e.target.closest('[data-task="toggle"]');if(t)updateTask(ui.selectedId,kind,'toggle',t.dataset.taskId)});
     root.addEventListener('click',e=>{const t=e.target.closest('[data-task="remove"]');if(t)updateTask(ui.selectedId,kind,'remove',t.dataset.taskId)});
   });
+  el('downloadV13Backup').addEventListener('click',()=>{const raw=localStorageSafeGet(V13_BACKUP_KEY);if(!raw){toast('Cópia local indisponível.');return}downloadJSON('arvak-library-dados-antes-v1.3.json',raw);toast('Cópia anterior baixada.')});
   el('downloadV12Backup').addEventListener('click',()=>{const raw=localStorageSafeGet(V12_BACKUP_KEY);if(!raw){toast('Cópia local indisponível.');return}downloadJSON('arvak-library-dados-antes-v1.2.json',raw);toast('Cópia anterior baixada.')});
   el('searchInput').addEventListener('input',e=>{ui.query=e.target.value;renderGrid()});
   el('categoryFilter').addEventListener('change',e=>{ui.category=e.target.value;renderGrid()});
@@ -404,11 +603,12 @@
   el('restoreHidden').addEventListener('click',()=>{if(!state.hidden.length){toast('Nenhum projeto oculto.');return}state.hidden=[];save();render();toast('Projetos restaurados!')});
   el('resetData').addEventListener('click',()=>{if(!confirm('ATENÇÃO: apagar todas as personalizações e projetos adicionados? Exporte um backup antes, se necessário.'))return;try{const current=localStorage.getItem(STORAGE_KEY);if(current)localStorage.setItem('arvak-library-backup-before-reset',current)}catch{}state=baseState();save();ui.nav='todos';ui.status='all';ui.category='all';ui.query='';el('searchInput').value='';closeAll();render();toast('Biblioteca restaurada ao estado inicial.')});
   document.querySelectorAll('.backdrop').forEach(back=>back.addEventListener('pointerdown',e=>{if(e.target===back)closeAll()}));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeAll();return}if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName)&&['detailBackdrop','addBackdrop','settingsBackdrop'].every(id=>el(id).hidden)){e.preventDefault();el('searchInput').focus()}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeAll();return}if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName)&&['detailBackdrop','addBackdrop','settingsBackdrop','scanBackdrop'].every(id=>el(id).hidden)){e.preventDefault();el('searchInput').focus()}});
   el('openMenu').addEventListener('click',()=>{el('sidebar').classList.add('open');el('menuBackdrop').classList.add('visible')});
   el('menuBackdrop').addEventListener('click',closeAll);
   el('brandHome').addEventListener('click',e=>{e.preventDefault();ui.nav='todos';closeAll();render()});
   render();
+  if(getScanState().auto!==false && (!getScanState().checkedAt||Date.now()-new Date(getScanState().checkedAt).getTime()>GITHUB_SCAN_COOLDOWN))scanGitHub({silent:true});
   if(!localStorageSafeGet(TUTORIAL_KEY))setTimeout(startTour,450);
   </script>
 </body>

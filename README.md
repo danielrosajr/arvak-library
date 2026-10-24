@@ -1,52 +1,37 @@
-# Arvak Library v1.2.0
+# Arvak Library v1.3.0 — GitHub Discovery
 
-> Biblioteca pessoal de aplicativos, mods, ferramentas e ideias — organizada como uma pequena estante de jogos.
+Biblioteca pessoal de apps, mods, ferramentas e ideias, inspirada em uma estante de jogos. **Funciona em um único `index.html`, sem npm e sem backend.**
 
-**Aplicativo estático, em um único `index.html`, sem npm, backend, conta ou banco de dados.**
+## Novidade: descobrir projetos do GitHub
 
-## O que há de novo
+- Botões **Buscar projetos** e **Descobrir no GitHub** abrem o scanner.
+- Ao abrir a biblioteca, ele consulta automaticamente os repositórios públicos de `danielrosajr` **no máximo uma vez a cada 24 horas** (pode desativar em Dados e backup).
+- Ao identificar repositórios que não constam no catálogo inicial nem nos seus cadastros pessoais, mostra sugestões com nome, descrição, linguagem, último push, fork/arquivado e indicação de GitHub Pages habilitado.
+- Você pode **Adicionar à biblioteca** ou **Ignorar sugestão**. As ignoradas podem ser exibidas novamente pela caixa **Mostrar ignorados**.
+- Nenhum projeto é adicionado sem sua escolha. O status inicial dos importados é **A organizar**, pois o GitHub não informa o estágio real do desenvolvimento.
+- O scanner associa um repositório já cadastrado pelo nome de repositório ou por sua URL GitHub. Se um cadastro manual não tiver endereço GitHub, pode ser sugerido de novo; associe a URL para evitar isso.
+- Quando um repositório tem GitHub Pages habilitado, há uma opção para incluir o endereço padrão. **Pages habilitado não garante que o endereço realmente funcione.** Confira antes de marcar.
+- A busca também atualiza a data do último push dos projetos conhecidos, sem tocar em seus status, favoritos ou anotações.
 
-- **Conversa do ChatGPT por projeto:** campo editável nos detalhes (e ao cadastrar projetos) e atalho `✦ Chat` no cartão depois de salvar.
-- **Em andamento:** situação específica para projetos sendo desenvolvidos agora. O valor `Ativo` dos dados antigos continua reconhecido e aparece como **Em andamento** na interface.
-- **Próximas correções:** checklist individual por projeto, com marcar como resolvido, excluir, pendências e painel geral.
-- **Ideias para o futuro:** checklist separado de correções com visão geral por projeto.
-- **Mini tutorial guiado:** seis passos, abre na primeira visita desta versão e pode ser repetido pelo menu ou Ajuda.
-- **Backups:** exportação/importação JSON abrangendo links do ChatGPT, tarefas e todo o histórico já existente. Cópia local automática dos dados disponíveis antes da v1.2, mantendo a cópia anterior da v1.1.
+## Privacidade e limites
 
-## Estados disponíveis
+Utiliza a API pública do GitHub (`GET /users/danielrosajr/repos`). Não requer token, login, servidor ou chaves secretas. Detecta apenas **repositórios públicos**; privados não são descobertos.
 
-`A organizar` · `Em andamento` · `Pausado` · `Em testes` · `Concluído` · `Ideia` · `Arquivado`.
+O GitHub limita a quantidade de solicitações sem autenticação (normalmente 60/hora por IP, sujeito a alterações). Ao atingir o limite ou ficar offline, a biblioteca continua funcionando e o scanner mostra um aviso. Suporta até 500 repositórios consultados na mesma busca, em até cinco páginas de 100.
 
-**Com bug** é uma marcação independente, podendo coexistir com qualquer um dos estados. O campo livre de bugs da v1.1 permanece preservado. Os itens em **Próximas correções** são tarefas extras, não substituem as notas antigas.
+Os dados da biblioteca ficam no `localStorage` do navegador. A coleção não é enviada ao GitHub. O scanner salva apenas metadados públicos e suas preferências de sugestões. Não coloque tokens de acesso no HTML.
 
-## Dados e privacidade
+## Manutenção e publicação
 
-- Os dados ficam no **localStorage** deste navegador, na mesma chave anterior: `arvak-library-v1`.
-- Atualizar o `index.html` **no mesmo endereço e navegador** não apaga seus projetos personalizados por si só.
-- Se trocar navegador, dispositivo, domínio, limpar dados do site ou usar janela anônima, seus dados podem não aparecer.
-- Sempre **exporte o JSON antes de atualizar**. Salve-o em local privado e seguro.
-- Os URLs de conversas do ChatGPT são privados por padrão somente enquanto forem dados locais. **Links de compartilhamento do ChatGPT podem permitir leitura por qualquer pessoa com o link**, e todos os links inseridos constam também no JSON de backup. Não publique esse JSON em repositórios públicos.
-- Abrir uma conversa normal pode exigir estar logado no ChatGPT e ter acesso à conversa.
-- Não há sincronização automática nem acesso à API do ChatGPT.
-- A consulta opcional de datas de push busca somente metadados públicos na API do GitHub.
+Basta enviar `index.html` à raiz do repositório `danielrosajr/arvak-library` e manter GitHub Pages configurado como **Deploy from a branch → main → /(root)**. Consulte `COMO_ATUALIZAR.md` antes de atualizar.
 
-## Publicação / atualização
+## Recursos mantidos
 
-Consulte [COMO_ATUALIZAR.md](COMO_ATUALIZAR.md). O projeto funciona em GitHub Pages **Deploy from a branch**, com o `index.html` na raiz e sem build.
+- Biblioteca com busca, filtros, favoritos, status **Em andamento / Em testes / Pausado / Concluído / Ideia / Arquivado**
+- Marcação independente **Com bug** e anotações
+- Correções pendentes e ideias futuras
+- Links rápidos para o app, repositório e conversa do ChatGPT
+- Tutorial guiado, temas, modo cartão/lista
+- Backup e restauração JSON, inclusive arquivos das versões anteriores
 
-## Testes feitos
-
-- JavaScript analisado com `node --check` (Node 22).
-- Chromium/Playwright: adicionar projeto, registrar link de conversa, alterar estado, criar/marcar correções, cadastrar ideias, filtrar itens e persistir em armazenamento simulado.
-- Compatibilidade com dados da v1.1: projeto manual, notas, favorito e marcação de bugs preservados.
-- Exportação e importação JSON da v1.2 com itens e conversa; importação de um backup v1.1.
-- Testes funcionais em largura mobile (390px). O carregamento do HTML foi simulado no navegador com `set_content` porque o ambiente bloqueou navegação local por política; deploy público ainda deve ser conferido no seu GitHub Pages.
-
-## Repositório sugerido
-
-- **Repository:** `arvak-library`
-- **Description:** `A personal, Steam-inspired library to manage apps, active development, bugs, future ideas, and ChatGPT project conversations.`
-- **Topics:** `app-library`, `project-tracker`, `personal-dashboard`, `local-first`, `github-pages`, `javascript`, `productivity`, `side-projects`
-- **Tag:** `v1.2.0`
-- **Commit:** `feat: add ChatGPT links, project roadmap and guided tour`
-- **Release:** `Arvak Library v1.2.0 — Project Workflow & ChatGPT Links`
+**Licença:** não definida nesta versão.
