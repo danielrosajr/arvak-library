@@ -1,39 +1,52 @@
-# Como atualizar a Arvak Library v1.3 para v1.4.0
+# Atualizar Arvak Library para a v1.5.0, sem terminal
 
-## 1. Proteja seus dados antes de qualquer alteração
+## 1. Proteger seus dados atuais
 
-1. No navegador em que você já usa a biblioteca, abra https://danielrosajr.github.io/arvak-library/.
-2. Entre em **Dados e backup → Exportar biblioteca**.
-3. Salve o JSON em local seguro. Confira se o arquivo não está vazio.
-4. **Não limpe dados do navegador**. Não faça upload do backup JSON em repositório público: ele pode conter anotações e links privados do ChatGPT.
+Abra a **Arvak Library antiga** no mesmo navegador em que você cadastrou seus projetos:
 
-## 2. Atualize usando apenas o site do GitHub
+https://danielrosajr.github.io/arvak-library/
 
-1. Acesse https://github.com/danielrosajr/arvak-library.
-2. Abra `index.html` (na raiz do repositório).
-3. Clique no ícone de **lápis** para editar, ou **Add file → Upload files** para substituir o arquivo com o mesmo nome; confirme que não foi criado um arquivo `index (1).html` e que o `index.html` da raiz foi atualizado.
-4. Use o arquivo `index.html` desta entrega para substituir inteiramente o conteúdo antigo. Não envie o `.zip` diretamente como se fosse a aplicação.
-5. Clique em **Commit changes** e confirme na branch `main`.
-6. Verifique **Settings → Pages → Deploy from a branch → main → /(root)**.
-7. Entre em https://danielrosajr.github.io/arvak-library/ e atualize a página (Ctrl+Shift+R, se preciso).
+Clique em **Dados e backup → Exportar biblioteca**. Guarde o `.json` fora da pasta de downloads temporários. Isso é crucial para projetos criados por você, notas, links de conversas, ranking, correções e ideias.
 
-**Commit:** `feat: add project ranking, custom weights and manual priorities`
+## 2. Substituir o aplicativo
 
-## 3. Verifique antes de usar
+1. Abra: https://github.com/danielrosajr/arvak-library
+2. Na raiz, abra o arquivo `index.html`.
+3. Use o lápis **Edit this file**. Substitua todo o conteúdo pelo `index.html` desta versão (baixe o arquivo separadamente se preferir).
+4. Clique em **Commit changes**, mantendo a branch `main`.
+5. Se houver limitação de tamanho do editor web, use **Add file → Upload files** para subir o `index.html` extraído do ZIP, confirmando a substituição quando a interface permitir. Nunca faça upload do ZIP fechado como se fosse o site.
+6. Abra **Settings → Pages** e confira se ainda está em **Deploy from a branch → main → /(root)**. Se já funciona, não altere essa configuração.
+7. Verifique o site publicado. Se a versão antiga persistir, atualize a aba sem cache (Ctrl + Shift + R).
 
-- Seus projetos cadastrados manualmente continuam no catálogo?
-- Seus favoritos, links de ChatGPT, bugs, correções e ideias continuam intactos?
-- Aparece **Ranking de Projetos** no menu esquerdo?
-- Projetos ainda não avaliados exibem “Aguardando avaliação”?
-- Você consegue avaliar um projeto, ajustar pesos e mover o ranking manual?
-- O filtro e o tema continuam funcionando no celular?
+## 3. Primeira execução
 
-## 4. Se não aparecerem seus projetos
+- Verifique que todos os projetos manuais, notas, favoritos, conversas do ChatGPT e rankings continuam presentes.
+- Em **Ranking de Projetos → Smart Rank**, escolha o escopo.
+- De preferência, faça o primeiro teste com **Somente projetos pouco avaliados** e READMEs públicos desmarcados. Depois marque a opção de READMEs para análises mais fundamentadas.
+- Clique **Gerar prompt** e abra a prévia para revisar o texto.
+- Clique **Copiar prompt**, abra o ChatGPT e cole. O serviço pode responder em vários blocos; junte apenas JSON compatível antes de importar.
+- Copie a resposta JSON inteira para **Importar sugestões**, clique **Validar e comparar**, confira as notas propostas e marque apenas as que concordar.
+- Clique **Aplicar selecionadas** e confirme.
 
-Abra **Dados e backup → Importar backup**, selecione o JSON que baixou, confira a **prévia do número de projetos/ajustes** e confirme a substituição. Isso substitui sua configuração atual. Se você já adicionou dados novos nesta versão, exporte-os primeiro.
+## 4. Solução de problemas
 
-A cópia local feita antes da primeira abertura da v1.4 pode ser baixada em **Dados e backup → Cópia antes da v1.4**, se o navegador ainda possuir esse dado. Ela não substitui o backup JSON externo.
+**Apareceu projeto sem avaliação?** É esperado. Critérios com evidência insuficiente ficam em branco, não em zero.
 
-## 5. Próximas atualizações
+**O ChatGPT não trouxe um JSON válido?** Responda na mesma conversa: “Devolva apenas um objeto JSON válido, sem explicação e sem markdown, seguindo o schema arvak-smart-rank-v1 e os mesmos ids.”
 
-Repita o processo com o `index.html` de cada release, sempre exportando backup antes. Todos os campos conhecidos continuam no mesmo formato de dados (`arvak-library-v1`).
+**Erro em projeto desconhecido?** Confira se cada objeto tem o campo `id` exatamente igual ao usado no prompt; o app não cria projetos por importação de sugestões.
+
+**Leitura do README falhou?** Desmarque a opção README, ou tente novamente depois. A API pública do GitHub tem limites e pode não disponibilizar o arquivo.
+
+**Sumiço dos dados?** Verifique se está no mesmo navegador/endereço. Use **Dados e backup → Importar backup** para restaurar o JSON antigo com confirmação. A v1.5 também tenta guardar cópia local na primeira abertura.
+
+## 5. Metadados para GitHub
+
+- **Repository:** `arvak-library`
+- **Commit:** `feat: add free AI-assisted Smart Rank with JSON review`
+- **Tag:** `v1.5.0`
+- **Release title:** `Arvak Library v1.5.0 — Smart Rank (Free AI Workflow)`
+- **Description:** `A personal project library with GitHub discovery, AI-assisted rankings, development tracking, bug lists, and ChatGPT links.`
+- **Topics:** `app-library`, `project-ranking`, `ai-assisted`, `github-api`, `github-pages`, `local-first`, `javascript`, `productivity`
+
+Nenhuma publicação ou alteração no seu repositório foi realizada durante esta entrega.

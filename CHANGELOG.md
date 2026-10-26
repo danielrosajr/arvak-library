@@ -1,25 +1,34 @@
-# Changelog — Arvak Library
+# Changelog
 
-## [1.4.0] — 2026-10-25 — Project Ranking
+## [1.5.0] — Smart Rank
 
 ### Added
-- Project Ranking tab with optional evaluations for ten criteria plus maintenance effort.
-- Configurable weighted priority index, coverage tracking and provisional-score separation.
-- General, commercial, social, personal, quick-execution, portfolio and opportunity presets.
-- Create/delete user weight presets without overwriting project evaluations.
-- Separate manual order with keyboard/mobile-friendly up/down controls.
-- Instant scoring, quick evaluation in the project drawer and individual reasoning notes.
-- Filters for category, development status, query and incomplete evaluations.
-- Deterministic recommendations, explicit scoring documentation and a future roadmap.
-- Pre-v1.4 local backup and preview before importing a JSON backup.
+- Free ChatGPT-assisted scoring workflow with prompt generation and optional public README retrieval.
+- Scopes: all, insufficiently scored, and newly added/modified repositories.
+- Five analysis objective presets and preview/copy/download of prompt.
+- Validated JSON suggestions, per-criterion review, source confidence and evidence.
+- Selection controls, explicit approval before applying, and preservation of manual scores by default.
+- Local provenance for imported suggestions, new pre-v1.5 backup, and guided tutorial entry.
 
 ### Changed
-- Preserve version-1 `localStorage` schema; add ranking as an optional root property and evaluation on existing project overrides.
-- Ensure elements marked hidden remain hidden even when CSS defines a layout display property.
+- Ranking area now surfaces AI-assisted evaluation without altering its existing ranking formula or manual priorities.
+- Updated roadmap labels; planned Project Insights moved to v1.6.0.
+- Adjusted mobile screen-reader-only labels to avoid horizontal overflow.
 
 ### Preserved
-- Existing GitHub project discovery, app/ChatGPT links, status, favorites, bug reports, fixes, future ideas, statistics, tutorial, mobile layout and theme switching.
+- `arvak-library-v1` localStorage key and version 1 data model.
+- Existing apps, custom entries, statuses, favorites, notes, bugs, issues, ideas, ChatGPT links, Github scanner, themes and backups.
 
-### Limitations
-- All data remains local to the browser; cloud synchronization is not available.
-- Project comparison, charts, impact-effort matrix and cycle planning remain planned for later versions.
+### Security
+- No API tokens, payment, backend, automatic AI requests or automatic score replacement.
+- README fetch restricted to public GitHub repositories of the configured owner.
+- Private note and ChatGPT-link fields are excluded from generated prompts by design.
+
+## [1.4.0] — Project Ranking
+- User-controlled scorecard, ranking presets, manual ordering, score coverage, backup compatibility.
+
+## [1.3.0] — GitHub Discovery
+- GitHub repository suggestion scanner and add/ignore flow.
+
+## [1.2.0] — Project Workflow
+- ChatGPT conversation links, in-progress status, fixes, ideas and guided tour.

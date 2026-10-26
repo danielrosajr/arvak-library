@@ -1,61 +1,64 @@
-# Arvak Library v1.4.0 — Project Ranking
+# Arvak Library v1.5.0 — Smart Rank
 
-Biblioteca pessoal de aplicativos, ideias, mods e automações. Agora inclui **Ranking de Projetos**, sem substituir as funções já existentes.
+Biblioteca pessoal de apps, jogos, mods, ferramentas e ideias, com avaliações e rankings de projetos. **Agora com análise assistida pelo ChatGPT gratuito, sem chave de API.**
 
-**Site:** https://danielrosajr.github.io/arvak-library/
-**Repositório:** https://github.com/danielrosajr/arvak-library
+## Novidades da v1.5
 
-## O que há nesta versão
+- **Smart Rank**, acessível pelo menu lateral ou em **Ranking de Projetos**.
+- Gera um prompt estruturado para avaliar projetos com o ChatGPT. Você cola o prompt no ChatGPT e importa o JSON devolvido.
+- Três escopos: todos, pouco avaliados (cobertura abaixo de 90%) ou novos/alterados após a última importação aprovada.
+- Cinco contextos de análise: equilibrado, comercial, social, portfólio e execução rápida.
+- Pode consultar os READMEs públicos via API do GitHub. Se indisponíveis, continua com metadados; **não afirma ter inspecionado o código**.
+- Prévia do prompt antes de compartilhá-lo; botão de copiar e download TXT.
+- Importação de JSON colado ou arquivo, com validação de formato, nome/ID do projeto, notas numéricas de 0 a 10 e projetos desconhecidos.
+- Prévia comparativa nota anterior → sugestão, justificativa, confiança e evidência.
+- Notas previamente avaliadas começam **desmarcadas**; critérios pessoais (importância, motivação e urgência) também são desmarcados por padrão.
+- Aplicação por seleção e confirmação explícita, sem apagar campos não selecionados.
+- Guarda origem, data, confiança e referência textual das avaliações aceitas; edição manual remove a indicação de origem IA para o critério modificado.
+- Registro de novas/alteradas baseado em dados locais do projeto, inclusive último push recuperado do GitHub.
+- Cópia preventiva local do estado anterior à v1.5 e compatibilidade com backup da v1.4.
 
-- Biblioteca de projetos com favoritos, status, busca, links de GitHub, aplicativos e conversas do ChatGPT.
-- Projetos manuais, importação e sugestão de repositórios públicos do GitHub.
-- Correções, ideias futuras, marcação de bugs, backup e tutorial.
-- **NOVO:** 10 critérios de avaliação e manutenção opcional, em notas de 0 a 10, sem pré-preenchimentos inventados.
-- **NOVO:** Ranking calculado de 0 a 100 (não é probabilidade de sucesso), com cobertura de pesos e resultados provisórios.
-- **NOVO:** 7 perspectivas: geral, comercial, social, pessoal, execução rápida, portfólio e oportunidades.
-- **NOVO:** Pesos editáveis no modo geral e em presets personalizados, salvos no navegador.
-- **NOVO:** Ranking manual independente com controles de subir/descer, inclusive no celular.
-- **NOVO:** Sugestões contextuais simples, com dados que explicam a indicação.
-- **NOVO:** Filtro por texto, categoria, status e avaliação insuficiente.
-- **NOVO:** Migração sem reformatar o arquivo original; cópia preventiva local antes da v1.4.
+## Fluxo em 5 passos
 
-## Como acessar
+1. Entre na [Arvak Library](https://danielrosajr.github.io/arvak-library/) e exporte um backup em **Dados e backup**.
+2. Acesse **Smart Rank → Gerar prompt**. Decida se deseja incluir READMEs públicos.
+3. Confira a prévia, copie e cole o prompt em [ChatGPT](https://chatgpt.com/). Peça ao ChatGPT para devolver apenas o JSON especificado.
+4. Copie o JSON da resposta na Arvak Library → **Validar e comparar**.
+5. Selecione as notas que concorda em aceitar e clique em **Aplicar selecionadas**. A pontuação do ranking v1.4 é recalculada normalmente, usando seus pesos atuais.
 
-No menu esquerdo, escolha **Ranking de Projetos**. Para avaliar um projeto, clique em **Avaliar**, abra **Avaliação & Prioridade** e selecione apenas as notas que souber responder. É possível adicionar uma justificativa para cada nota. Alterações são salvas imediatamente. Projetos não avaliados mostram “— Não avaliado —”.
+**Importante:** ChatGPT é utilizado pelo usuário em outra aba. A biblioteca **não invoca uma API de IA e não gera avaliações sozinha**. O ChatGPT gratuito pode ter limites de tamanho e de uso. Projetos e notas não são enviados automaticamente; o compartilhamento ocorre ao copiar o prompt no ChatGPT.
 
-## Como a nota é calculada
+## Limites de segurança e qualidade
 
-Defina `s_i` de 0 a 10 e `w_i` como peso não negativo. Dificuldade, esforço e custo de manutenção usam nota ajustada `a_i = 10 − s_i`; os demais usam `a_i = s_i`. No modo **Oportunidades**, a validação real também é invertida: uma validação baixa sinaliza necessidade de investigar a hipótese, não prova de oportunidade comercial.
+- Apenas dados do projeto necessários ao prompt: nome, descrição, categoria, status, tecnologias e URL pública do repositório. Não são incluídos os campos privados de notas, favoritos, tarefas, bugs nem URLs das conversas ChatGPT. Os READMEs são arquivos **públicos** e podem conter texto adicional: sempre revise a prévia antes de compartilhar.
+- Os READMEs são limitados a 10.000 caracteres por projeto; não há clone do repositório, auditoria do código ou inferência automática de usuários e receitas.
+- Critérios não verificados ficam **não avaliados**. A avaliação não é uma previsão objetiva de sucesso.
+- Maturidade técnica e dificuldade podem ser estimadas, mas esforço restante, monetização e impacto social são hipóteses e exigem cautela.
+- GitHub público possui limites por IP e pode negar requisições; nesses casos o prompt continua utilizável com metadados.
+- O JSON colado permanece na tela até você fechá-la. As sugestões só são gravadas após seleção e confirmação explícita.
 
-Para os critérios preenchidos que têm peso maior que zero:
+## Tecnologia
 
-```
-indice = round(100 × Σ(w_i × a_i) / (10 × Σ w_i preenchidos))
-cobertura = round(100 × Σ(w_i preenchidos) / Σ(w_i de todos os critérios))
-```
+HTML/CSS/JavaScript, tudo em um único `index.html`. Sem npm, banco de dados, chaves de API ou backend. Compatível com GitHub Pages **Deploy from a branch**.
 
-- **≥ 90%** de cobertura: classificação com boa cobertura.
-- **60% até menos de 90%:** classificação provisória.
-- **Menos de 60%** (ou pesos totais iguais a zero): aguarda avaliação, sem índice.
-- Pesos **não precisam somar 100**; o cálculo normaliza automaticamente. Pesos iguais a zero excluem critérios.
-- Empates usam a ordem alfabética como desempate. Pontuações parciais não são misturadas entre projetos com graus de cobertura muito diferentes.
+### Dados e backups
 
-A nota é **um índice subjetivo de prioridade**, não estimativa de receita, probabilidade de sucesso, qualidade ou impacto medido. O usuário tem a decisão final.
+Chave histórica **`arvak-library-v1`**, `version: 1`. Novas informações ficam em `smartRank` e em `overrides[id].evaluation`, mantendo o formato anterior. Há cópia local opcional em `arvak-library-backup-before-v1.5`.
 
-## Onde meus dados ficam?
+Faça backup JSON antes de qualquer atualização. A biblioteca usa o armazenamento do navegador e não sincroniza entre dispositivos.
 
-Toda a personalização continua em `localStorage`, na chave existente **`arvak-library-v1`** (`version: 1`). Avaliações e justificativas são guardadas em `state.overrides[projectId].evaluation`. Os pesos e a lista manual ficam em `state.ranking`. Nenhum projeto antigo recebe avaliação automática. A primeira abertura da v1.4 cria, quando possível, uma cópia local do JSON anterior em `arvak-library-backup-before-v1.4`.
+### Fórmula do ranking (mantida da v1.4)
 
-O navegador **não sincroniza com outros computadores**. Exporte o backup JSON regularmente em **Dados e backup → Exportar biblioteca**. O backup exporta os campos anteriores e os novos.
+Índice = soma dos `(nota convertida / 10) × peso` dos critérios preenchidos, dividida pela soma dos pesos preenchidos, multiplicada por 100. Em `difficulty`, `effort` e `maintenance`, a nota convertida é `10 - nota`. Cobertura = soma dos pesos respondidos / soma de todos os pesos ativos. Projetos abaixo de 60% de cobertura não recebem índice; entre 60% e 90% recebem rótulo provisório. Pesos zerados não geram divisão por zero.
 
-## Atualizar sem terminal
+## Instalação e publicação
 
-Leia [COMO_ATUALIZAR.md](COMO_ATUALIZAR.md). Apenas o `index.html` precisa ser substituído. Para publicar, mantenha GitHub Pages em **Deploy from a branch**, branch `main`, pasta `/ (root)`.
-
-## Stack
-
-HTML, CSS e JavaScript puros, em um único arquivo estático; sem npm, login, banco de dados ou servidor próprio. API pública do GitHub usada apenas para a descoberta/atividade opcional dos repositórios. Não usa IA para pontuar.
+Consulte [`COMO_ATUALIZAR.md`](COMO_ATUALIZAR.md). No repositório `danielrosajr/arvak-library`, atualize apenas o `index.html` na raiz e faça commit na branch `main`. Não precisa mudar o modo de GitHub Pages.
 
 ## Roadmap
 
-Veja [ROADMAP.md](ROADMAP.md). A próxima versão está planejada para **Project Insights**, sem promessa de integração automática com dados privados.
+Veja [`ROADMAP.md`](ROADMAP.md). Esta versão é a **v1.5.0 — Smart Rank**. A próxima proposta é **v1.6.0 — Project Insights**.
+
+## Licença
+
+Nenhuma licença foi definida nesta entrega; o repositório não recebe uma licença automaticamente.

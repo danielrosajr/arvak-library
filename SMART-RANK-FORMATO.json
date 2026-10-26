@@ -1,0 +1,21 @@
+{
+  "schema": "arvak-smart-rank-v1",
+  "projects": [
+    {
+      "id": "substitua-pelo-id-exato-do-projeto",
+      "scores": {
+        "portfolio": 7,
+        "difficulty": 4
+      },
+      "notes": {
+        "portfolio": "EXEMPLO FICTÍCIO: justifique com evidências reais.",
+        "difficulty": "EXEMPLO FICTÍCIO: explique a dificuldade observada."
+      },
+      "confidence": {
+        "portfolio": "low",
+        "difficulty": "low"
+      },
+      "evidence": {}
+    }
+  ]
+}

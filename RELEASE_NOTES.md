@@ -1,30 +1,36 @@
-# Arvak Library v1.4.0 — Project Ranking & Priorities
+# Arvak Library v1.5.0 — Smart Rank (Free AI Workflow)
 
-Build a clearer plan for your apps, ideas, experiments, and mods without losing the freedom to choose what matters to you.
+## Highlights
 
-## ✨ What's new
+Smart Rank lets you evaluate and prioritize multiple personal projects without manually filling every score. It uses a free, review-first ChatGPT workflow: generate a structured prompt, analyze it in ChatGPT, and import suggested ratings as JSON.
 
-- **Multi-criteria scoring:** Rate monetization, personal importance, social impact, portfolio value, technical difficulty, MVP effort, real validation, maturity, urgency and motivation. Maintenance cost is optional.
-- **Transparent priority index:** 0–100 with editable weights, missing-score handling and visible evaluation coverage. No invented ratings.
-- **Multiple ranking perspectives:** General, Commercial, Social, Personal, Quick Execution, Portfolio and Opportunities.
-- **Custom ranking presets:** Save your own weight combinations independently of project evaluations.
-- **Manual priority list:** Keep your personal order separate from automatic scores, with up/down controls that work on mobile.
-- **Quick evaluation & filters:** Edit ratings from the ranking, add individual explanations and filter by category, status or insufficient evaluations.
-- **Contextual observations:** Simple deterministic prompts based on your own recorded scores.
-- **Data protection:** Retains the original storage key, exports all ranking data in backups, supports earlier backup formats and creates a local pre-upgrade copy.
+### New features
 
-## 🔒 Compatibility
+- Generate structured analysis prompts for all projects, insufficiently evaluated items or projects modified since the last accepted analysis.
+- Optional public GitHub README retrieval (up to 10,000 characters per project); gracefully handles missing files and API limits.
+- Five perspectives: balanced, commercial, social, portfolio and quick execution.
+- Preview the prompt, copy it or download it as a TXT file.
+- Import suggested evaluations by pasting JSON or selecting a file.
+- Validate project IDs, missing/unknown projects and scores in the 0–10 range.
+- Review scores side by side with existing ratings, explanations, evidence and confidence.
+- Existing scores are not selected for overwrite by default. Subjective criteria such as personal meaning, motivation and urgency are also not selected automatically.
+- Apply only selected suggestions after explicit confirmation. Save the origin, date and confidence of accepted AI suggestions.
+- Preserves all v1.4 data, backups, GitHub discovery, links, tasks and ranking settings.
 
-Existing personal projects, URLs, ChatGPT conversation links, favorites, notes, bug lists, tasks, future ideas and GitHub discovery remain supported. The ranking starts empty until you rate projects yourself.
+### Privacy and limitations
 
-## ℹ️ Interpretation
+- No paid API, token, server, auto-sharing or autonomous ChatGPT connection. You paste the prompt and the returned JSON yourself.
+- Personal notes, favorites, bugs, tasks and ChatGPT links are excluded from generated project records.
+- Public READMEs may contain additional information; review prompts before sharing.
+- AI evaluations are hypotheses based on available evidence, not definitive facts. Missing ratings remain missing.
+- Public GitHub requests are rate limited and the README does not constitute a code audit.
 
-The numeric result is a *calculated priority index*, not a success probability, predicted profit or objective quality rating. Insufficiently assessed projects remain unranked or provisional.
+### Deployment
 
-## 📦 Upgrade
+1. Export your current JSON backup in Arvak Library.
+2. Replace the repository root `index.html` using GitHub's web interface.
+3. Commit to `main`; your existing GitHub Pages branch deployment serves the updated site.
+4. Check your data before running Smart Rank.
 
-Export your current library JSON first. Then replace only the root `index.html` file on GitHub and check the existing Pages deployment.
-
-## 🔭 Next
-
-v1.5.0 — Project Insights: side-by-side comparisons, charts, impact–effort matrix and clearer recommendations.
+**Tag:** `v1.5.0`
+**Commit:** `feat: add free AI-assisted Smart Rank with JSON review`

@@ -1,28 +1,21 @@
 # Arvak Library — Roadmap
 
-## v1.4.0 — Project Ranking ✅
-Optional ratings, editable weights, multiple presets, calculated ranking, coverage, manual priorities, quick evaluation, safe backups, filters and documented scoring.
+| Release | Feature | Status |
+|---|---|---|
+| v1.0 | Personal project library | Delivered |
+| v1.1 | Testing status, bug tracking, safe backups | Delivered |
+| v1.2 | ChatGPT conversation links, tasks and tutorial | Delivered |
+| v1.3 | Automatic GitHub repository discovery | Delivered |
+| v1.4 | Ranking & manual priorities | Delivered |
+| **v1.5.0** | **Smart Rank — free AI-assisted analysis and reviewed JSON import** | **Delivered in this package** |
+| v1.6.0 | Project Insights — comparison charts, impact vs effort, ranking simulations | Proposed |
+| v1.7.0 | Project Planning — focus, cycles, milestones and decisions | Proposed |
+| v1.8.0 | GitHub Intelligence — activity feed, release history, issue summary | Proposed |
 
-## v1.5.0 — Project Insights (planned)
-- Side-by-side comparison of 2+ projects.
-- Per-criterion bar charts and score differences with explanations.
-- Impact × Effort matrix (quick wins, big bets, incremental improvements, reconsider) with missing-data safeguards.
-- More complete insights for stalled projects and insufficient validation.
-- Richer priority dashboard, with optional filters.
+## Future Smart Rank extensions
 
-## v1.6.0 — Project Planning (planned)
-- Main project, secondary project and next idea to validate.
-- Milestones and focus cycles.
-- Manual urgency flags separate from project status.
-- Decision logs, planned vs. actual effort and optional focus reminders.
-
-## Future — GitHub Intelligence (optional)
-- Repo release and activity insights when available publicly.
-- Link suggestions for demos and documentation.
-- Contextual explanation of low public activity (do not confuse commits with productivity).
-- Keep the existing GitHub repository scanner and respect API limits.
-
-## Future — Cross-device data
-- Optional secure sync, only with user consent and a clear privacy/backup strategy.
-
-Roadmap is indicative, not a fixed deadline.
+- Export multiple prompt batches when the project library grows beyond free ChatGPT input limits.
+- Better code-level evidence via selected public source files (only if the user opts in).
+- Evaluation version history, reviewer comments and difference reports.
+- Optional local inference or permissioned external model integration without exposing API secrets in static code.
+- More reliable detection of project maturity using GitHub Actions/release metadata, never treating commit count as productivity.
