@@ -1,30 +1,30 @@
-# Arvak Library v1.3.0 — GitHub Project Discovery
+# Arvak Library v1.4.0 — Project Ranking & Priorities
 
-This release turns Arvak Library into a smarter personal project collection with opt-in GitHub repository suggestions.
+Build a clearer plan for your apps, ideas, experiments, and mods without losing the freedom to choose what matters to you.
 
-## Added
+## ✨ What's new
 
-- Discover public repositories from the owner's GitHub account using the official REST API.
-- Suggest repositories that are not already in the library.
-- Review each suggestion and choose to **Add** or **Ignore** it.
-- Display repository name, description, primary language, last push, archive/fork indicators, and GitHub Pages metadata.
-- Optional GitHub Pages URL suggestion (requires manual verification).
-- Automatic discovery at most once every 24 hours, with an on/off setting.
-- Restore ignored suggestions through a filter.
-- New guided tutorial step explaining discovery.
-- Pre-upgrade local backup for v1.3 and support for old JSON backups.
+- **Multi-criteria scoring:** Rate monetization, personal importance, social impact, portfolio value, technical difficulty, MVP effort, real validation, maturity, urgency and motivation. Maintenance cost is optional.
+- **Transparent priority index:** 0–100 with editable weights, missing-score handling and visible evaluation coverage. No invented ratings.
+- **Multiple ranking perspectives:** General, Commercial, Social, Personal, Quick Execution, Portfolio and Opportunities.
+- **Custom ranking presets:** Save your own weight combinations independently of project evaluations.
+- **Manual priority list:** Keep your personal order separate from automatic scores, with up/down controls that work on mobile.
+- **Quick evaluation & filters:** Edit ratings from the ranking, add individual explanations and filter by category, status or insufficient evaluations.
+- **Contextual observations:** Simple deterministic prompts based on your own recorded scores.
+- **Data protection:** Retains the original storage key, exports all ranking data in backups, supports earlier backup formats and creates a local pre-upgrade copy.
 
-## Improved
+## 🔒 Compatibility
 
-- Avoid duplicates by matching GitHub repository URLs and names, including manually added projects with repository links.
-- Refresh known projects' push activity during repository discovery.
-- Keep favorite flags, status, notes, ChatGPT links, bug lists and future ideas unchanged when scanning.
-- Improved small-screen toolbar layout.
+Existing personal projects, URLs, ChatGPT conversation links, favorites, notes, bug lists, tasks, future ideas and GitHub discovery remain supported. The ranking starts empty until you rate projects yourself.
 
-## Important
+## ℹ️ Interpretation
 
-- Repositories are **never added automatically**; you must confirm each import.
-- GitHub discovery only works with **public repositories**, needs an internet connection, and may be rate-limited by GitHub.
-- GitHub Pages being enabled does not guarantee that its URL is deployed or reachable.
-- Existing personalized project data remains browser-local. **Export a JSON backup before updating.**
-- No backend, API key, authentication or new dependencies required.
+The numeric result is a *calculated priority index*, not a success probability, predicted profit or objective quality rating. Insufficiently assessed projects remain unranked or provisional.
+
+## 📦 Upgrade
+
+Export your current library JSON first. Then replace only the root `index.html` file on GitHub and check the existing Pages deployment.
+
+## 🔭 Next
+
+v1.5.0 — Project Insights: side-by-side comparisons, charts, impact–effort matrix and clearer recommendations.

@@ -1,50 +1,39 @@
-# Como atualizar para Arvak Library v1.3.0
+# Como atualizar a Arvak Library v1.3 para v1.4.0
 
-## 1 — Faça backup ANTES de publicar
+## 1. Proteja seus dados antes de qualquer alteração
 
-Abra sua biblioteca atual **no mesmo navegador onde cadastrou seus projetos**:
+1. No navegador em que você já usa a biblioteca, abra https://danielrosajr.github.io/arvak-library/.
+2. Entre em **Dados e backup → Exportar biblioteca**.
+3. Salve o JSON em local seguro. Confira se o arquivo não está vazio.
+4. **Não limpe dados do navegador**. Não faça upload do backup JSON em repositório público: ele pode conter anotações e links privados do ChatGPT.
 
-https://danielrosajr.github.io/arvak-library/
+## 2. Atualize usando apenas o site do GitHub
 
-Use **Dados e backup → Exportar biblioteca**. Guarde o `.json` gerado em local seguro. Ele contém seus projetos adicionados, anotações, links do ChatGPT e outras personalizações, portanto **não faça upload público desse arquivo**.
+1. Acesse https://github.com/danielrosajr/arvak-library.
+2. Abra `index.html` (na raiz do repositório).
+3. Clique no ícone de **lápis** para editar, ou **Add file → Upload files** para substituir o arquivo com o mesmo nome; confirme que não foi criado um arquivo `index (1).html` e que o `index.html` da raiz foi atualizado.
+4. Use o arquivo `index.html` desta entrega para substituir inteiramente o conteúdo antigo. Não envie o `.zip` diretamente como se fosse a aplicação.
+5. Clique em **Commit changes** e confirme na branch `main`.
+6. Verifique **Settings → Pages → Deploy from a branch → main → /(root)**.
+7. Entre em https://danielrosajr.github.io/arvak-library/ e atualize a página (Ctrl+Shift+R, se preciso).
 
-**Por que é importante?** Todos os seus projetos personalizados ficam no navegador, não no repositório GitHub. Atualizar o HTML no mesmo domínio normalmente preserva tudo, mas usar outro navegador/dispositivo, navegar em modo anônimo ou limpar dados do site pode apresentar biblioteca vazia.
+**Commit:** `feat: add project ranking, custom weights and manual priorities`
 
-## 2 — Atualize pelo GitHub, sem terminal
+## 3. Verifique antes de usar
 
-1. Extraia o ZIP v1.3.0.
-2. Entre em https://github.com/danielrosajr/arvak-library
-3. Na raiz, abra **`index.html`**.
-4. Clique no lápis **Edit this file** e substitua o conteúdo pelo conteúdo integral do `index.html` da v1.3.0.
-5. Clique em **Commit changes** na branch `main`.
-6. Abra **Settings → Pages** e mantenha a origem **Deploy from a branch** (`main` e `/(root)`). Não precisa de GitHub Actions nem npm.
-7. Abra https://danielrosajr.github.io/arvak-library/ e atualize a página, se necessário com Ctrl+Shift+R.
+- Seus projetos cadastrados manualmente continuam no catálogo?
+- Seus favoritos, links de ChatGPT, bugs, correções e ideias continuam intactos?
+- Aparece **Ranking de Projetos** no menu esquerdo?
+- Projetos ainda não avaliados exibem “Aguardando avaliação”?
+- Você consegue avaliar um projeto, ajustar pesos e mover o ranking manual?
+- O filtro e o tema continuam funcionando no celular?
 
-Também pode usar **Add file → Upload files** para enviar `index.html`, mas confira se o GitHub realmente substituiu o arquivo existente. NÃO envie o ZIP como um único arquivo.
+## 4. Se não aparecerem seus projetos
 
-## 3 — Experimente a descoberta
+Abra **Dados e backup → Importar backup**, selecione o JSON que baixou, confira a **prévia do número de projetos/ajustes** e confirme a substituição. Isso substitui sua configuração atual. Se você já adicionou dados novos nesta versão, exporte-os primeiro.
 
-1. Clique **Buscar projetos** (acima) ou **Descobrir no GitHub** (menu lateral).
-2. Clique **Escanear GitHub** para consultar a lista atual.
-3. Em cada sugestão, escolha **Adicionar à biblioteca** ou **Ignorar sugestão**.
-4. Se o repositório tem GitHub Pages, marque a opção do URL padrão somente quando fizer sentido. Confirme depois que abre.
-5. Depois de adicionar, clique em `⋯` no cartão para escolher o status real, anotar correções, ideias e link do ChatGPT.
-6. Para rever sugestões ignoradas, marque **Mostrar ignorados**.
-7. Em **Dados e backup**, desative **Busca automática do GitHub** se quiser verificar só manualmente.
+A cópia local feita antes da primeira abertura da v1.4 pode ser baixada em **Dados e backup → Cópia antes da v1.4**, se o navegador ainda possuir esse dado. Ela não substitui o backup JSON externo.
 
-## 4 — Seus dados antigos
+## 5. Próximas atualizações
 
-A chave permanece `arvak-library-v1`, e a estrutura de dados é compatível com versões 1.0–1.2. O site cria uma cópia local anterior à primeira abertura da v1.3. Você pode baixá-la em **Dados e backup → Cópia antes da v1.3**.
-
-Se algo não aparecer, importe seu JSON anterior usando **Dados e backup → Importar backup**. Atenção: a importação substitui as personalizações atuais; exporte um backup novo primeiro, se necessário.
-
-## Informações sugeridas para o GitHub
-
-- **Repository name:** `arvak-library`
-- **Description:** `A personal, Steam-inspired app library with GitHub project discovery, progress tracking, bug lists, and quick links to apps and ChatGPT conversations.`
-- **Topics:** `app-library`, `project-tracker`, `github-api`, `github-pages`, `javascript`, `local-first`, `productivity`, `side-projects`
-- **Version / Tag:** `v1.3.0`
-- **Commit message:** `feat: discover new GitHub repositories and suggest projects`
-- **Release title:** `Arvak Library v1.3.0 — GitHub Project Discovery`
-
-Veja `RELEASE_NOTES.md` para o texto completo da release.
+Repita o processo com o `index.html` de cada release, sempre exportando backup antes. Todos os campos conhecidos continuam no mesmo formato de dados (`arvak-library-v1`).
