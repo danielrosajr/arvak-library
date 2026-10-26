@@ -1,21 +1,13 @@
-# Arvak Library — Roadmap
+# Roadmap — Arvak Library
 
-| Release | Feature | Status |
+| Version | Focus | Status |
 |---|---|---|
-| v1.0 | Personal project library | Delivered |
-| v1.1 | Testing status, bug tracking, safe backups | Delivered |
-| v1.2 | ChatGPT conversation links, tasks and tutorial | Delivered |
-| v1.3 | Automatic GitHub repository discovery | Delivered |
-| v1.4 | Ranking & manual priorities | Delivered |
-| **v1.5.0** | **Smart Rank — free AI-assisted analysis and reviewed JSON import** | **Delivered in this package** |
-| v1.6.0 | Project Insights — comparison charts, impact vs effort, ranking simulations | Proposed |
-| v1.7.0 | Project Planning — focus, cycles, milestones and decisions | Proposed |
-| v1.8.0 | GitHub Intelligence — activity feed, release history, issue summary | Proposed |
+| v1.3.0 | GitHub Discovery | Delivered |
+| v1.4.0 | Project Ranking | Delivered |
+| v1.5.0 | Smart Rank (free ChatGPT + JSON import) | Delivered |
+| **v1.6.0** | **Idea Vault — reusable project prompts, motivation and project vision** | **This release** |
+| v1.7.0 | Project Insights — comparisons, charts, impact × effort matrix, explainable suggestions | Planned |
+| v1.8.0 | Project Planning — milestones, work cycles, focus and timeline | Planned |
+| v1.9.0 | GitHub Intelligence — releases, issues, activity and stale-project hints | Planned |
 
-## Future Smart Rank extensions
-
-- Export multiple prompt batches when the project library grows beyond free ChatGPT input limits.
-- Better code-level evidence via selected public source files (only if the user opts in).
-- Evaluation version history, reviewer comments and difference reports.
-- Optional local inference or permissioned external model integration without exposing API secrets in static code.
-- More reliable detection of project maturity using GitHub Actions/release metadata, never treating commit count as productivity.
+Future possibilities for Idea Vault (not implemented in this release): prompt version history, saved prompt templates, optional attachments, a guided brainstorm interview and cross-device sync with user-controlled storage.

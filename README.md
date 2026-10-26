@@ -1,64 +1,65 @@
-# Arvak Library v1.5.0 — Smart Rank
+# Arvak Library v1.6.0 — Idea Vault
 
-Biblioteca pessoal de apps, jogos, mods, ferramentas e ideias, com avaliações e rankings de projetos. **Agora com análise assistida pelo ChatGPT gratuito, sem chave de API.**
+**Uma biblioteca pessoal de aplicativos, mods, automações, projetos e ideias ainda não iniciadas.**
 
-## Novidades da v1.5
+A versão 1.6.0 adiciona o **Cofre de Ideias** à Arvak Library v1.5.0 existente. Não é um aplicativo novo. Todas as áreas anteriores continuam no arquivo único `index.html`: projetos, favoritos, GitHub Discovery, Smart Rank, rankings, links do ChatGPT, bugs, correções, ideias futuras, tutorial e backups.
 
-- **Smart Rank**, acessível pelo menu lateral ou em **Ranking de Projetos**.
-- Gera um prompt estruturado para avaliar projetos com o ChatGPT. Você cola o prompt no ChatGPT e importa o JSON devolvido.
-- Três escopos: todos, pouco avaliados (cobertura abaixo de 90%) ou novos/alterados após a última importação aprovada.
-- Cinco contextos de análise: equilibrado, comercial, social, portfólio e execução rápida.
-- Pode consultar os READMEs públicos via API do GitHub. Se indisponíveis, continua com metadados; **não afirma ter inspecionado o código**.
-- Prévia do prompt antes de compartilhá-lo; botão de copiar e download TXT.
-- Importação de JSON colado ou arquivo, com validação de formato, nome/ID do projeto, notas numéricas de 0 a 10 e projetos desconhecidos.
-- Prévia comparativa nota anterior → sugestão, justificativa, confiança e evidência.
-- Notas previamente avaliadas começam **desmarcadas**; critérios pessoais (importância, motivação e urgência) também são desmarcados por padrão.
-- Aplicação por seleção e confirmação explícita, sem apagar campos não selecionados.
-- Guarda origem, data, confiança e referência textual das avaliações aceitas; edição manual remove a indicação de origem IA para o critério modificado.
-- Registro de novas/alteradas baseado em dados locais do projeto, inclusive último push recuperado do GitHub.
-- Cópia preventiva local do estado anterior à v1.5 e compatibilidade com backup da v1.4.
+## ✧ Cofre de Ideias
 
-## Fluxo em 5 passos
+Selecione **Cofre de Ideias** no menu lateral. A nova área reúne:
 
-1. Entre na [Arvak Library](https://danielrosajr.github.io/arvak-library/) e exporte um backup em **Dados e backup**.
-2. Acesse **Smart Rank → Gerar prompt**. Decida se deseja incluir READMEs públicos.
-3. Confira a prévia, copie e cole o prompt em [ChatGPT](https://chatgpt.com/). Peça ao ChatGPT para devolver apenas o JSON especificado.
-4. Copie o JSON da resposta na Arvak Library → **Validar e comparar**.
-5. Selecione as notas que concorda em aceitar e clique em **Aplicar selecionadas**. A pontuação do ranking v1.4 é recalculada normalmente, usando seus pesos atuais.
+- Projetos com status `Ideia` (inclusive antigos, ainda sem prompt).
+- Projetos com conteúdo salvo no Cofre, mesmo que depois mudem de status para `Em andamento`, `Pausado` ou outro.
+- Contagem de ideias, prompts salvos e ideias prontas para começar.
+- Busca por título, descrição, prompt, motivo, resultado desejado e notas.
+- Filtros para `Sem prompt`, `Com prompt`, `Prontas para começar` e `Ainda na fase de ideia`.
+- Ordenação por edição mais recente ou nome.
 
-**Importante:** ChatGPT é utilizado pelo usuário em outra aba. A biblioteca **não invoca uma API de IA e não gera avaliações sozinha**. O ChatGPT gratuito pode ter limites de tamanho e de uso. Projetos e notas não são enviados automaticamente; o compartilhamento ocorre ao copiar o prompt no ChatGPT.
+Ao criar uma ideia em **Guardar nova ideia**, informe o nome, selecione (automaticamente) o status **Ideia** e salve. O editor do Cofre abre em seguida.
 
-## Limites de segurança e qualidade
+Dentro de **Cofre de Ideias**, cada projeto possui campos independentes:
 
-- Apenas dados do projeto necessários ao prompt: nome, descrição, categoria, status, tecnologias e URL pública do repositório. Não são incluídos os campos privados de notas, favoritos, tarefas, bugs nem URLs das conversas ChatGPT. Os READMEs são arquivos **públicos** e podem conter texto adicional: sempre revise a prévia antes de compartilhar.
-- Os READMEs são limitados a 10.000 caracteres por projeto; não há clone do repositório, auditoria do código ou inferência automática de usuários e receitas.
-- Critérios não verificados ficam **não avaliados**. A avaliação não é uma previsão objetiva de sucesso.
-- Maturidade técnica e dificuldade podem ser estimadas, mas esforço restante, monetização e impacto social são hipóteses e exigem cautela.
-- GitHub público possui limites por IP e pode negar requisições; nesses casos o prompt continua utilizável com metadados.
-- O JSON colado permanece na tela até você fechá-la. As sugestões só são gravadas após seleção e confirmação explícita.
+| Campo | Objetivo | Limite |
+|---|---|---|
+| Prompt completo | Texto para reutilizar no ChatGPT | 40.000 caracteres |
+| Por que tive a ideia | Problema, necessidade ou motivação | 2.500 caracteres |
+| Resultado final imaginado | Visão do produto final | 2.500 caracteres |
+| Notas e referências | Inspirações, links, riscos, hipóteses | 5.000 caracteres |
+| Preparação | Rascunho, Estruturada ou Pronta para começar | — |
 
-## Tecnologia
+O texto é salvo automaticamente com um pequeno intervalo enquanto você digita (também existe **Salvar ideia**). O prompt pode ser copiado, exportado em `.txt` ou preenchido a partir de um `.txt` existente. O editor pergunta antes de substituir um prompt já preenchido por um arquivo importado.
 
-HTML/CSS/JavaScript, tudo em um único `index.html`. Sem npm, banco de dados, chaves de API ou backend. Compatível com GitHub Pages **Deploy from a branch**.
+**Importante:** as etapas de preparação não mudam o status real do projeto. Uma ideia pode ficar `Pronta para começar` e continuar com status `Ideia`.
 
-### Dados e backups
+## Privacidade e armazenamento
 
-Chave histórica **`arvak-library-v1`**, `version: 1`. Novas informações ficam em `smartRank` e em `overrides[id].evaluation`, mantendo o formato anterior. Há cópia local opcional em `arvak-library-backup-before-v1.5`.
+Tudo funciona localmente, sem conta, chave ou API paga. O conteúdo fica no `localStorage` do navegador com a chave original **`arvak-library-v1`**. A Arvak Library não envia automaticamente seus prompts para o ChatGPT, para o GitHub ou para um backend.
 
-Faça backup JSON antes de qualquer atualização. A biblioteca usa o armazenamento do navegador e não sincroniza entre dispositivos.
+- Os dados não são sincronizados entre computadores ou navegadores.
+- Exporte o backup JSON regularmente em **Dados e backup → Exportar biblioteca**.
+- Guarde esse JSON com cuidado: ele pode conter ideias pessoais, links de conversas e anotações privadas.
+- A primeira abertura da v1.6 preserva também uma cópia local anterior à atualização, disponível em **Dados e backup** enquanto o armazenamento do navegador permitir.
+- Se o navegador bloquear o salvamento ou ficar sem espaço, o editor exibirá um aviso; nesse caso copie o texto para um arquivo TXT e resolva o problema de armazenamento antes de continuar.
+- Os backups da v1.0–v1.5 continuam compatíveis. **Importar** substitui seus dados atuais e requer confirmação. Faça backup antes da importação.
 
-### Fórmula do ranking (mantida da v1.4)
+## Execução e publicação
 
-Índice = soma dos `(nota convertida / 10) × peso` dos critérios preenchidos, dividida pela soma dos pesos preenchidos, multiplicada por 100. Em `difficulty`, `effort` e `maintenance`, a nota convertida é `10 - nota`. Cobertura = soma dos pesos respondidos / soma de todos os pesos ativos. Projetos abaixo de 60% de cobertura não recebem índice; entre 60% e 90% recebem rótulo provisório. Pesos zerados não geram divisão por zero.
+A aplicação é inteiramente estática e está no arquivo **`index.html`**. Não precisa de npm, build, banco de dados ou GitHub Actions.
 
-## Instalação e publicação
+Repositório: <https://github.com/danielrosajr/arvak-library>
 
-Consulte [`COMO_ATUALIZAR.md`](COMO_ATUALIZAR.md). No repositório `danielrosajr/arvak-library`, atualize apenas o `index.html` na raiz e faça commit na branch `main`. Não precisa mudar o modo de GitHub Pages.
+GitHub Pages: <https://danielrosajr.github.io/arvak-library/>
 
-## Roadmap
+Para atualizar pelo navegador, consulte [COMO_ATUALIZAR.md](COMO_ATUALIZAR.md).
 
-Veja [`ROADMAP.md`](ROADMAP.md). Esta versão é a **v1.5.0 — Smart Rank**. A próxima proposta é **v1.6.0 — Project Insights**.
+## Qual a diferença de “Ideias para o futuro”?
+
+A seção **Ideias para o futuro** existente continua como lista de funcionalidades de cada projeto, por exemplo "adicionar modo offline" ao NEXO. **Cofre de Ideias** é para propostas de **projetos inteiros**, incluindo o prompt de criação e o motivo de fazer o aplicativo. Os dados não são mesclados nem substituídos.
+
+## Próximas versões
+
+Veja [ROADMAP.md](ROADMAP.md). A próxima proposta é `v1.7.0 — Project Insights`, com comparação de projetos, gráficos e matriz impacto × esforço.
 
 ## Licença
 
-Nenhuma licença foi definida nesta entrega; o repositório não recebe uma licença automaticamente.
+Não foi adicionada licença ao projeto nesta versão.

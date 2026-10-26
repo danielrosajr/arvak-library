@@ -1,36 +1,26 @@
-# Arvak Library v1.5.0 — Smart Rank (Free AI Workflow)
+# Arvak Library v1.6.0 — Idea Vault
 
-## Highlights
+**Save the idea now. Build it when you're ready.**
 
-Smart Rank lets you evaluate and prioritize multiple personal projects without manually filling every score. It uses a free, review-first ChatGPT workflow: generate a structured prompt, analyze it in ChatGPT, and import suggested ratings as JSON.
+This release introduces **Idea Vault**, a dedicated home for project concepts that you want to keep without starting development right away.
 
-### New features
+## What's new
 
-- Generate structured analysis prompts for all projects, insufficiently evaluated items or projects modified since the last accepted analysis.
-- Optional public GitHub README retrieval (up to 10,000 characters per project); gracefully handles missing files and API limits.
-- Five perspectives: balanced, commercial, social, portfolio and quick execution.
-- Preview the prompt, copy it or download it as a TXT file.
-- Import suggested evaluations by pasting JSON or selecting a file.
-- Validate project IDs, missing/unknown projects and scores in the 0–10 range.
-- Review scores side by side with existing ratings, explanations, evidence and confidence.
-- Existing scores are not selected for overwrite by default. Subjective criteria such as personal meaning, motivation and urgency are also not selected automatically.
-- Apply only selected suggestions after explicit confirmation. Save the origin, date and confidence of accepted AI suggestions.
-- Preserves all v1.4 data, backups, GitHub discovery, links, tasks and ranking settings.
+- **Project prompt storage:** save the full ChatGPT prompt inside the project (up to 40,000 characters).
+- **Personal context:** keep the original motivation, intended final experience, and additional references or brainstorming notes.
+- **Readiness stages:** Draft, Structured, and Ready to Start — separate from the project's development status.
+- **A dedicated Idea Vault:** browse ideas, see which have prompts, search across notes, sort by recent edits, and filter incomplete concepts.
+- **Easy reuse:** copy prompts, download them as TXT, or import existing TXT prompts into an idea.
+- **Autosave:** edits are stored in your browser with manual save available at any time.
+- **Guided workflow:** create a new idea from the Vault and open its editor immediately.
+- **Safer backups:** Idea Vault data is included in JSON exports/imports; compatible with older Arvak Library data.
 
-### Privacy and limitations
+## Compatibility
 
-- No paid API, token, server, auto-sharing or autonomous ChatGPT connection. You paste the prompt and the returned JSON yourself.
-- Personal notes, favorites, bugs, tasks and ChatGPT links are excluded from generated project records.
-- Public READMEs may contain additional information; review prompts before sharing.
-- AI evaluations are hypotheses based on available evidence, not definitive facts. Missing ratings remain missing.
-- Public GitHub requests are rate limited and the README does not constitute a code audit.
+The app stays a standalone `index.html` and retains its existing local-storage key. Existing favorites, projects, ChatGPT links, bugs, future-feature lists, and project ranking data remain intact.
 
-### Deployment
+## Upgrade instructions
 
-1. Export your current JSON backup in Arvak Library.
-2. Replace the repository root `index.html` using GitHub's web interface.
-3. Commit to `main`; your existing GitHub Pages branch deployment serves the updated site.
-4. Check your data before running Smart Rank.
+**Export a JSON backup first.** Replace your repository's root `index.html`, commit to `main`, and open GitHub Pages. No build step required.
 
-**Tag:** `v1.5.0`
-**Commit:** `feat: add free AI-assisted Smart Rank with JSON review`
+> Your prompts and notes are stored locally in the current browser. They do not sync to other devices or get sent to AI services automatically.
