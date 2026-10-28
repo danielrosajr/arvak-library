@@ -1,65 +1,58 @@
-# Arvak Library v1.6.0 — Idea Vault
+# Arvak Library v1.7.0 — Project Insights & Priority Duel
 
-**Uma biblioteca pessoal de aplicativos, mods, automações, projetos e ideias ainda não iniciadas.**
+Biblioteca pessoal de aplicativos e ideias, feita em **um único `index.html`** (HTML, CSS, JavaScript). Não exige npm, build, login, backend nem API paga.
 
-A versão 1.6.0 adiciona o **Cofre de Ideias** à Arvak Library v1.5.0 existente. Não é um aplicativo novo. Todas as áreas anteriores continuam no arquivo único `index.html`: projetos, favoritos, GitHub Discovery, Smart Rank, rankings, links do ChatGPT, bugs, correções, ideias futuras, tutorial e backups.
+**Nova nesta versão:**
 
-## ✧ Cofre de Ideias
+- **Project Insights:** dashboard com números por fase, recomendações de regras explicáveis, matriz Impacto × Esforço, comparação de 2–3 projetos e simulação de cenários sem alterar os pesos salvos.
+- **Duelo de Prioridades 1×1:** confronto entre dois projetos por rodada para ordenar o ranking manual de forma eficiente (inserção binária, tipicamente O(n log n), considerando preferências consistentes). A classificação calculada continua independente.
+- **Pausar / Concluir durante o duelo** e diretamente no ranking manual. Pausados/concluídos aparecem no fim do ranking. **Reativar** também está disponível.
+- **Desfazer rodada**, continuar sessão depois, conferir resultados e aplicar a nova ordem somente ao confirmar. Fechar o duelo não encerra a sessão.
+- **Backup pré-v1.7 automático local**, sem remover versões antigas ou mudar a chave original de armazenamento.
 
-Selecione **Cofre de Ideias** no menu lateral. A nova área reúne:
+## Importante: preservação de dados
 
-- Projetos com status `Ideia` (inclusive antigos, ainda sem prompt).
-- Projetos com conteúdo salvo no Cofre, mesmo que depois mudem de status para `Em andamento`, `Pausado` ou outro.
-- Contagem de ideias, prompts salvos e ideias prontas para começar.
-- Busca por título, descrição, prompt, motivo, resultado desejado e notas.
-- Filtros para `Sem prompt`, `Com prompt`, `Prontas para começar` e `Ainda na fase de ideia`.
-- Ordenação por edição mais recente ou nome.
+A aplicação continua usando a chave **`arvak-library-v1`** e o esquema `version: 1` para manter compatibilidade com backups antigos. O novo duelo é salvo em `ranking.duel` e o ranking manual em `ranking.manual`; os demais campos continuam iguais.
 
-Ao criar uma ideia em **Guardar nova ideia**, informe o nome, selecione (automaticamente) o status **Ideia** e salve. O editor do Cofre abre em seguida.
+Dados locais não sincronizam automaticamente entre dispositivos. **Exporte um JSON na versão antiga antes de atualizar.** A v1.7 oferece cópia local pré-atualização, mas essa cópia pode ser perdida se o navegador for limpo.
 
-Dentro de **Cofre de Ideias**, cada projeto possui campos independentes:
+Se marcar Pausado/Concluído no duelo, o **status é salvo imediatamente**. Descartar a ordenação não reverte mudanças de status (elas podem ser revertidas com Reativar). A ordenação inteira somente é substituída após clicar em **Aplicar minha nova ordem**.
 
-| Campo | Objetivo | Limite |
-|---|---|---|
-| Prompt completo | Texto para reutilizar no ChatGPT | 40.000 caracteres |
-| Por que tive a ideia | Problema, necessidade ou motivação | 2.500 caracteres |
-| Resultado final imaginado | Visão do produto final | 2.500 caracteres |
-| Notas e referências | Inspirações, links, riscos, hipóteses | 5.000 caracteres |
-| Preparação | Rascunho, Estruturada ou Pronta para começar | — |
+## Como usar o Duelo
 
-O texto é salvo automaticamente com um pequeno intervalo enquanto você digita (também existe **Salvar ideia**). O prompt pode ser copiado, exportado em `.txt` ou preenchido a partir de um `.txt` existente. O editor pergunta antes de substituir um prompt já preenchido por um arquivo importado.
+1. Abra **Ranking de Projetos → Priorizar em duelos 1×1**.
+2. Escolha qual projeto prefere priorizar a cada par. Não é uma competição por maior número de vitórias: uma inserção binária coloca os itens progressivamente na ordem.
+3. Use **Manter ordem anterior neste duelo** para aceitar a ordem atual daquele par sem deliberar novamente.
+4. Use **Pausar** ou **Concluir** em qualquer um dos dois projetos para tirá-lo das próximas comparações e deixá-lo ao fim.
+5. Pode fechar o painel e continuar depois. **Desfazer rodada** recupera até 100 estados anteriores da sessão.
+6. Confira a ordem final e clique em **Aplicar minha nova ordem**. Se optar por descartar, a ordem anterior permanece, exceto mudanças explícitas de status.
 
-**Importante:** as etapas de preparação não mudam o status real do projeto. Uma ideia pode ficar `Pronta para começar` e continuar com status `Ideia`.
+## Como usar Insights
 
-## Privacidade e armazenamento
+- **Matriz:** escolha perspectiva (geral/comercial/social/pessoal/portfólio), categoria e situação; o eixo X é esforço (dificuldade + esforço até MVP) e o Y é impacto ponderado, com linhas em 5/10. Exige notas de dificuldade **e** esforço e cobertura de impacto >=60%; demais itens são mostrados como sem dados suficientes. Quadrantes são heurísticas de planejamento.
+- **Comparação:** escolha 2–3 projetos; veja notas reais e campos não avaliados, sem substituição por zero.
+- **Cenários:** escolha pesos gerais, comerciais, sociais, pessoais, portfólio, execução rápida ou oportunidades. Uma simulação não muda a configuração global ou a prioridade manual. Projetos com baixa cobertura não são pontuados.
+- **Sugestões:** exclusivamente regras explicáveis baseadas em status e avaliações preenchidas. Não representam previsão de sucesso.
 
-Tudo funciona localmente, sem conta, chave ou API paga. O conteúdo fica no `localStorage` do navegador com a chave original **`arvak-library-v1`**. A Arvak Library não envia automaticamente seus prompts para o ChatGPT, para o GitHub ou para um backend.
+## GitHub Pages
 
-- Os dados não são sincronizados entre computadores ou navegadores.
-- Exporte o backup JSON regularmente em **Dados e backup → Exportar biblioteca**.
-- Guarde esse JSON com cuidado: ele pode conter ideias pessoais, links de conversas e anotações privadas.
-- A primeira abertura da v1.6 preserva também uma cópia local anterior à atualização, disponível em **Dados e backup** enquanto o armazenamento do navegador permitir.
-- Se o navegador bloquear o salvamento ou ficar sem espaço, o editor exibirá um aviso; nesse caso copie o texto para um arquivo TXT e resolva o problema de armazenamento antes de continuar.
-- Os backups da v1.0–v1.5 continuam compatíveis. **Importar** substitui seus dados atuais e requer confirmação. Faça backup antes da importação.
+O endereço esperado é `https://danielrosajr.github.io/arvak-library/` caso as configurações do Pages permaneçam habilitadas. Consulte `COMO_ATUALIZAR.md` antes de alterar o site.
 
-## Execução e publicação
+### Estrutura
 
-A aplicação é inteiramente estática e está no arquivo **`index.html`**. Não precisa de npm, build, banco de dados ou GitHub Actions.
+```
+index.html              # Aplicação completa (atualizar só ele)
+README.md               # Este guia
+COMO_ATUALIZAR.md       # Passo a passo no navegador
+RELEASE_NOTES.md        # Conteúdo para GitHub Release
+CHANGELOG.md            # Histórico
+ROADMAP.md              # Próximos passos
+TESTES.md               # Validações e testes manuais
+PREVIA-*.png            # Imagens demonstrativas opcionais
+```
 
-Repositório: <https://github.com/danielrosajr/arvak-library>
+## Privacidade e limites
 
-GitHub Pages: <https://danielrosajr.github.io/arvak-library/>
+Todos os dados pessoais são armazenados no navegador. A área Insights e o Duelo não usam rede. Funcionalidades anteriores como o scanner opcional do GitHub e leitura de README pelo Smart Rank ainda podem consultar endpoints públicos; nada disso é necessário para usar os Insights.
 
-Para atualizar pelo navegador, consulte [COMO_ATUALIZAR.md](COMO_ATUALIZAR.md).
-
-## Qual a diferença de “Ideias para o futuro”?
-
-A seção **Ideias para o futuro** existente continua como lista de funcionalidades de cada projeto, por exemplo "adicionar modo offline" ao NEXO. **Cofre de Ideias** é para propostas de **projetos inteiros**, incluindo o prompt de criação e o motivo de fazer o aplicativo. Os dados não são mesclados nem substituídos.
-
-## Próximas versões
-
-Veja [ROADMAP.md](ROADMAP.md). A próxima proposta é `v1.7.0 — Project Insights`, com comparação de projetos, gráficos e matriz impacto × esforço.
-
-## Licença
-
-Não foi adicionada licença ao projeto nesta versão.
+O aplicativo não verifica se notas subjetivas são corretas; o ranking mede as avaliações registradas, não sucesso futuro. Projetos não avaliados ficam indicados como tal.

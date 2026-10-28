@@ -1,26 +1,35 @@
-# Arvak Library v1.6.0 — Idea Vault
+# Arvak Library v1.7.0 — Project Insights & Priority Duel
 
-**Save the idea now. Build it when you're ready.**
+## Highlights
 
-This release introduces **Idea Vault**, a dedicated home for project concepts that you want to keep without starting development right away.
+Transform your personal library into a more practical project decision dashboard — without losing quick access to your apps, mods, or saved ideas.
 
-## What's new
+### Added
 
-- **Project prompt storage:** save the full ChatGPT prompt inside the project (up to 40,000 characters).
-- **Personal context:** keep the original motivation, intended final experience, and additional references or brainstorming notes.
-- **Readiness stages:** Draft, Structured, and Ready to Start — separate from the project's development status.
-- **A dedicated Idea Vault:** browse ideas, see which have prompts, search across notes, sort by recent edits, and filter incomplete concepts.
-- **Easy reuse:** copy prompts, download them as TXT, or import existing TXT prompts into an idea.
-- **Autosave:** edits are stored in your browser with manual save available at any time.
-- **Guided workflow:** create a new idea from the Vault and open its editor immediately.
-- **Safer backups:** Idea Vault data is included in JSON exports/imports; compatible with older Arvak Library data.
+- **Project Insights:** activity and evaluation summary, rule-based recommendations, and a configurable **Impact × Effort matrix**.
+- **Side-by-side comparisons:** compare two or three projects across existing rating criteria, preserving blank values rather than inventing scores.
+- **Scenario simulator:** see how alternative prioritization presets change the computed order without editing any stored weights or personal rankings.
+- **Priority Duel (1×1):** quickly build a personal ranking by choosing between two projects per round. Uses binary insertion to reduce the number of comparisons.
+- **Pause / Complete during duels:** remove a project from further rounds and place it at the bottom of the manual priority list. Reactivation is supported.
+- **Undo, resume and review:** comparison progress persists locally, and the final order is only applied after confirmation.
+- **Pre-v1.7 backup:** an automatic local snapshot is saved when previous data exists, with manual JSON export still strongly recommended.
 
-## Compatibility
+### Kept unchanged
 
-The app stays a standalone `index.html` and retains its existing local-storage key. Existing favorites, projects, ChatGPT links, bugs, future-feature lists, and project ranking data remain intact.
+- Existing `arvak-library-v1` storage key and backup schema version.
+- GitHub repository discovery and optional activity queries.
+- Smart Rank AI-assisted prompt/JSON workflow.
+- Idea Vault, saved prompts, app links, ChatGPT links, notes, fixes, future ideas, favorites, statuses, and theme.
+- Static single-file deployment through GitHub Pages.
 
-## Upgrade instructions
+### Notes
 
-**Export a JSON backup first.** Replace your repository's root `index.html`, commit to `main`, and open GitHub Pages. No build step required.
+- **No paid AI API, backend or account is needed.** Insights and duels run entirely in the browser.
+- Matrix placement requires sufficient rated criteria. Missing evaluations stay missing.
+- Changing a project status in a duel saves that status immediately even if you later discard the duel order.
+- Back up your library JSON before replacing `index.html`.
 
-> Your prompts and notes are stored locally in the current browser. They do not sync to other devices or get sent to AI services automatically.
+### Version
+
+- **Tag:** `v1.7.0`
+- **Commit:** `feat: add Project Insights and pairwise manual ranking`

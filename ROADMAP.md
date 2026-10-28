@@ -1,13 +1,8 @@
 # Roadmap — Arvak Library
 
-| Version | Focus | Status |
-|---|---|---|
-| v1.3.0 | GitHub Discovery | Delivered |
-| v1.4.0 | Project Ranking | Delivered |
-| v1.5.0 | Smart Rank (free ChatGPT + JSON import) | Delivered |
-| **v1.6.0** | **Idea Vault — reusable project prompts, motivation and project vision** | **This release** |
-| v1.7.0 | Project Insights — comparisons, charts, impact × effort matrix, explainable suggestions | Planned |
-| v1.8.0 | Project Planning — milestones, work cycles, focus and timeline | Planned |
-| v1.9.0 | GitHub Intelligence — releases, issues, activity and stale-project hints | Planned |
+- **v1.7.0 — Project Insights & Priority Duel (entregue):** matriz impacto × esforço, comparação 2–3 projetos, simulação de cenários, recomendações transparentes e ordenação manual por confrontos 1×1.
+- **v1.8.0 — Project Planning (proposta):** projeto principal/secundário, marcos e ciclos de desenvolvimento, pequenas metas, backlog por projeto e histórico de decisões.
+- **v1.9.0 — GitHub Intelligence (proposta):** acompanhamento opcional de commits, releases, issues e projetos sem novidades, sem confundir atividade com produtividade ou sobrescrever status manual.
+- **Futuro — Sync opcional:** backup criptografado/sincronização entre dispositivos com mecanismos adequados de privacidade e consentimento. Não armazenar tokens secretos em front-end público.
 
-Future possibilities for Idea Vault (not implemented in this release): prompt version history, saved prompt templates, optional attachments, a guided brainstorm interview and cross-device sync with user-controlled storage.
+Prioridades futuras são propostas e não funcionalidades concluídas.

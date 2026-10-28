@@ -1,33 +1,52 @@
-# Atualizar a Arvak Library para a v1.6.0 pelo GitHub (sem terminal)
+# Atualização segura da Arvak Library v1.6 → v1.7.0 (sem terminal)
 
-A v1.6 utiliza **um único arquivo HTML** para rodar. Não crie outro repositório nem altere a configuração do GitHub Pages.
+## 1. Backup antes de qualquer alteração
 
-1. Abra sua biblioteca publicada: <https://danielrosajr.github.io/arvak-library/> **no mesmo navegador em que estão seus projetos e anotações**.
-2. Entre em **Dados e backup → Exportar biblioteca** e guarde o arquivo `.json` em uma pasta segura. É essencial, pois suas alterações pessoais existem no navegador, não no HTML publicado.
-3. Baixe o `index.html` desta nova versão.
-4. Acesse <https://github.com/danielrosajr/arvak-library/blob/main/index.html>.
-5. Clique no lápis (**Edit this file**), selecione todo o conteúdo antigo e substitua pelo conteúdo do novo `index.html`. Alternativamente, use `github.dev` para substituir o arquivo. Mantenha o nome e o caminho exatamente como estavam.
-6. Clique em **Commit changes** na branch `main`. Mensagem sugerida:
-   `feat: add Idea Vault with reusable prompts and project vision notes`
-7. Acesse a biblioteca e faça uma recarga de página. Verifique **Cofre de Ideias** no menu lateral.
-8. Teste em um projeto antigo e verifique favoritos, bugs, links, rankings e outros dados. Em seguida, crie uma nova ideia de teste, salve um prompt e confira se ele persiste ao recarregar a página.
+1. Abra `https://danielrosajr.github.io/arvak-library/` no **mesmo navegador** em que você cadastra seus projetos.
+2. Clique em **Dados e backup → Exportar biblioteca**.
+3. Guarde o JSON em uma pasta fora do navegador (por exemplo Downloads/Backups). Confira que o arquivo existe.
+4. **Não** use a opção Restaurar biblioteca inicial.
 
-### Se algo estiver faltando
+> Apenas substituir o HTML do GitHub **não apaga** localStorage no mesmo domínio e navegador. Mas uma mudança de navegador, modo anônimo, limpeza de dados ou alteração da origem pode ocultar seus projetos. Por isso o JSON é indispensável.
 
-Use **Dados e backup → Importar biblioteca** e selecione o backup JSON que você exportou antes da atualização. A aplicação mostrará uma prévia e pedirá confirmação. **A importação substitui os dados pessoais atuais**. Não faça isso se você já criou novos projetos e não os exportou antes.
+## 2. Substituir só um arquivo pelo GitHub
 
-### O que deve ser substituído?
+1. Abra `https://github.com/danielrosajr/arvak-library`.
+2. Na branch `main`, abra o arquivo **`index.html`** da raiz.
+3. Clique no ícone de lápis (**Edit this file**).
+4. Substitua **todo** o conteúdo pelo novo `index.html` desta entrega. Se preferir, use o upload pelo site do GitHub mantendo o mesmo caminho e confira que o arquivo foi substituído.
+5. Em **Commit changes**, use:
+   `feat: add Project Insights and pairwise manual ranking`
+6. Confirme o commit na branch `main`.
+7. Mantenha a publicação do GitHub Pages em **Settings → Pages → Deploy from a branch → main → /(root)**, como já funciona hoje.
+8. Abra o site publicado, atualize com Ctrl+Shift+R e confira no topo **v1.7**.
 
-| Arquivo | Ação |
-|---|---|
-| `index.html` | **Substituir** |
-| `README.md` | Atualização opcional da documentação |
-| `CHANGELOG.md`, `ROADMAP.md`, `RELEASE_NOTES.md` | Adicionar apenas se quiser manter a documentação no GitHub |
-| Configuração do GitHub Pages | **Não alterar** |
+Os arquivos de documentação são opcionais para o funcionamento do site; o `index.html` é suficiente. Não envie o ZIP inteiro como um arquivo único dentro do repositório.
 
-### Segurança dos prompts
+## 3. Confirmar que nenhum dado sumiu
 
-- O Cofre não envia suas ideias automaticamente para serviços externos.
-- O backup `.json` inclui prompts e notas e deve ser armazenado em um local privado.
-- O comando **Copiar prompt** coloca texto na sua área de transferência; você escolhe se quer colá-lo no ChatGPT.
-- Uma ideia que passa para `Em andamento` continua aparecendo no Cofre enquanto existir conteúdo salvo.
+- Confira a quantidade de projetos, favoritos, seus links de ChatGPT, bugs, ideias e correções.
+- Abra **Cofre de Ideias**, confira um prompt.
+- Abra **Ranking**, confira a ordem manual e as avaliações existentes.
+- Vá a **Project Insights**: se você não avaliou critérios suficientes, ver mensagens de "Não avaliado" é normal.
+- Faça um novo backup JSON quando terminar de organizar a biblioteca.
+
+## 4. Se estiver tudo vazio
+
+1. **Não clique em Restaurar biblioteca inicial.**
+2. Verifique que é o mesmo navegador e endereço (origem) de antes.
+3. Em **Dados e backup → Importar backup**, selecione o arquivo JSON exportado no passo 1.
+4. Leia a prévia e confirme somente se desejar substituir a coleção atual.
+5. Confira os dados restaurados e exporte um novo backup.
+
+O aplicativo também disponibiliza uma **Cópia antes da v1.7** na tela de backups, se existia armazenamento disponível quando a atualização começou. Essa cópia local **não** substitui o backup baixado.
+
+## 5. Versão e release
+
+- **Tag:** `v1.7.0`
+- **Título:** `Arvak Library v1.7.0 — Project Insights & Priority Duel`
+- **Commit:** `feat: add Project Insights and pairwise manual ranking`
+- **Descrição do repositório:** `A personal project library with AI-assisted rankings, pairwise prioritization, impact-effort insights, idea vaults, and GitHub discovery.`
+- **Topics:** `project-management`, `app-library`, `project-ranking`, `decision-making`, `pairwise-comparison`, `github-pages`, `local-first`, `javascript`
+
+O arquivo `RELEASE_NOTES.md` contém o texto da release pronto para copiar.

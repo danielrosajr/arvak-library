@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#0b1017">
   <meta name="description" content="Arvak Library: uma biblioteca pessoal, simples e local, para acessar e organizar meus aplicativos e projetos.">
-  <title>Arvak Library v1.6 — Idea Vault</title>
+  <title>Arvak Library v1.7 — Project Insights & Priority Duel</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230c1420'/%3E%3Cpath d='M15 43 30 15h6l14 28h-9l-8-18-9 18z' fill='%23c8fa7e'/%3E%3Ccircle cx='46' cy='16' r='5' fill='%23978cf5'/%3E%3C/svg%3E">
   <style>
     :root{--bg:#0b1017;--panel:#111924;--panel2:#172230;--line:#253345;--line2:#304158;--text:#f4f7f8;--sub:#a2b0c2;--sub2:#7d8ca0;--accent:#c8fa7e;--accent2:#94c956;--white:#fff;--danger:#ff938e;--shadow:0 20px 75px #02050a80;--radius:17px;color-scheme:dark;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
@@ -124,6 +124,13 @@
     .vault-page{display:grid;gap:22px;padding:8px 0 50px;min-width:0}.vault-intro{display:flex;align-items:center;justify-content:space-between;gap:22px}.vault-intro h1{font-size:clamp(34px,4vw,54px);line-height:1.1;margin:9px 0 13px;letter-spacing:-.05em}.vault-intro h1 span{color:var(--accent)}.vault-intro p{color:var(--sub);font-size:14px;line-height:1.8;max-width:730px}.vault-intro .btn{flex-shrink:0}.vault-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.vault-metric{padding:17px 20px;background:var(--panel);border:1px solid var(--line);border-radius:13px}.vault-metric strong{display:block;font-size:28px;color:var(--accent);line-height:1.25}.vault-metric span{display:block;font-size:12px;color:var(--sub);margin-top:6px}.vault-guide{display:flex;gap:16px;background:linear-gradient(110deg,#9dcb491b,transparent),var(--panel);border:1px solid var(--line);padding:18px 21px;border-radius:13px}.vault-guide-icon{font-size:26px;color:var(--accent)}.vault-guide strong{font-size:13px}.vault-guide p{font-size:12px;line-height:1.7;margin:6px 0 0;color:var(--sub)}.vault-filters{display:grid;grid-template-columns:minmax(0,1fr) 210px 200px;gap:12px;align-items:end}.vault-filters .field{margin:0}.vault-filters input,.vault-filters select{width:100%;height:46px;background:var(--panel);color:var(--text);border:1px solid var(--line2);border-radius:10px;padding:10px 13px}.vault-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.vault-card{display:flex;flex-direction:column;gap:12px;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:21px;transition:border-color .18s}.vault-card:hover{border-color:#9dc46e}.vault-top{display:flex;justify-content:space-between;gap:10px;align-items:start}.vault-top h3{font-size:18px;letter-spacing:-.02em;margin:5px 0 0;overflow-wrap:anywhere}.vault-card-summary{color:var(--sub);font-size:12px;line-height:1.7;min-height:38px;overflow-wrap:anywhere}.vault-card .vault-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.vault-chip{font-size:10px;border:1px solid var(--line2);padding:5px 8px;border-radius:20px;color:var(--sub);background:var(--panel2);white-space:nowrap}.vault-chip.positive{color:var(--accent);border-color:#8aba4f80}.vault-card-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}.vault-card-actions .btn{font-size:11px}.vault-empty{text-align:center;grid-column:1/-1;background:var(--panel);border:1px dashed var(--line2);border-radius:18px;padding:65px 20px}.vault-empty strong{display:block;font-size:19px;margin:10px 0}.vault-empty p{color:var(--sub);font-size:13px}.vault-footer-note{color:var(--sub2);font-size:12px;line-height:1.8;margin:2px 0}.idea-editor{border:1px solid var(--line);border-radius:13px;background:var(--panel2);padding:15px;margin:16px 0;min-width:0}.idea-editor summary{cursor:pointer;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:space-between;gap:10px}.idea-editor[open] summary{color:var(--accent)}.idea-editor-body{display:grid;gap:16px;padding-top:18px}.idea-editor-body textarea{width:100%;min-width:0;resize:vertical}.idea-actions{display:flex;gap:9px;flex-wrap:wrap}.idea-actions .btn{font-size:11px}.idea-editor .field-hint{font-size:11px}.idea-editor .tiny{line-height:1.6}.idea-editor #ideaSaveState{font-weight:500;color:var(--sub);text-align:right}.vault-card small{color:var(--sub2)}
     @media(max-width:970px){.vault-filters{grid-template-columns:minmax(0,1fr) 170px}.vault-filters .vault-search{grid-column:1/-1}}
     @media(max-width:700px){.vault-intro{display:block}.vault-intro .btn{margin-top:15px;width:100%}.vault-metrics{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.vault-metric{padding:13px 10px}.vault-metric strong{font-size:24px}.vault-metric span{font-size:10px}.vault-list{grid-template-columns:1fr}.vault-filters{grid-template-columns:1fr 1fr}.vault-filters .vault-search{grid-column:1/-1}.vault-filters select{font-size:11px}.vault-card{padding:17px}.idea-actions .btn{flex:1 1 calc(50% - 9px)}.idea-editor summary{font-size:13px}}
+  
+/* v1.7 — Insights e Duelo 1×1. Mantém todas as classes antigas. */
+.insights-page{display:grid;gap:22px;min-width:0}.insights-page[hidden]{display:none}.insights-heading{display:flex;justify-content:space-between;align-items:center;gap:20px;margin:0 0 9px}.insights-heading h1{margin:8px 0 12px}.insights-heading h1 span{color:var(--accent)}.insights-heading p{color:var(--sub);max-width:750px}.insights-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.insight-metric{background:var(--panel);border:1px solid var(--line);padding:16px;border-radius:13px}.insight-metric strong{display:block;font-size:29px;line-height:1.3;color:var(--accent)}.insight-metric span{font-size:11px;color:var(--sub)}.insight-panels{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(260px,.8fr);gap:17px;align-items:start}.insight-panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:23px;min-width:0}.insight-panel-head{display:flex;justify-content:space-between;align-items:baseline;gap:15px;margin-bottom:14px}.insight-panel-head h2{font-size:20px}.insight-filters,.compare-selectors{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}.insight-filters label,.compare-selectors label{display:grid;gap:6px;font-size:11px;color:var(--sub);flex:1;min-width:120px}.insight-filters select,.compare-selectors select{width:100%;min-width:0;max-width:none}.insight-matrix{min-width:0;overflow:hidden;border-radius:12px;background:var(--panel2);border:1px solid var(--line);padding:8px}.insight-matrix svg{width:100%;height:auto;max-height:410px;display:block}.insight-matrix svg [data-insight-id]{cursor:pointer}.insight-matrix-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:14px}.insight-legend{min-width:0;display:flex;gap:8px;align-items:center;text-align:left;white-space:normal;background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:8px;color:var(--text);font-size:11px}.insight-legend:hover{border-color:var(--accent)}.insight-dot{height:10px;width:10px;border-radius:50%;flex-shrink:0;background:var(--accent)}.insight-legend span:last-child{overflow-wrap:anywhere}.insight-advice{display:grid;gap:10px;margin-top:18px}.insight-tip{border:1px solid var(--line);border-radius:11px;background:var(--panel2);padding:14px;line-height:1.65;font-size:12px;color:var(--sub)}.insight-tip strong{display:block;color:var(--text);margin-bottom:5px;font-size:13px}.comparison-wrap{overflow-x:auto;max-width:100%}.compare-table{border-collapse:collapse;width:100%;min-width:520px;margin:12px 0}.compare-table th,.compare-table td{text-align:left;vertical-align:middle;border-bottom:1px solid var(--line);padding:13px 10px;font-size:12px}.compare-table th{color:var(--text);font-weight:750}.compare-table th:first-child,.compare-table td:first-child{min-width:170px;color:var(--sub)}.compare-table td:not(:first-child){min-width:140px}.compare-meter{height:6px;background:var(--line);border-radius:20px;overflow:hidden;margin-top:5px}.compare-meter span{display:block;height:100%;background:var(--accent);border-radius:20px}.compare-summary{background:var(--panel2);padding:12px 16px;border-radius:12px;margin-top:10px;color:var(--sub);font-size:12px}.compare-summary strong{color:var(--text)}.simulation-results{display:grid;gap:9px}.sim-row{display:grid;grid-template-columns:35px minmax(0,1fr) 65px 110px;gap:9px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--panel2)}.sim-row strong{color:var(--accent)}.sim-row .sim-name{overflow-wrap:anywhere}.sim-row small{color:var(--sub);text-align:right}.sim-row .sim-value{text-align:right;font-weight:750}.insight-footer{margin-bottom:15px}.manual-tools{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin:15px 0}.manual-parked{margin:20px 0 10px;font-weight:800;color:var(--sub)}.manual-status-actions{display:flex;gap:5px;flex-wrap:wrap}.manual-status-actions button{min-height:29px;padding:5px 8px;font-size:10px}.manual-row.parked{opacity:.78}.duel-dialog{max-width:870px;width:min(92vw,870px);max-height:92vh;overflow:auto}.duel-progress{background:var(--panel2);border:1px solid var(--line);padding:12px 15px;border-radius:12px;margin:18px 0}.duel-progress-head{display:flex;justify-content:space-between;gap:15px;margin-bottom:8px;font-size:12px}.duel-progress-head span{color:var(--sub)}.duel-track{height:7px;background:var(--line);border-radius:99px;overflow:hidden}.duel-track span{display:block;width:0;height:100%;background:var(--accent);transition:width .2s}.duel-arena{min-height:215px}.duel-cards{display:grid;grid-template-columns:1fr 55px 1fr;gap:10px;align-items:stretch}.duel-vs{display:grid;place-items:center;color:var(--sub2);font-weight:900;font-size:16px}.duel-card{border:1px solid var(--line2);border-radius:14px;background:var(--panel2);padding:20px;display:flex;flex-direction:column;align-items:start;gap:11px;min-width:0}.duel-card .labelcaps{color:var(--accent)}.duel-card h3{font-size:23px;overflow-wrap:anywhere}.duel-card p{color:var(--sub);font-size:12px}.duel-card .btn.primary{width:100%;white-space:normal;line-height:1.4}.duel-card-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto}.duel-card-actions .btn{font-size:11px;min-height:34px}.duel-tools{display:flex;gap:9px;flex-wrap:wrap;margin:17px 0}.duel-result{border-radius:14px;background:var(--panel2);padding:22px;text-align:center}.duel-result h3{font-size:25px;color:var(--accent);margin-bottom:12px}.duel-result p{color:var(--sub);margin-bottom:15px}.duel-result .btn{margin:4px}.duel-mini-list{max-height:220px;overflow:auto;margin:12px auto;max-width:500px;text-align:left;padding-left:25px}.duel-mini-list li{margin:6px 0}
+@media(max-width:1150px){.insight-panels{grid-template-columns:1fr}}
+@media(max-width:740px){.insights-heading{align-items:start;flex-direction:column}.insights-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.insight-panel{padding:15px}.insight-matrix-list{grid-template-columns:1fr}.duel-cards{grid-template-columns:1fr;gap:8px}.duel-vs{min-height:25px}.duel-card{padding:15px}.duel-card h3{font-size:20px}.duel-tools .btn{flex:1 1 140px;white-space:normal}.manual-status-actions{width:100%}.manual-row{gap:8px}.sim-row{grid-template-columns:24px minmax(0,1fr) 48px}.sim-row small{grid-column:2/-1;text-align:left}}
+@media(prefers-reduced-motion:reduce){.duel-track span{transition:none}}
+
   </style>
 </head>
 <body>
@@ -141,6 +148,7 @@
         <button type="button" class="nav-btn" data-nav="testes"><span class="nav-icon">◈</span> Em testes <span class="count" data-count="testes">0</span></button>
         <button type="button" class="nav-btn" data-nav="bugs"><span class="nav-icon">⚠</span> Com bug <span class="count" data-count="bugs">0</span></button>
         <button type="button" class="nav-btn" data-nav="ranking"><span class="nav-icon">◫</span> Ranking de Projetos</button>
+        <button type="button" class="nav-btn" data-nav="insights"><span class="nav-icon">◈</span> Project Insights <span class="count">NOVO</span></button>
         <button type="button" class="nav-btn" data-nav="vault"><span class="nav-icon">✎</span> Cofre de Ideias <span class="count" data-count="vault">0</span></button>
         <button type="button" class="nav-btn" data-nav="correcoes"><span class="nav-icon">🛠</span> Próximas correções <span class="count" data-count="correcoes">0</span></button>
         <button type="button" class="nav-btn" data-nav="ideiasfuturas"><span class="nav-icon">✧</span> Ideias para o futuro <span class="count" data-count="ideiasfuturas">0</span></button>
@@ -164,7 +172,7 @@
     </aside>
     <main class="workspace" id="inicio">
       <header class="topbar">
-        <div style="display:flex;align-items:center;gap:11px"><button class="btn icon mobile-menu" type="button" id="openMenu" aria-label="Abrir menu">☰</button><span class="mobile-brand" style="font-weight:900;letter-spacing:-.03em">ARVAK / LIBRARY <small>v1.6</small></span><span class="breadcrumb">v1.6 <span style="margin:0 8px;color:var(--sub2)">/</span> BIBLIOTECA <span style="margin:0 8px;color:var(--sub2)">/</span> <strong id="crumb">Minha coleção</strong></span></div>
+        <div style="display:flex;align-items:center;gap:11px"><button class="btn icon mobile-menu" type="button" id="openMenu" aria-label="Abrir menu">☰</button><span class="mobile-brand" style="font-weight:900;letter-spacing:-.03em">ARVAK / LIBRARY <small>v1.7</small></span><span class="breadcrumb">v1.7 <span style="margin:0 8px;color:var(--sub2)">/</span> BIBLIOTECA <span style="margin:0 8px;color:var(--sub2)">/</span> <strong id="crumb">Minha coleção</strong></span></div>
         <div class="top-actions">
           <button type="button" class="btn" id="scanTop" title="Encontrar repositórios públicos novos no seu GitHub">⌕ <span class="scan-label">Buscar projetos</span> <span class="scanner-count" id="scanTopCount" hidden>0</span></button>
           <button type="button" class="btn ghost refresh" id="refreshGithub" title="Atualiza somente a data do último push público dos projetos no GitHub">⟳ <span class="refresh-label">Atualizar atividade</span></button>
@@ -198,7 +206,7 @@
           <div><span class="labelcaps">ARVAK LABORATÓRIO / DECISÕES</span><h1 id="rankingTitle">Ranking de <span>Projetos.</span></h1><p>Avalie no seu ritmo, descubra perspectivas diferentes e mantenha a decisão final nas suas mãos.</p></div>
           <button type="button" class="btn" id="rankingTour">❔ Como funciona</button>
         </div>
-        <section class="smart-feature" aria-labelledby="smartFeatureTitle"><div><div class="labelcaps">✦ NOVO · V1.5 · IA GRATUITA</div><h2 id="smartFeatureTitle">Smart Rank — avaliar sem preencher tudo na mão.</h2><p>Gere um prompt com seus projetos públicos, peça a análise no ChatGPT e revise o JSON antes de importar. Sem chave API e sem substituir suas notas silenciosamente.</p></div><button type="button" id="smartRankOpen" class="btn primary">✦ Abrir Smart Rank →</button></section>
+        <section class="smart-feature" aria-labelledby="smartFeatureTitle"><div><div class="labelcaps">✦ IA GRATUITA · SMART RANK</div><h2 id="smartFeatureTitle">Smart Rank — avaliar sem preencher tudo na mão.</h2><p>Gere um prompt com seus projetos públicos, peça a análise no ChatGPT e revise o JSON antes de importar. Sem chave API e sem substituir suas notas silenciosamente.</p></div><button type="button" id="smartRankOpen" class="btn primary">✦ Abrir Smart Rank →</button></section>
         <div class="ranking-stats" id="rankingStats" aria-live="polite"></div>
         <div class="ranking-controls">
           <div class="field"><label for="rankMode">Perspectiva de análise</label><select id="rankMode" class="filter-select"></select></div>
@@ -217,9 +225,33 @@
         </div>
         <div class="rank-explainer"><strong>Como ler os resultados:</strong> o índice (0–100) é uma <strong>prioridade calculada, não uma chance de sucesso</strong>. A cobertura informa quantos pesos foram efetivamente avaliados. Abaixo de 60% não há classificação; entre 60% e 90% a nota é provisória. Projetos sem avaliação nunca recebem nota zero automaticamente.</div>
         <div id="rankResults" aria-live="polite"></div>
-        <section class="manual-panel" aria-labelledby="manualTitle"><div class="section-head"><h2 id="manualTitle">✋ Minha prioridade manual</h2><span>Sua ordem pessoal · não muda com as notas</span></div><p class="muted tiny">Use as setas para reorganizar no computador ou celular. Todos os projetos visíveis são incluídos, mesmo sem avaliação.</p><div id="manualRankList" class="manual-list"></div></section>
+        <section class="manual-panel" aria-labelledby="manualTitle"><div class="section-head"><h2 id="manualTitle">✋ Minha prioridade manual</h2><span>Sua ordem pessoal · não muda com as notas</span></div><p class="muted tiny">Use as setas para ajustes pontuais ou o duelo 1×1 para ordenar muito mais rápido. Pausados e concluídos vão para o fim sem perder avaliações.</p><div class="manual-tools"><button type="button" class="btn primary" id="duelOpen">⚔ Priorizar em duelos 1×1</button><span class="muted tiny" id="duelProgressNote">Sua ordem é independente das notas automáticas.</span></div><div id="manualRankList" class="manual-list"></div></section>
         <section class="rank-advice" aria-labelledby="rankAdviceTitle"><div class="section-head"><h2 id="rankAdviceTitle">✧ O que fazer agora?</h2><span>Observações baseadas nas suas avaliações</span></div><div id="rankAdviceList"></div></section>
-        <div class="rank-roadmap"><strong>Próximas versões:</strong> Project Insights v1.7 (comparação, gráficos e matriz impacto × esforço) · Project Planning v1.8 (ciclos, marcos e foco) · GitHub Intelligence v1.9 (atividade contextualizada).</div>
+        <div class="rank-roadmap"><strong>Disponível:</strong> v1.7 Project Insights com comparação, matriz e simulador, além do Duelo de Prioridades 1×1. <strong>Depois:</strong> Project Planning v1.8 (ciclos, marcos e foco) · GitHub Intelligence v1.9.</div>
+      </section>
+
+
+      <!-- v1.7 Project Insights: no external services, reads approved ratings only -->
+      <section id="insightsSection" class="insights-page" hidden aria-labelledby="insightsTitle">
+        <div class="insights-heading"><div><span class="labelcaps">ARVAK / DECISÕES BASEADAS NOS SEUS DADOS</span><h1 id="insightsTitle">Project <span>Insights.</span></h1><p>Compare projetos, visualize impacto × esforço e simule prioridades. Notas ausentes continuam ausentes — nenhuma previsão fictícia.</p></div><button type="button" class="btn" id="insightsBackRank">◫ Abrir ranking manual</button></div>
+        <div id="insightsMetrics" class="insights-metrics" aria-live="polite"></div>
+        <div class="insight-panels">
+          <section class="insight-panel"><div class="insight-panel-head"><h2>◈ Matriz Impacto × Esforço</h2><span class="muted tiny">Baseada nas avaliações aprovadas</span></div>
+            <p class="muted tiny">Impacto agrega critérios de valor, conforme o objetivo escolhido. Esforço combina dificuldade técnica e esforço até o MVP. Pontos sem dados suficientes ficam fora do gráfico.</p>
+            <div class="insight-filters"><label>Perspectiva<select id="insightPerspective" class="filter-select"><option value="balanced">Equilíbrio geral</option><option value="commercial">Comercial</option><option value="social">Impacto social</option><option value="personal">Pessoal</option><option value="portfolio">Portfólio</option></select></label><label>Categoria<select id="insightCategory" class="filter-select"><option value="all">Todas as categorias</option></select></label><label>Situação<select id="insightStatus" class="filter-select"><option value="all">Todas as situações</option></select></label></div>
+            <div id="insightMatrix" class="insight-matrix" aria-live="polite"></div><div id="insightMatrixList" class="insight-matrix-list"></div><p id="insightMissing" class="muted tiny"></p>
+          </section>
+          <section class="insight-panel"><div class="insight-panel-head"><h2>✧ O que fazer agora?</h2></div><p class="muted tiny">Sugestões por regras transparentes; você decide o que fazer.</p><div id="insightsAdvice" class="insight-advice"></div></section>
+        </div>
+        <section class="insight-panel"><div class="insight-panel-head"><h2>⇄ Comparar projetos</h2><span class="muted tiny">2 ou 3 projetos lado a lado</span></div>
+          <div class="compare-selectors"><label>Projeto 1<select id="compareFirst" class="filter-select"></select></label><label>Projeto 2<select id="compareSecond" class="filter-select"></select></label><label>Projeto 3 (opcional)<select id="compareThird" class="filter-select"></select></label></div>
+          <div id="insightComparison" class="comparison-wrap" aria-live="polite"></div>
+        </section>
+        <section class="insight-panel"><div class="insight-panel-head"><h2>⚖ Simulador de cenários</h2><span class="muted tiny">Não altera seus pesos nem suas notas</span></div>
+          <p class="muted tiny">Veja como a ordem calculada muda ao priorizar dinheiro, impacto social, portfólio ou rapidez. A ordem manual continua independente.</p>
+          <div class="insight-filters"><label>Simular objetivo<select id="insightScenario" class="filter-select"><option value="general">Geral · meus pesos</option><option value="commercial">Comercial</option><option value="social">Social</option><option value="personal">Pessoal</option><option value="quick">Execução rápida</option><option value="portfolio">Portfólio</option><option value="opportunity">Oportunidades</option></select></label></div><div id="insightSimulation" class="simulation-results" aria-live="polite"></div>
+        </section>
+        <p class="muted tiny insight-footer">🔒 Tudo é calculado localmente no navegador; estas visualizações não enviam notas, prompts ou projetos para serviços externos. Exporte um backup antes de atualizar a biblioteca.</p>
       </section>
 
       <!-- v1.6 Idea Vault: non-destructive overlay on project records -->
@@ -297,8 +329,20 @@
   </details>
   <div class="divider"></div><div class="field"><label for="detailChatInput">✦ Conversa do projeto no ChatGPT (opcional)</label><input id="detailChatInput" type="url" maxlength="1000" placeholder="https://chatgpt.com/c/..." spellcheck="false"><span class="chat-caption">Cole o link da conversa do navegador ou um link de compartilhamento. Alguns links exigem login; links compartilhados podem ser vistos por quem os possui. Fica salvo somente neste navegador e em seus backups.</span></div><div class="field"><label for="detailLinkInput">Link para abrir (opcional)</label><input id="detailLinkInput" type="url" maxlength="1000" placeholder="https://..." spellcheck="false"><span class="field-hint">Pode corrigir ou adicionar um link do GitHub Pages. Apenas links https:// ou http:// são aceitos.</span></div><div class="field"><label for="detailRepoInput">Link do repositório (opcional)</label><input id="detailRepoInput" type="url" maxlength="1000" placeholder="https://github.com/..." spellcheck="false"></div><div class="field"><span class="field-hint" id="detailDates"></span></div><div class="saved-note" id="detailSaved" aria-live="polite"></div><div class="drawer-foot"><button type="button" class="btn primary" id="detailSave">Salvar alterações</button><button type="button" class="btn danger" id="detailHide">Ocultar projeto</button></div></div></div></section></div>
   <div class="backdrop" id="addBackdrop" hidden><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="addTitle"><div class="dialog-top"><h2 id="addTitle">Adicionar à biblioteca</h2><button type="button" class="btn icon" data-close="add" aria-label="Fechar">×</button></div><p>Adicione ideias e projetos que ainda não estão no GitHub. Eles ficam salvos neste navegador.</p><form class="form" id="addForm"><div class="field"><label for="addName">Nome do projeto *</label><input id="addName" maxlength="90" required placeholder="Nome da sua criação"></div><div class="field"><label for="addDesc">Descrição curta</label><input id="addDesc" maxlength="260" placeholder="O que ele faz?"></div><div class="field-row"><div class="field"><label for="addCategory">Categoria</label><select id="addCategory"><option>Aplicativo</option><option>Ferramenta</option><option>Educação</option><option>Jogo / Mod</option><option>Automação</option><option>Experimento</option><option>Portfólio</option><option>Outro</option></select></div><div class="field"><label for="addState">Situação</label><select id="addState"><option>A organizar</option><option>Ideia</option><option>Em andamento</option><option>Pausado</option><option>Em testes</option><option>Concluído</option><option>Arquivado</option></select></div></div><div class="field"><label for="addLink">Link do aplicativo (opcional)</label><input id="addLink" maxlength="1000" type="url" placeholder="https://..."></div><div class="field"><label for="addRepo">Repositório (opcional)</label><input id="addRepo" maxlength="1000" type="url" placeholder="https://github.com/..."></div><div class="field"><label for="addChat">✦ Conversa no ChatGPT (opcional)</label><input id="addChat" maxlength="1000" type="url" placeholder="https://chatgpt.com/c/..." spellcheck="false"><span class="field-hint">Salvo localmente. Compartilhamentos de conversa podem ser públicos para quem tiver o link.</span></div><label class="bug-check" for="addBugCheck"><input type="checkbox" id="addBugCheck"> ⚠ Já sei que este projeto tem bugs</label><div class="field" id="addBugField" hidden><label for="addBugNotes">Problemas encontrados (opcional)</label><textarea id="addBugNotes" maxlength="2000" rows="2" placeholder="O que está falhando?"></textarea></div><div class="field"><label for="addNext">Próximo passo (opcional)</label><input id="addNext" maxlength="280" placeholder="O que quero fazer agora?"></div><div class="dialog-actions"><button type="button" class="btn" data-close="add">Cancelar</button><button type="submit" class="btn primary">Adicionar projeto</button></div></form></section></div>
-  <div class="backdrop" id="settingsBackdrop" hidden><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><div class="dialog-top"><h2 id="settingsTitle">Dados e backup</h2><button type="button" class="btn icon" data-close="settings" aria-label="Fechar">×</button></div><p>Você não precisa de conta. Favoritos, status, notas e últimos acessos são gravados no armazenamento local deste navegador. Não sincronizam automaticamente com o celular ou outro computador.</p><div class="settings-list"><div class="settings-item"><div><strong>Exportar biblioteca</strong><p>Baixa um arquivo JSON com suas escolhas, notas e projetos adicionados.</p></div><button type="button" class="btn primary" id="exportData">↓ Exportar</button></div><div class="settings-item"><div><strong>Importar backup</strong><p>Restaura um backup anterior, substituindo as personalizações atuais.</p></div><button type="button" class="btn" id="importData">↑ Importar</button></div><div class="settings-item" id="preUpgradeItem" hidden><div><strong>Cópia automática da versão anterior</strong><p>Uma cópia dos dados locais foi guardada antes da primeira abertura da v1.1. Você pode baixá-la, sem alterar a biblioteca atual.</p></div><button type="button" class="btn" id="downloadPreUpgrade">↓ Baixar cópia</button></div><div class="settings-item" id="v12BackupItem" hidden><div><strong>Cópia antes da v1.2</strong><p>Cópia local dos dados encontrados antes desta atualização (não substitui um backup baixado).</p></div><button type="button" class="btn" id="downloadV12Backup">↓ Baixar cópia</button></div><div class="settings-item" id="v16BackupItem" hidden><div><strong>Cópia antes da v1.6</strong><p>Os dados encontrados na primeira abertura do Cofre de Ideias, guardados antes de qualquer alteração.</p></div><button type="button" class="btn" id="downloadV16Backup">↓ Baixar cópia</button></div><div class="settings-item" id="v15BackupItem" hidden><div><strong>Cópia antes da v1.5</strong><p>Dados originais guardados na primeira abertura do Smart Rank.</p></div><button type="button" class="btn" id="downloadV15Backup">↓ Baixar cópia</button></div><div class="settings-item" id="v14BackupItem" hidden><div><strong>Cópia antes da v1.4</strong><p>Dados locais preservados antes da estreia do ranking (download de segurança).</p></div><button type="button" class="btn" id="downloadV14Backup">↓ Baixar cópia</button></div><div class="settings-item" id="v13BackupItem" hidden><div><strong>Cópia antes da v1.3</strong><p>Guarda sua biblioteca local anterior à primeira abertura deste scanner.</p></div><button type="button" class="btn" id="downloadV13Backup">↓ Baixar cópia</button></div><div class="settings-item"><div><strong>Rever tutorial</strong><p>Conheça as funções novas e veja onde organizar seus projetos.</p></div><button type="button" class="btn" id="tutorialSettings">❔ Abrir</button></div><div class="settings-item"><div><strong>Busca automática do GitHub</strong><p>Ao abrir a biblioteca, verificar no máximo uma vez a cada 24 horas. Apenas sugere novidades; nunca adiciona sem seu clique.</p></div><label class="scanner-switch"><input type="checkbox" id="scanAuto" checked> Ativada</label></div><div class="settings-item"><div><strong>Mostrar projetos ocultos</strong><p id="hiddenCount">Nenhum projeto oculto.</p></div><button type="button" class="btn" id="restoreHidden">Restaurar</button></div><div class="settings-item"><div><strong>Restaurar biblioteca inicial</strong><p>Remove notas, favoritos e projetos adicionais. Faça backup antes.</p></div><button type="button" class="btn danger" id="resetData">Restaurar</button></div></div><input type="file" id="importFile" accept="application/json,.json" class="file-input"><div class="dialog-actions"><button type="button" class="btn" data-close="settings">Fechar</button></div></section></div>
+  <div class="backdrop" id="settingsBackdrop" hidden><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><div class="dialog-top"><h2 id="settingsTitle">Dados e backup</h2><button type="button" class="btn icon" data-close="settings" aria-label="Fechar">×</button></div><p>Você não precisa de conta. Favoritos, status, notas e últimos acessos são gravados no armazenamento local deste navegador. Não sincronizam automaticamente com o celular ou outro computador.</p><div class="settings-list"><div class="settings-item" id="v17BackupItem" hidden><div><strong>Cópia antes da v1.7</strong><p>Snapshot original antes do Project Insights e do Duelo 1×1.</p></div><button type="button" class="btn" id="downloadV17Backup">↓ Baixar cópia</button></div><div class="settings-item"><div><strong>Exportar biblioteca</strong><p>Baixa um arquivo JSON com suas escolhas, notas e projetos adicionados.</p></div><button type="button" class="btn primary" id="exportData">↓ Exportar</button></div><div class="settings-item"><div><strong>Importar backup</strong><p>Restaura um backup anterior, substituindo as personalizações atuais.</p></div><button type="button" class="btn" id="importData">↑ Importar</button></div><div class="settings-item" id="preUpgradeItem" hidden><div><strong>Cópia automática da versão anterior</strong><p>Uma cópia dos dados locais foi guardada antes da primeira abertura da v1.1. Você pode baixá-la, sem alterar a biblioteca atual.</p></div><button type="button" class="btn" id="downloadPreUpgrade">↓ Baixar cópia</button></div><div class="settings-item" id="v12BackupItem" hidden><div><strong>Cópia antes da v1.2</strong><p>Cópia local dos dados encontrados antes desta atualização (não substitui um backup baixado).</p></div><button type="button" class="btn" id="downloadV12Backup">↓ Baixar cópia</button></div><div class="settings-item" id="v16BackupItem" hidden><div><strong>Cópia antes da v1.6</strong><p>Os dados encontrados na primeira abertura do Cofre de Ideias, guardados antes de qualquer alteração.</p></div><button type="button" class="btn" id="downloadV16Backup">↓ Baixar cópia</button></div><div class="settings-item" id="v15BackupItem" hidden><div><strong>Cópia antes da v1.5</strong><p>Dados originais guardados na primeira abertura do Smart Rank.</p></div><button type="button" class="btn" id="downloadV15Backup">↓ Baixar cópia</button></div><div class="settings-item" id="v14BackupItem" hidden><div><strong>Cópia antes da v1.4</strong><p>Dados locais preservados antes da estreia do ranking (download de segurança).</p></div><button type="button" class="btn" id="downloadV14Backup">↓ Baixar cópia</button></div><div class="settings-item" id="v13BackupItem" hidden><div><strong>Cópia antes da v1.3</strong><p>Guarda sua biblioteca local anterior à primeira abertura deste scanner.</p></div><button type="button" class="btn" id="downloadV13Backup">↓ Baixar cópia</button></div><div class="settings-item"><div><strong>Rever tutorial</strong><p>Conheça as funções novas e veja onde organizar seus projetos.</p></div><button type="button" class="btn" id="tutorialSettings">❔ Abrir</button></div><div class="settings-item"><div><strong>Busca automática do GitHub</strong><p>Ao abrir a biblioteca, verificar no máximo uma vez a cada 24 horas. Apenas sugere novidades; nunca adiciona sem seu clique.</p></div><label class="scanner-switch"><input type="checkbox" id="scanAuto" checked> Ativada</label></div><div class="settings-item"><div><strong>Mostrar projetos ocultos</strong><p id="hiddenCount">Nenhum projeto oculto.</p></div><button type="button" class="btn" id="restoreHidden">Restaurar</button></div><div class="settings-item"><div><strong>Restaurar biblioteca inicial</strong><p>Remove notas, favoritos e projetos adicionais. Faça backup antes.</p></div><button type="button" class="btn danger" id="resetData">Restaurar</button></div></div><input type="file" id="importFile" accept="application/json,.json" class="file-input"><div class="dialog-actions"><button type="button" class="btn" data-close="settings">Fechar</button></div></section></div>
 
+
+
+  <div class="backdrop" id="duelBackdrop" hidden>
+    <section class="dialog duel-dialog" role="dialog" aria-modal="true" aria-labelledby="duelTitle">
+      <div class="dialog-top"><div><div class="labelcaps">⚔ RANKING MANUAL / SUAS ESCOLHAS</div><h2 id="duelTitle">Duelo de Prioridades <span style="color:var(--accent)">1×1</span></h2></div><button type="button" class="btn icon" data-close="duel" aria-label="Fechar duelo">×</button></div>
+      <p class="muted tiny">Escolha qual dos dois projetos você quer colocar <strong>mais para cima</strong>. O sistema usa inserção binária para reduzir a quantidade de confrontos; nenhum resultado é decidido por IA.</p>
+      <div class="duel-progress"><div class="duel-progress-head"><strong id="duelCounter">Pronto para começar</strong><span id="duelRemaining">—</span></div><div class="duel-track"><span id="duelProgressFill"></span></div></div>
+      <div id="duelArena" class="duel-arena" aria-live="polite"></div>
+      <div class="duel-tools"><button type="button" class="btn" id="duelUndo">↶ Desfazer rodada</button><button type="button" class="btn" id="duelKeepOrder">≋ Manter ordem anterior neste duelo</button><button type="button" class="btn danger" id="duelCancel">Descartar ordenação</button></div>
+      <p class="muted tiny">Projetos marcados como Pausado ou Concluído saem dos confrontos e vão para o final do ranking. Essas mudanças de status são salvas imediatamente; descartar a ordenação não desfaz status alterados.</p>
+    </section>
+  </div>
 
   <div class="backdrop" id="smartBackdrop" hidden>
     <section class="dialog smart-dialog" role="dialog" aria-modal="true" aria-labelledby="smartTitle">
@@ -408,12 +452,20 @@
     opportunity:{label:'Oportunidades de validação',weights:{monetization:25,social:25,personal:10,portfolio:5,difficulty:10,effort:10,validation:15}}
   };
   const blankWeights=(o={})=>Object.fromEntries(RANK_CRITERIA.map(c=>[c.id,Number.isFinite(+o[c.id])?Math.min(100,Math.max(0,+o[c.id])):0]));
+  const V17_BACKUP_KEY='arvak-library-backup-before-v1.7';
+  try{const raw=localStorage.getItem('arvak-library-v1');if(raw&&!localStorage.getItem(V17_BACKUP_KEY))localStorage.setItem(V17_BACKUP_KEY,raw)}catch{}
+  function sanitizeDuel(value){
+    const v=value&&typeof value==='object'&&!Array.isArray(value)?value:{};
+    const ids=a=>Array.isArray(a)?[...new Set(a.filter(x=>typeof x==='string'&&x.length<=120))].slice(0,1000):[];
+    const history=Array.isArray(v.history)?v.history.slice(-100).filter(x=>x&&typeof x==='object').map(x=>({sorted:ids(x.sorted),queue:ids(x.queue),current:typeof x.current==='string'?x.current:'',lo:Math.max(0,Number(x.lo)||0),hi:Math.max(0,Number(x.hi)||0),matches:Math.max(0,Number(x.matches)||0),affectedId:typeof x.affectedId==='string'?x.affectedId:'',previousStatus:typeof x.previousStatus==='string'?x.previousStatus:''})):[];
+    return {status:['running','finished'].includes(v.status)?v.status:'idle',sorted:ids(v.sorted),queue:ids(v.queue),current:typeof v.current==='string'?v.current:'',lo:Math.max(0,Number(v.lo)||0),hi:Math.max(0,Number(v.hi)||0),matches:Math.max(0,Number(v.matches)||0),initialTotal:Math.max(0,Number(v.initialTotal)||0),history};
+  }
   function sanitizeRanking(value){
     const v=value&&typeof value==='object'&&!Array.isArray(value)?value:{};
     const presets=Array.isArray(v.presets)?v.presets.slice(0,30).filter(p=>p&&typeof p.id==='string'&&typeof p.label==='string').map(p=>({id:clean(p.id,70),label:clean(p.label,60),weights:blankWeights(p.weights)})):[];
     const candidate=v.mode;
     const mode=typeof candidate==='string'&&(RANK_PRESETS[candidate]||presets.some(p=>'custom:'+p.id===candidate))?candidate:'general';
-    return {mode,weights:{...RANK_DEFAULTS,...blankWeights({...RANK_DEFAULTS,...(v.weights||{})})},presets,manual:Array.isArray(v.manual)?[...new Set(v.manual.filter(x=>typeof x==='string'))].slice(0,1000):[]};
+    return {mode,weights:{...RANK_DEFAULTS,...blankWeights({...RANK_DEFAULTS,...(v.weights||{})})},presets,manual:Array.isArray(v.manual)?[...new Set(v.manual.filter(x=>typeof x==='string'))].slice(0,1000):[],duel:sanitizeDuel(v.duel)};
   }
   function sanitizeEvaluation(value){const e=value&&typeof value==='object'&&!Array.isArray(value)?value:{};const scores={},notes={};
     for(const c of RANK_CRITERIA){const n=e.scores?.[c.id];if(n!==''&&n!==null&&n!==undefined&&Number.isFinite(Number(n))&&Number(n)>=0&&Number(n)<=10)scores[c.id]=Number(n);
@@ -422,11 +474,11 @@
   }
   const evaluationOf=p=>sanitizeEvaluation(p?.evaluation);
   function rankingWeights(){const id=state.ranking.mode;if(id==='general')return state.ranking.weights;if(id.startsWith('custom:'))return state.ranking.presets.find(p=>'custom:'+p.id===id)?.weights||state.ranking.weights;return blankWeights(RANK_PRESETS[id]?.weights||RANK_DEFAULTS)}
-  function calculateIndex(project,weights=rankingWeights()){
+  function calculateIndex(project,weights=rankingWeights(),modeName=state.ranking.mode){
     const ratings=evaluationOf(project).scores;const total=RANK_CRITERIA.reduce((n,c)=>n+(Number(weights[c.id])||0),0);
     if(!total)return {score:null,coverage:0,level:'waiting',filled:0,totalWeight:0};
     let used=0,weighted=0,filled=0;
-    for(const c of RANK_CRITERIA){const w=Number(weights[c.id])||0;if(w<=0)continue;const x=ratings[c.id];if(x===undefined)continue;used+=w;filled++;weighted+=w*((c.inverse||(state.ranking.mode==='opportunity'&&c.id==='validation'))?10-x:x)}
+    for(const c of RANK_CRITERIA){const w=Number(weights[c.id])||0;if(w<=0)continue;const x=ratings[c.id];if(x===undefined)continue;used+=w;filled++;weighted+=w*((c.inverse||(modeName==='opportunity'&&c.id==='validation'))?10-x:x)}
     const coverage=Math.round(100*used/total);
     if(!used||coverage<60)return {score:null,coverage,level:'waiting',filled,totalWeight:total};
     const score=Math.max(0,Math.min(100,Math.round(100*weighted/(used*10))));
@@ -493,7 +545,7 @@
   function renderQuick(){const all=allProjects().filter(projectLink);const opened=all.filter(p=>p.access).sort((a,b)=>new Date(b.access.date)-new Date(a.access.date));const rest=all.filter(p=>!p.access).sort((a,b)=>new Date(b.lastPush||0)-new Date(a.lastPush||0));const picks=[...opened,...rest].slice(0,3);el('quickGrid').innerHTML=picks.map(quickCard).join('');el('quickSubtitle').textContent=opened.length?'Projetos que você abriu recentemente':'Projetos com push mais recente no GitHub';el('quickSection').hidden=!picks.length}
   function renderCategories(){const current=ui.category;const distinct=[...new Set(allProjects().map(p=>p.category))].sort((a,b)=>a.localeCompare(b,'pt-BR'));el('categoryFilter').innerHTML='<option value="all">Todas categorias</option>'+distinct.map(k=>`<option value="${htmlEscape(k)}">${htmlEscape(k)}</option>`).join('');if(current!=='all'&&!distinct.includes(current))ui.category='all';el('categoryFilter').value=ui.category}
   function renderGrid(){const list=selectedProjects();const g=el('projectGrid');g.className='grid'+(state.view==='list'?' list':'');if(!list.length){g.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="empty-symbol">◇</div><h3>Nada por aqui ainda</h3><p>Tente outro filtro ou classifique seus projetos. A estante vai ficando com a sua cara.</p><button type="button" class="btn" id="clearFilters">Limpar filtros</button></div>`}else g.innerHTML=list.map(projectCard).join('');el('collectionCaption').textContent=`${list.length} ${list.length===1?'projeto encontrado':'projetos encontrados'} · clique em ⋯ para anotar e organizar`;el('gridMode').setAttribute('aria-pressed',String(state.view!=='list'));el('listMode').setAttribute('aria-pressed',String(state.view==='list'))}
-  function renderNav(){const titles={todos:'Minha coleção',favoritos:'Favoritos',recentes:'Acessados recentemente',ativos:'Em andamento',pausados:'Pausados',testes:'Em testes',bugs:'Com bug',sematualizar:'Sem atualização há 30+ dias',correcoes:'Próximas correções',ideiasfuturas:'Ideias para o futuro',ranking:'Ranking de Projetos',vault:'Cofre de Ideias'};el('collectionTitle').textContent=titles[ui.nav]||'Minha coleção';el('crumb').textContent=titles[ui.nav]||'Minha coleção';document.querySelectorAll('[data-nav]').forEach(x=>{x.classList.toggle('active',x.dataset.nav===ui.nav);x.setAttribute('aria-current',x.dataset.nav===ui.nav?'page':'false')});document.querySelectorAll('[data-status-filter]').forEach(x=>x.dataset.selected=String(x.dataset.statusFilter===ui.status))}
+  function renderNav(){const titles={todos:'Minha coleção',favoritos:'Favoritos',recentes:'Acessados recentemente',ativos:'Em andamento',pausados:'Pausados',testes:'Em testes',bugs:'Com bug',sematualizar:'Sem atualização há 30+ dias',correcoes:'Próximas correções',ideiasfuturas:'Ideias para o futuro',ranking:'Ranking de Projetos',insights:'Project Insights',vault:'Cofre de Ideias'};el('collectionTitle').textContent=titles[ui.nav]||'Minha coleção';el('crumb').textContent=titles[ui.nav]||'Minha coleção';document.querySelectorAll('[data-nav]').forEach(x=>{x.classList.toggle('active',x.dataset.nav===ui.nav);x.setAttribute('aria-current',x.dataset.nav===ui.nav?'page':'false')});document.querySelectorAll('[data-status-filter]').forEach(x=>x.dataset.selected=String(x.dataset.statusFilter===ui.status))}
   function taskList(kind){return kind==='fixes'?'fixTaskList':'ideaTaskList'}
   function getTaskRecord(id,kind){return entries(findProject(id)?.[kind])}
   function updateTask(id,kind,action,taskId,text){
@@ -571,14 +623,24 @@
     <div class="rank-status ${s.level}">${s.level==='ready'?'Avaliado':s.level==='provisional'?'Provisório':'Aguardando'}<br>${s.coverage}% de cobertura</div>
     <button type="button" class="btn small" data-rank-edit="${htmlEscape(p.id)}">Avaliar</button></div>`}
   function renderRankResults(){const list=rankVisible().map(p=>({p,s:calculateIndex(p)}));
-    const order={ready:0,provisional:1,waiting:2};list.sort((a,b)=>order[a.s.level]-order[b.s.level]||(b.s.score??-1)-(a.s.score??-1)||a.p.name.localeCompare(b.p.name,'pt-BR'));
+    const order={ready:0,provisional:1,waiting:2};list.sort((a,b)=>Number(isParked(a.p))-Number(isParked(b.p))||order[a.s.level]-order[b.s.level]||(b.s.score??-1)-(a.s.score??-1)||a.p.name.localeCompare(b.p.name,'pt-BR'));
     const groups=[{level:'ready',title:'Classificação com boa cobertura',subtitle:'Cobertura ≥ 90%'},{level:'provisional',title:'Pontuação provisória',subtitle:'Cobertura de 60% até menos de 90%'},{level:'waiting',title:'Aguardando avaliação',subtitle:'Cobertura abaixo de 60% ou sem pesos'}];
-    el('rankResults').innerHTML=groups.map(g=>{const sub=list.filter(x=>x.s.level===g.level);return `<div class="rank-section-heading"><h3>${g.title}</h3><span>${sub.length} projeto(s) · ${g.subtitle}</span></div>${sub.length?sub.map((x,i)=>rankItem(x.p,i)).join(''):'<p class="rank-empty">Nenhum projeto nesta categoria com os filtros atuais.</p>'}`}).join('');
+    const active=list.filter(x=>!isParked(x.p)),parked=list.filter(x=>isParked(x.p));
+    el('rankResults').innerHTML=groups.map(g=>{const sub=active.filter(x=>x.s.level===g.level);return `<div class="rank-section-heading"><h3>${g.title}</h3><span>${sub.length} projeto(s) · ${g.subtitle}</span></div>${sub.length?sub.map((x,i)=>rankItem(x.p,i)).join(''):'<p class="rank-empty">Nenhum projeto nesta categoria com os filtros atuais.</p>'}`}).join('')+(parked.length?`<div class="rank-section-heading"><h3>Ⅱ Pausados e concluídos</h3><span>${parked.length} no fim por decisão manual</span></div>${parked.map((x,i)=>rankItem(x.p,active.length+i)).join('')}`:'');
     const counts={ready:list.filter(x=>x.s.level==='ready').length,provisional:list.filter(x=>x.s.level==='provisional').length,waiting:list.filter(x=>x.s.level==='waiting').length};
     el('rankingStats').innerHTML=[['Na seleção',list.length,'▦'],['Avaliados',counts.ready,'✓'],['Provisórios',counts.provisional,'◐'],['Aguardando',counts.waiting,'◌']].map(([label,n,icon])=>`<div class="stat"><div class="stat-top">${label}<span class="stat-icon">${icon}</span></div><div class="stat-value">${n}</div></div>`).join('');
   }
-  function manualOrder(){const found=allProjects();const known=new Map(found.map(p=>[p.id,p]));return [...new Set([...state.ranking.manual,...found.map(p=>p.id)])].filter(id=>known.has(id)).map(id=>known.get(id))}
-  function renderManualRank(){el('manualRankList').innerHTML=manualOrder().map((p,i,arr)=>`<div class="manual-row"><span class="manual-position">${i+1}.</span><div class="rank-name"><strong>${htmlEscape(p.name)}</strong><p>${htmlEscape(statusOf(p))}</p></div><div class="manual-move"><button type="button" class="btn small" data-rank-move="up" data-rank-id="${htmlEscape(p.id)}" ${i===0?'disabled':''} aria-label="Subir ${htmlEscape(p.name)}">↑</button><button type="button" class="btn small" data-rank-move="down" data-rank-id="${htmlEscape(p.id)}" ${i===arr.length-1?'disabled':''} aria-label="Descer ${htmlEscape(p.name)}">↓</button></div><button type="button" class="btn small" data-rank-edit="${htmlEscape(p.id)}">Avaliar</button></div>`).join('')||'<p class="rank-empty">Sua biblioteca está vazia.</p>'}
+  function isParked(p){return ['Pausado','Concluído'].includes(statusOf(p))}
+  function rawManualOrder(){const found=allProjects();const known=new Map(found.map(p=>[p.id,p]));return [...new Set([...state.ranking.manual,...found.map(p=>p.id)])].filter(id=>known.has(id)).map(id=>known.get(id))}
+  function manualOrder(){const rows=rawManualOrder();return [...rows.filter(p=>!isParked(p)),...rows.filter(isParked)]}
+  function renderManualRank(){const rows=manualOrder(),active=rows.filter(p=>!isParked(p));
+    el('duelProgressNote').textContent=state.ranking.duel.status==='running'?`⚔ Duelo em andamento — ${state.ranking.duel.matches} decisões registradas. Você pode continuar.`:'Sua ordem é pessoal e não depende das notas do Smart Rank.';
+    let html='';rows.forEach((p,i)=>{if(i===active.length&&i<rows.length)html+='<h3 class="manual-parked">Ⅱ Pausados e concluídos · sempre ao final</h3>';
+      const id=htmlEscape(p.id),parked=isParked(p),idx=parked?i-active.length:i,segment=parked?rows.slice(active.length):active;
+      html+=`<div class="manual-row ${parked?'parked':''}"><span class="manual-position">${i+1}.</span><div class="rank-name"><strong>${htmlEscape(p.name)}</strong><p>${htmlEscape(statusOf(p))}</p></div><div class="manual-move"><button type="button" class="btn small" data-rank-move="up" data-rank-id="${id}" ${idx===0?'disabled':''} aria-label="Subir ${htmlEscape(p.name)}">↑</button><button type="button" class="btn small" data-rank-move="down" data-rank-id="${id}" ${idx===segment.length-1?'disabled':''} aria-label="Descer ${htmlEscape(p.name)}">↓</button></div><div class="manual-status-actions">${parked?`<button type="button" class="btn" data-rank-status="Em andamento" data-rank-id="${id}">↺ Reativar</button>`:`<button type="button" class="btn" data-rank-status="Pausado" data-rank-id="${id}">Ⅱ Pausar</button><button type="button" class="btn" data-rank-status="Concluído" data-rank-id="${id}">✓ Concluir</button>`}</div><button type="button" class="btn small" data-rank-edit="${id}">Avaliar</button></div>`;
+    });
+    el('manualRankList').innerHTML=html||'<p class="rank-empty">Sua biblioteca está vazia.</p>';
+  }
   function renderRankAdvice(){const projects=allProjects(), advice=[];
     const active=projects.filter(p=>statusOf(p)==='Em andamento');if(active.length>=5)advice.push(`<strong>Muitos projetos simultâneos:</strong> ${active.length} estão “Em andamento”. Considere definir prioridades sem precisar parar nenhum.`);
     for(const p of projects){const s=evaluationOf(p).scores;if(s.maturity!==undefined&&s.maturity>=8&&s.effort!==undefined&&s.effort<=3)advice.push(`<strong>${htmlEscape(p.name)}:</strong> maturidade ${s.maturity}/10 e esforço ${s.effort}/10 sugerem que está perto de uma entrega.`);
@@ -639,12 +701,14 @@
     renderStats();renderQuick();renderCategories();renderNav();renderGrid();renderBoards();
     renderRanking();
     renderVault();
+    if(ui.nav==='insights')renderInsights();
+    const insightsActive=ui.nav==='insights';el('insightsSection').hidden=!insightsActive;
     const vaultActive=ui.nav==='vault';
     el('vaultSection').hidden=!vaultActive;
     const rankingActive=ui.nav==='ranking';
     el('rankingSection').hidden=!rankingActive;
-    for(const id of ['welcomeSection','statSection','quickSection','boardSection','collectionSection'])if(rankingActive||vaultActive)el(id).hidden=true;
-    if(!rankingActive&&!vaultActive){el('welcomeSection').hidden=false;el('statSection').hidden=false;}
+    for(const id of ['welcomeSection','statSection','quickSection','boardSection','collectionSection'])if(rankingActive||vaultActive||insightsActive)el(id).hidden=true;
+    if(!rankingActive&&!vaultActive&&!insightsActive){el('welcomeSection').hidden=false;el('statSection').hidden=false;}
     el('hiddenCount').textContent=state.hidden.length?`${state.hidden.length} projeto(s) oculto(s).`:'Nenhum projeto oculto.';
     el('backupReminder').hidden=!state.custom.length||!!localStorageSafeGet(BACKUP_ACK_KEY);
      el('preUpgradeItem').hidden=!localStorageSafeGet(PRE_UPGRADE_BACKUP_KEY);
@@ -653,6 +717,7 @@
     el('v14BackupItem').hidden=!localStorageSafeGet(V14_BACKUP_KEY);
     el('v15BackupItem').hidden=!localStorageSafeGet(V15_BACKUP_KEY);
     el('v16BackupItem').hidden=!localStorageSafeGet(V16_BACKUP_KEY);
+    el('v17BackupItem').hidden=!localStorageSafeGet(V17_BACKUP_KEY);
     applyTheme();
     renderScanBadge();
   }
@@ -667,8 +732,8 @@
   function toggleFav(id){const i=state.favorites.indexOf(id);if(i===-1)state.favorites.push(id);else state.favorites.splice(i,1);save();render();if(ui.selectedId===id)updateDetailFav()}
   function recordOpen(id){const p=findProject(id);if(!p)return;state.access[id]={date:new Date().toISOString(),count:(Number(state.access[id]?.count)||0)+1};save();render()}
   function activateLink(anchor){const p=findProject(anchor.dataset.open);if(!p)return;const url=projectLink(p);if(!url){event.preventDefault();toast('Este projeto não tem link configurado. Abra os detalhes para adicionar um.');return}anchor.href=url;recordOpen(p.id)}
-  function closeAll(){flushIdeaAutosave();ideaCreateInProgress=false;['detail','add','settings','scan','smart'].forEach(x=>el(`${x}Backdrop`).hidden=true);ui.selectedId=null;document.body.style.overflow='';el('sidebar').classList.remove('open');el('menuBackdrop').classList.remove('visible')}
-  function openModal(name){closeAll();el(`${name}Backdrop`).hidden=false;document.body.style.overflow='hidden';const focus=({add:'addName',settings:'exportData',detail:'detailClose',scan:'scanNow',smart:'smartScope'})[name];if(focus&&el(focus))setTimeout(()=>el(focus).focus(),40)}
+  function closeAll(){flushIdeaAutosave();ideaCreateInProgress=false;['detail','add','settings','scan','smart','duel'].forEach(x=>el(`${x}Backdrop`).hidden=true);ui.selectedId=null;document.body.style.overflow='';el('sidebar').classList.remove('open');el('menuBackdrop').classList.remove('visible')}
+  function openModal(name){closeAll();el(`${name}Backdrop`).hidden=false;document.body.style.overflow='hidden';const focus=({add:'addName',settings:'exportData',detail:'detailClose',scan:'scanNow',smart:'smartScope',duel:'duelCounter'})[name];if(focus&&el(focus))setTimeout(()=>el(focus).focus(),40)}
   function updateDetailFav(){const p=findProject(ui.selectedId);if(!p)return;el('detailFavorite').textContent=p.favorite?'★':'☆';el('detailFavorite').setAttribute('aria-label',p.favorite?'Remover favorito':'Adicionar aos favoritos');el('detailFavorite').classList.toggle('active',p.favorite)}
   function openDetail(id){const p=findProject(id);if(!p)return;openModal('detail');ui.selectedId=id;const banner=el('detailBanner');banner.style.cssText=paletteVars(p);el('detailSymbol').textContent=p.symbol||'✦';el('detailCategory').textContent=p.category+' · '+(p.tech||'Projeto pessoal');el('detailStatus').textContent=statusOf(p)+(p.hasBug?' · ⚠ Com bug':'');el('detailStatus').dataset.status=statusOf(p);el('detailTitle').textContent=p.name;el('detailDescription').textContent=p.description||'Projeto pessoal';el('detailStateInput').value=statusOf(p);el('detailBugCheck').checked=!!p.hasBug;el('detailBugNotesInput').value=p.bugNotes||'';el('detailBugField').hidden=!p.hasBug;el('detailCategoryInput').value=categories.includes(p.category)?p.category:'Outro';el('detailNextInput').value=p.nextStep||'';el('detailNotesInput').value=p.notes||'';el('detailLinkInput').value=p.liveUrl||'';el('detailRepoInput').value=p.repoUrl||'';el('detailChatInput').value=p.chatUrl||'';renderIdeaInputs(p);renderDetailTasks();renderDetailEvaluation(p);el('detailDates').textContent=`Último push: ${niceDate(p.lastPush)} · Último acesso: ${p.access?niceDate(p.access.date):'nunca'} · ${Number(p.access?.count)||0} abertura(s) registrada(s).`;el('detailSaved').textContent='';el('detailOpen').disabled=!projectLink(p);el('detailOpen').textContent=safeUrl(p.liveUrl)?'↗ Abrir aplicativo':'↗ Ver código';el('detailRepo').disabled=!safeUrl(p.repoUrl);el('detailChat').disabled=!chatUrl(p.chatUrl);el('detailHide').textContent=state.custom.some(x=>x.id===id)?'Remover projeto':'Ocultar projeto';updateDetailFav();setTimeout(()=>el('detailStateInput').focus(),40)}
   function validateOptionalUrl(value){return !String(value).trim()||!!safeUrl(value)}
@@ -852,11 +917,197 @@
     else if(ignore)toggleIgnoredRepo(ignore.dataset.scanIgnore);
   });
 
+  // v1.7: Project Insights + manual preference duels are inserted below.
+  // ==== v1.7: Duelo 1x1 — ordenação por inserção binária e backup automático ====
+  function setProjectStatus(id,status){
+    const p=findProject(id);if(!p||!['Pausado','Concluído','Em andamento'].includes(status))return;
+    state.overrides[id]={...(state.overrides[id]||{}),status};
+    if(state.ranking.duel.status==='running'&&['Pausado','Concluído'].includes(status))duelRemove(id);
+    save();render();if(!el('duelBackdrop').hidden)renderDuel();toast(`${p.name}: ${status}.`);
+  }
+  function duelSnapshot(affectedId='',previousStatus=''){
+    const d=state.ranking.duel;
+    d.history.push({sorted:[...d.sorted],queue:[...d.queue],current:d.current,lo:d.lo,hi:d.hi,matches:d.matches,affectedId,previousStatus});
+    if(d.history.length>100)d.history.shift();
+  }
+  function duelAdvance(){
+    const d=state.ranking.duel;
+    if(d.status!=='running')return;
+    const active=id=>{const p=findProject(id);return p&&!isParked(p)};
+    d.sorted=d.sorted.filter(active);
+    d.queue=d.queue.filter(active);
+    if(d.current&&!active(d.current))d.current='';
+    if(d.sorted.length===0){const first=d.current||d.queue.shift();if(first){d.sorted.push(first);d.current=''}}
+    if(!d.current){d.current=d.queue.shift()||'';d.lo=0;d.hi=d.sorted.length}
+    if(!d.current){d.status='finished';return}
+    d.lo=Math.max(0,Math.min(d.lo,d.sorted.length));d.hi=Math.max(d.lo,Math.min(d.hi,d.sorted.length));
+    if(d.lo===d.hi){d.sorted.splice(d.lo,0,d.current);d.current='';duelAdvance()}
+  }
+  function duelStart(){
+    if(state.ranking.duel.status!=='idle'){openModal('duel');renderDuel();return}
+    const active=manualOrder().filter(p=>!isParked(p)).map(p=>p.id);
+    if(active.length<2){toast('É preciso ter pelo menos dois projetos não pausados/concluídos.');return}
+    state.ranking.duel={status:'running',sorted:[active[0]],queue:active.slice(2),current:active[1],lo:0,hi:1,matches:0,initialTotal:active.length,history:[]};
+    save();openModal('duel');renderDuel();
+  }
+  function duelRemove(id){
+    const d=state.ranking.duel;if(d.status!=='running')return;
+    d.sorted=d.sorted.filter(x=>x!==id);
+    d.queue=d.queue.filter(x=>x!==id);
+    if(d.current===id)d.current='';
+    d.lo=0;d.hi=d.sorted.length;duelAdvance();
+  }
+  function duelCurrentOpponent(){const d=state.ranking.duel;return d.sorted[Math.floor((d.lo+d.hi)/2)]||''}
+  function duelVote(winner){
+    const d=state.ranking.duel;if(d.status!=='running'||!d.current)return;
+    const other=duelCurrentOpponent();if(!other)return;
+    duelSnapshot();const mid=Math.floor((d.lo+d.hi)/2);
+    if(winner==='candidate')d.hi=mid;
+    else if(winner==='opponent')d.lo=mid+1;
+    else return;
+    d.matches++;duelAdvance();save();renderDuel();
+  }
+  function duelPark(id,status){
+    const p=findProject(id);if(!p||state.ranking.duel.status!=='running')return;
+    duelSnapshot(id,statusOf(p));
+    state.overrides[id]={...(state.overrides[id]||{}),status};
+    state.ranking.duel.matches++;
+    duelRemove(id);save();renderDuel();
+  }
+  function duelUndo(){const d=state.ranking.duel;const last=d.history.pop();if(!last){toast('Nenhuma rodada disponível para desfazer.');return}
+    for(const key of ['sorted','queue','current','lo','hi','matches'])d[key]=last[key];
+    d.status='running';
+    if(last.affectedId&&last.previousStatus)state.overrides[last.affectedId]={...(state.overrides[last.affectedId]||{}),status:last.previousStatus};
+    save();renderDuel();
+  }
+  function duelApply(){
+    const d=state.ranking.duel;if(d.status!=='finished')return;
+    const originals=rawManualOrder().map(p=>p.id),known=new Set(allProjects().map(p=>p.id));
+    state.ranking.manual=[...new Set([...d.sorted,...originals])].filter(id=>known.has(id));
+    state.ranking.duel=sanitizeDuel(null);save();closeAll();render();toast('Sua ordem manual foi atualizada! Projetos pausados e concluídos continuam ao final.');
+  }
+  function duelCancel(){if(!confirm('Descartar o duelo sem aplicar a nova ordem? Alterações de status (Pausado/Concluído) continuarão salvas.'))return;
+    state.ranking.duel=sanitizeDuel(null);save();closeAll();render();toast('Ordenação descartada; a prioridade manual anterior foi preservada.');
+  }
+  function renderDuel(){
+    const d=state.ranking.duel;
+    const total=Math.max(d.initialTotal,1);
+    el('duelUndo').disabled=d.history.length===0;
+    el('duelKeepOrder').hidden=d.status!=='running';
+    el('duelCancel').hidden=d.status==='idle';
+    el('duelProgressFill').style.width=`${Math.round(100*d.sorted.length/total)}%`;
+    el('duelCounter').textContent=d.status==='finished'?'Rodadas concluídas — confira sua nova ordem':`${d.matches} rodada(s) · ${d.sorted.length} projeto(s) organizados`;
+    el('duelRemaining').textContent=d.status==='finished'?'Pronto para aplicar':`${d.queue.length+(d.current?1:0)} por ordenar`;
+    if(d.status==='idle'){el('duelArena').innerHTML='<p class="muted">Abra o duelo pelo ranking manual.</p>';return}
+    if(d.status==='finished'){
+      const parked=manualOrder().filter(isParked);
+      const list=[...d.sorted.map(id=>findProject(id)).filter(Boolean),...parked];
+      el('duelArena').innerHTML=`<div class="duel-result"><h3>✓ Comparações finalizadas</h3><p>${d.matches} decisões. Os resultados só mudarão sua ordem manual depois de confirmar.</p><ol class="duel-mini-list">${list.map(p=>`<li>${htmlEscape(p.name)} ${isParked(p)?`<small class="muted">(${htmlEscape(statusOf(p))})</small>`:''}</li>`).join('')}</ol><button class="btn primary" type="button" id="duelApplyNow">✓ Aplicar minha nova ordem</button><button class="btn" type="button" id="duelRetry">↺ Refazer</button></div>`;
+      return;
+    }
+    const candidate=findProject(d.current),opponent=findProject(duelCurrentOpponent());
+    if(!candidate||!opponent){duelAdvance();save();renderDuel();return}
+    const card=(p,side)=>`<article class="duel-card"><div class="labelcaps">${side==='candidate'?'PROJETO A':'PROJETO B'}</div><h3>${htmlEscape(p.name)}</h3><p>${htmlEscape(p.description||'Sem descrição cadastrada.')}</p><span class="muted tiny">${htmlEscape(p.category)} · ${htmlEscape(statusOf(p))}</span><button type="button" class="btn primary" data-duel-win="${side}">⬆ Prefiro priorizar este</button><div class="duel-card-actions"><button type="button" class="btn" data-duel-park="Pausado" data-duel-project="${htmlEscape(p.id)}">Ⅱ Pausar</button><button type="button" class="btn" data-duel-park="Concluído" data-duel-project="${htmlEscape(p.id)}">✓ Concluir</button></div></article>`;
+    el('duelArena').innerHTML=`<div class="duel-cards">${card(candidate,'candidate')}<div class="duel-vs">VS</div>${card(opponent,'opponent')}</div>`;
+  }
+  // ==== v1.7: Insights (análise local e transparente; não faz inferências sobre dados ausentes) ====
+  const INSIGHT_PERSPECTIVES={
+    balanced:{monetization:1,personal:1,social:1,portfolio:1},
+    commercial:{monetization:5,personal:0,social:0,portfolio:1},
+    social:{monetization:0,personal:1,social:5,portfolio:0},
+    personal:{monetization:0,personal:5,social:1,portfolio:0},
+    portfolio:{monetization:0,personal:1,social:0,portfolio:5}
+  };
+  function insightCoordinates(p,mode='balanced'){
+    const s=evaluationOf(p).scores,w=INSIGHT_PERSPECTIVES[mode]||INSIGHT_PERSPECTIVES.balanced;
+    let earned=0,possible=0,sum=0;
+    for(const [k,value] of Object.entries(w)){if(value<=0)continue;possible+=value;if(s[k]!==undefined){earned+=value;sum+=value*s[k]}}
+    const impactCoverage=possible?earned/possible:0;
+    const impact=earned&&impactCoverage>=.6?sum/earned:null;
+    const effort=s.difficulty!==undefined&&s.effort!==undefined?(s.difficulty+s.effort)/2:null;
+    return {impact,effort,coverage:impactCoverage,quadrant:impact===null||effort===null?'missing':impact>=5?(effort<5?'quick':'big'):(effort<5?'incremental':'reconsider')};
+  }
+  const INSIGHT_LABELS={quick:'Ganhos rápidos',big:'Grandes apostas',incremental:'Incrementais',reconsider:'Reconsiderar'};
+  const INSIGHT_COLORS={quick:'#42c59a',big:'#a58af3',incremental:'#e5b65e',reconsider:'#8a9aac'};
+  function insightFiltered(){let p=allProjects();const cat=el('insightCategory').value,stat=el('insightStatus').value;if(cat!=='all')p=p.filter(x=>x.category===cat);if(stat!=='all')p=p.filter(x=>statusOf(x)===stat);return p}
+  function insightsSelectOptions(){
+    const prevCategory=el('insightCategory').value,prevStatus=el('insightStatus').value;
+    const cats=[...new Set(allProjects().map(p=>p.category))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+    el('insightCategory').innerHTML='<option value="all">Todas as categorias</option>'+cats.map(x=>`<option value="${htmlEscape(x)}">${htmlEscape(x)}</option>`).join('');
+    el('insightCategory').value=cats.includes(prevCategory)?prevCategory:'all';
+    el('insightStatus').innerHTML='<option value="all">Todas as situações</option>'+allowedStatuses.filter(x=>x!=='Ativo').map(x=>`<option value="${htmlEscape(x)}">${htmlEscape(x)}</option>`).join('');
+    el('insightStatus').value=allowedStatuses.includes(prevStatus)?prevStatus:'all';
+    const projects=allProjects(),id=projects.map(x=>x.id),options='<option value="">— Não selecionar —</option>'+projects.map(x=>`<option value="${htmlEscape(x.id)}">${htmlEscape(x.name)}</option>`).join('');
+    for(const [index,key] of ['compareFirst','compareSecond','compareThird'].entries()){
+      const previous=el(key).value;el(key).innerHTML=options;
+      el(key).value= id.includes(previous)?previous:(index<2?id[index]||'':'');
+    }
+  }
+  function renderInsightMatrix(){
+    const mode=el('insightPerspective').value;const rows=insightFiltered().map(p=>({p,c:insightCoordinates(p,mode)}));
+    const shown=rows.filter(x=>x.c.quadrant!=='missing'),missing=rows.length-shown.length;
+    const raw=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 365 288" role="img" aria-label="Matriz com esforço crescente para a direita e impacto crescente para cima"><rect x="42" y="42" width="140" height="100" rx="8" fill="#42c59a22"/><rect x="184" y="42" width="140" height="100" rx="8" fill="#a58af322"/><rect x="42" y="144" width="140" height="98" rx="8" fill="#e5b65e22"/><rect x="184" y="144" width="140" height="98" rx="8" fill="#8a9aac22"/><g font-size="9" font-weight="700"><text x="52" y="56" fill="#42c59a">GANHOS RÁPIDOS</text><text x="195" y="56" fill="#a58af3">GRANDES APOSTAS</text><text x="52" y="158" fill="#e5b65e">INCREMENTAIS</text><text x="195" y="158" fill="#8a9aac">RECONSIDERAR</text></g><path d="M42 42V242H324M183 42V242" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="3 4" fill="none"/><text x="183" y="264" text-anchor="middle" font-size="11" fill="currentColor">Esforço →</text><text transform="translate(14 143) rotate(-90)" text-anchor="middle" font-size="11" fill="currentColor">Impacto →</text>${shown.map(({p,c})=>{const cx=42+28*c.effort,cy=242-20*c.impact,label=htmlEscape(p.name);return `<g tabindex="0" role="button" data-insight-id="${htmlEscape(p.id)}" aria-label="Abrir ${label}. Impacto ${c.impact.toFixed(1)}, esforço ${c.effort.toFixed(1)}"><title>${label} · impacto ${c.impact.toFixed(1)} · esforço ${c.effort.toFixed(1)}</title><circle cx="${cx}" cy="${cy}" r="10" fill="${INSIGHT_COLORS[c.quadrant]}" stroke="#fff" stroke-width="1.5"/><text x="${cx}" y="${cy+3}" font-size="9" font-weight="800" fill="#14202a" text-anchor="middle">${htmlEscape(p.name.slice(0,1).toUpperCase())}</text></g>`}).join('')}</svg>`;
+    el('insightMatrix').innerHTML=raw;
+    el('insightMatrixList').innerHTML=shown.map(({p,c})=>`<button type="button" class="insight-legend" data-insight-id="${htmlEscape(p.id)}"><span class="insight-dot" style="background:${INSIGHT_COLORS[c.quadrant]}"></span><span>${htmlEscape(p.name)} · ${htmlEscape(INSIGHT_LABELS[c.quadrant])} <small class="muted">(${c.impact.toFixed(1)} / ${c.effort.toFixed(1)})</small></span></button>`).join('')||'<p class="muted tiny">Nenhum projeto possui avaliações suficientes para aparecer no gráfico.</p>';
+    el('insightMissing').textContent=`${shown.length} no mapa · ${missing} sem dados suficientes. Necessário: pelo menos 60% do peso de impacto e as duas notas de dificuldade e esforço. Quadrantes organizam, não julgam o valor de um projeto.`;
+  }
+  function renderInsightsMetrics(){
+    const projects=allProjects(),active=projects.filter(p=>statusOf(p)==='Em andamento'),test=projects.filter(p=>statusOf(p)==='Em testes'),unrated=projects.filter(p=>calculateIndex(p).level==='waiting'),parked=projects.filter(isParked);
+    el('insightsMetrics').innerHTML=[['Em andamento',active.length],['Em testes',test.length],['Aguardando notas',unrated.length],['Pausados / concluídos',parked.length]].map(([label,n])=>`<div class="insight-metric"><strong>${n}</strong><span>${label}</span></div>`).join('');
+    const tips=[];
+    const manual=manualOrder().filter(p=>!isParked(p));
+    if(manual.length){const p=manual[0];tips.push([`Seu foco manual: ${p.name}`,`Está em primeiro na sua ordem pessoal (${statusOf(p)}). Essa ordem não é alterada pelo Smart Rank.`])}
+    if(active.length>=5)tips.push(['Muitos projetos em andamento',`${active.length} projetos têm o status Em andamento. Considere escolher um foco principal sem arquivar nenhum.`]);
+    for(const p of projects){const s=evaluationOf(p).scores;
+      if(s.maturity!==undefined&&s.maturity>=8&&s.effort!==undefined&&s.effort<=3)tips.push([`Perto da conclusão? ${p.name}`,`Maturidade ${s.maturity}/10 e esforço ${s.effort}/10 nas suas notas. Verifique se as últimas tarefas já foram concluídas.`]);
+      if(s.monetization!==undefined&&s.monetization>=8&&(s.validation===undefined||s.validation<4))tips.push([`Validar antes de expandir: ${p.name}`,`Monetização ${s.monetization}/10; validação ${s.validation===undefined?'não avaliada':s.validation+'/10'}. Avalie a demanda antes de investir mais.`]);
+      if(p.hasBug&&statusOf(p)==='Em testes')tips.push([`Revisar bugs: ${p.name}`,'Está Em testes e marcado Com bug. Confira as próximas correções registradas.']);
+    }
+    el('insightsAdvice').innerHTML=(tips.length?tips.slice(0,6):[['Comece por algumas notas','Preencha critérios do Smart Rank para comparar sem suposições.']]).map(([title,description])=>`<div class="insight-tip"><strong>${htmlEscape(title)}</strong>${htmlEscape(description)}</div>`).join('');
+  }
+  function renderInsightComparison(){
+    const ids=[el('compareFirst').value,el('compareSecond').value,el('compareThird').value].filter(Boolean);
+    if(new Set(ids).size!==ids.length){el('insightComparison').innerHTML='<p class="muted">Selecione projetos diferentes em cada coluna.</p>';return}
+    const ps=ids.map(findProject).filter(Boolean);
+    if(ps.length<2){el('insightComparison').innerHTML='<p class="muted">Selecione pelo menos dois projetos.</p>';return}
+    const rows=[{label:'Índice atual (0–100)',get:p=>{const s=calculateIndex(p);return s.score===null?`— (${s.coverage}% de cobertura)`:`${s.score}/100 (${s.coverage}% de cobertura)`},numeric:false},...RANK_CRITERIA.map(c=>({label:c.label+(c.inverse?' ↓':''),get:p=>evaluationOf(p).scores[c.id],numeric:true}))];
+    el('insightComparison').innerHTML=`<table class="compare-table"><thead><tr><th>Critério</th>${ps.map(p=>`<th>${htmlEscape(p.name)}<br><small class="muted">${htmlEscape(statusOf(p))}</small></th>`).join('')}</tr></thead><tbody>${rows.map(row=>`<tr><td>${htmlEscape(row.label)}</td>${ps.map(p=>{const v=row.get(p);return `<td>${v===undefined?'<span class="muted">— Não avaliado</span>':row.numeric?`${v}/10<div class="compare-meter"><span style="width:${v*10}%"></span></div>`:htmlEscape(v)}</td>`}).join('')}</tr>`).join('')}</tbody></table><div class="compare-summary"><strong>Como interpretar:</strong> dificuldade e esforço altos significam mais trabalho; nas demais notas, 10 indica maior valor ou maturidade. Barras e índices refletem exclusivamente suas avaliações registradas.</div>`;
+  }
+  function calculateInMode(p,mode){const weights=mode==='general'?state.ranking.weights:blankWeights(RANK_PRESETS[mode]?.weights||RANK_DEFAULTS);return calculateIndex(p,weights,mode)}
+  function renderInsightSimulation(){const mode=el('insightScenario').value,all=allProjects();
+    const baseline=all.filter(p=>!isParked(p)).map(p=>({p,s:calculateInMode(p,'general')})).filter(x=>x.s.score!==null).sort((a,b)=>b.s.score-a.s.score||a.p.name.localeCompare(b.p.name,'pt-BR'));
+    const basePos=new Map(baseline.map((x,i)=>[x.p.id,i+1]));
+    const simulated=all.filter(p=>!isParked(p)).map(p=>({p,s:calculateInMode(p,mode)})).filter(x=>x.s.score!==null).sort((a,b)=>b.s.score-a.s.score||a.p.name.localeCompare(b.p.name,'pt-BR'));
+    const missing=all.filter(p=>!isParked(p)).length-simulated.length;
+    el('insightSimulation').innerHTML=simulated.length?simulated.slice(0,15).map((x,i)=>{const prev=basePos.get(x.p.id);const delta=prev===undefined?'Sem posição geral':prev===i+1?'= mesma posição':prev>i+1?`↑ ${prev-(i+1)} posição(ões)`:`↓ ${(i+1)-prev} posição(ões)`;return `<div class="sim-row"><strong>${i+1}.</strong><span class="sim-name">${htmlEscape(x.p.name)}</span><span class="sim-value">${x.s.score}/100</span><small>${htmlEscape(delta)} · ${x.s.coverage}% cobertura</small></div>`}).join(''):'<p class="muted">Nenhum projeto com cobertura suficiente neste cenário. Avalie os critérios relevantes primeiro.</p>';
+    el('insightSimulation').innerHTML+=`<p class="muted tiny">${missing} projeto(s) não pontuados neste cenário por falta de avaliação. Simulação temporária: seus pesos e prioridades manuais não mudam.</p>`;
+  }
+  function renderInsights(){if(ui.nav!=='insights')return;insightsSelectOptions();renderInsightsMetrics();renderInsightMatrix();renderInsightComparison();renderInsightSimulation()}
+  // Events
+  el('duelOpen').addEventListener('click',duelStart);
+  el('duelArena').addEventListener('click',e=>{const win=e.target.closest('[data-duel-win]');if(win){duelVote(win.dataset.duelWin);return}const park=e.target.closest('[data-duel-park]');if(park){duelPark(park.dataset.duelProject,park.dataset.duelPark);return}
+    if(e.target.closest('#duelApplyNow')){duelApply();return}
+    if(e.target.closest('#duelRetry')){state.ranking.duel=sanitizeDuel(null);save();closeAll();duelStart()}
+  });
+  el('duelKeepOrder').addEventListener('click',()=>{const d=state.ranking.duel;if(d.status!=='running')return;const old=rawManualOrder().map(p=>p.id);duelVote(old.indexOf(d.current)<old.indexOf(duelCurrentOpponent())?'candidate':'opponent')});
+  el('duelUndo').addEventListener('click',duelUndo);
+  el('duelCancel').addEventListener('click',duelCancel);
+  el('insightsBackRank').addEventListener('click',()=>{ui.nav='ranking';render()});
+  ['insightPerspective','insightCategory','insightStatus'].forEach(id=>el(id).addEventListener('change',renderInsightMatrix));
+  ['compareFirst','compareSecond','compareThird'].forEach(id=>el(id).addEventListener('change',renderInsightComparison));
+  el('insightScenario').addEventListener('change',renderInsightSimulation);
+  el('insightMatrix').addEventListener('click',e=>{const target=e.target.closest('[data-insight-id]');if(target)openDetail(target.dataset.insightId)});
+  el('insightMatrix').addEventListener('keydown',e=>{const target=e.target.closest('[data-insight-id]');if(target&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openDetail(target.dataset.insightId)}});
+  el('insightMatrixList').addEventListener('click',e=>{const b=e.target.closest('[data-insight-id]');if(b)openDetail(b.dataset.insightId)});
+
+
   const tourSteps=[
     {selector:'#welcomeTitle',title:'Sua biblioteca pessoal',desc:'Tudo que você criou fica nesta coleção. Acesse os projetos e encontre rapidamente o que estava desenvolvendo.'},
+    {selector:'[data-nav=insights]',title:'Project Insights',desc:'A matriz mostra seus projetos por impacto e esforço, enquanto o comparador e o simulador ajudam a testar decisões sem mudar suas notas.'},
     {selector:'#sidebarNav',title:'Organize por andamento',desc:'Use Em andamento para projetos em desenvolvimento, Em testes para validação e Com bug para problemas conhecidos. Um bug é uma marcação separada do andamento.'},
     {selector:'#searchInput',title:'Encontre qualquer projeto',desc:'Busque pelo nome, descrição, anotações, correções ou ideias. Use os filtros para afunilar a biblioteca.'},
     {selector:'#projectGrid',title:'Aplicativo, GitHub e ChatGPT',desc:'Clique em ⋯ no cartão. Nos detalhes, você pode salvar o link da conversa do ChatGPT e abrir diretamente depois. Também pode editar o status.'},
+    {selector:'[data-nav=ranking]',title:'Duelo 1×1 de prioridades',desc:'No Ranking, clique em Priorizar em duelos 1×1. Escolha entre dois projetos e mande os pausados ou concluídos para o fim. Pode fechar e continuar mais tarde.'},
     {selector:'#boardSection',title:'Próximas correções e ideias',desc:'Adicione correções e ideias dentro de cada projeto. Elas aparecem agrupadas aqui. Marque itens concluídos com um clique.'},
     {selector:'[data-nav=vault]',title:'Cofre de Ideias',desc:'Guarde prompts completos, o motivo da ideia, o resultado esperado e referências, sem precisar iniciar o desenvolvimento. O conteúdo fica no backup JSON.'},
     {selector:'[data-nav=ranking]',title:'Ranking e prioridades',desc:'Avalie os critérios progressivamente, escolha um modo de análise e organize separadamente sua ordem manual. A pontuação é um índice calculado, nunca certeza de sucesso.'},
@@ -872,7 +1123,7 @@
     const st=tourSteps[tourIndex];
     document.querySelectorAll('.tour-highlight').forEach(x=>x.classList.remove('tour-highlight'));
     if(['detailBackdrop','addBackdrop','settingsBackdrop','smartBackdrop'].some(id=>!el(id).hidden))closeAll();
-    if(['correcoes','ideiasfuturas','ranking','vault'].includes(ui.nav)){ui.nav='todos';render()}
+    if(['correcoes','ideiasfuturas','ranking','insights','vault'].includes(ui.nav)){ui.nav='todos';render()}
     const target=document.querySelector(st.selector);if(target){target.classList.add('tour-highlight');target.scrollIntoView({block:'center',behavior:'smooth'})}
     el('tourPanel').hidden=false;el('tourStepCount').textContent=`GUIA RÁPIDO · ${tourIndex+1} DE ${tourSteps.length}`;
     el('tourTitle').textContent=st.title;el('tourDescription').textContent=st.desc;
@@ -899,7 +1150,9 @@
     save();renderRanking()});
   ['rankSearch','rankCategory','rankStatus','rankOnlyUnrated'].forEach(id=>el(id).addEventListener(['rankSearch'].includes(id)?'input':'change',()=>{renderRankResults()}));
   document.getElementById('rankingSection').addEventListener('click',e=>{const edit=e.target.closest('[data-rank-edit]');if(edit){openDetail(edit.dataset.rankEdit);el('detailEvaluation').open=true;setTimeout(()=>el('detailEvaluation').scrollIntoView({block:'center',behavior:'smooth'}),80);return}
-    const move=e.target.closest('[data-rank-move]');if(!move)return;const seq=manualOrder().map(p=>p.id);const i=seq.indexOf(move.dataset.rankId);if(i===-1)return;const j=i+(move.dataset.rankMove==='up'?-1:1);if(j<0||j>=seq.length)return;[seq[i],seq[j]]=[seq[j],seq[i]];state.ranking.manual=seq;save();renderManualRank()});
+    const stat=e.target.closest('[data-rank-status]');if(stat){setProjectStatus(stat.dataset.rankId,stat.dataset.rankStatus);return}
+    const move=e.target.closest('[data-rank-move]');if(!move)return;const rows=manualOrder(),p=findProject(move.dataset.rankId);if(!p)return;const group=rows.filter(x=>isParked(x)===isParked(p));const i=group.findIndex(x=>x.id===p.id);const j=i+(move.dataset.rankMove==='up'?-1:1);if(j<0||j>=group.length)return;[group[i],group[j]]=[group[j],group[i]];
+    const other=rows.filter(x=>isParked(x)!==isParked(p));state.ranking.manual=(isParked(p)?[...other,...group]:[...group,...other]).map(x=>x.id);save();renderManualRank()});
   el('downloadV14Backup').addEventListener('click',()=>{const raw=localStorageSafeGet(V14_BACKUP_KEY);if(!raw){toast('Cópia pré-v1.4 indisponível.');return}downloadJSON('arvak-library-dados-antes-v1.4.json',raw);toast('Cópia da v1.3 baixada.')});
 
 
@@ -1107,6 +1360,7 @@ Agora devolva somente o objeto JSON de sugestões.`}
   el('ideaImportPrompt').addEventListener('click',()=>el('ideaPromptFile').click());
   el('ideaPromptFile').addEventListener('change',async e=>{const f=e.target.files?.[0];e.target.value='';if(!f)return;if(f.size>200000){toast('TXT muito grande (máximo 200 KB / 40 mil caracteres).');return}if(el('ideaPromptInput').value.trim()&&!confirm('Substituir o prompt atual pelo conteúdo do TXT? Faça backup antes, se necessário.'))return;
     try{const raw=await f.text();if(raw.length>40000){toast('O arquivo possui mais de 40 mil caracteres.');return}el('ideaPromptInput').value=raw;el('ideaPromptCount').textContent=raw.length;saveIdeaVaultNow(true)}catch{toast('Erro ao ler o arquivo TXT.')}});
+  el('downloadV17Backup').addEventListener('click',()=>{const raw=localStorageSafeGet(V17_BACKUP_KEY);if(raw)downloadJSON('arvak-library-antes-v1.7.json',raw);else toast('Cópia pré-v1.7 indisponível.')});
   el('downloadV16Backup').addEventListener('click',()=>{const raw=localStorageSafeGet(V16_BACKUP_KEY);if(raw)downloadJSON('arvak-library-copia-antes-v1.6.json',raw);else toast('Cópia pré-v1.6 indisponível.')});
   render();
   if(getScanState().auto!==false && (!getScanState().checkedAt||Date.now()-new Date(getScanState().checkedAt).getTime()>GITHUB_SCAN_COOLDOWN))scanGitHub({silent:true});
